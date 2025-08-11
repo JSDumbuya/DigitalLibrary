@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2NMj6/zAtzc=",
+  "dgSpecHash": "ZB7+15VNqjs=",
   "success": true,
-  "projectFilePath": "/Users/jariasallydumbuya/Desktop/YourLibrary/YourLibrary/YourLibrary.csproj",
+  "projectFilePath": "/Users/jariasallydumbuya/Desktop/DigitalLibrary/YourLibrary/YourLibraryApp/YourLibraryApp.csproj",
   "expectedPackageFiles": [
     "/Users/jariasallydumbuya/.nuget/packages/microsoft.data.sqlite/9.0.8/microsoft.data.sqlite.9.0.8.nupkg.sha512",
     "/Users/jariasallydumbuya/.nuget/packages/microsoft.data.sqlite.core/9.0.8/microsoft.data.sqlite.core.9.0.8.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/jariasallydumbuya/Desktop/YourLibrary/YourLibrary/YourLibrary.csproj": {}
+    "/Users/jariasallydumbuya/Desktop/DigitalLibrary/YourLibrary/YourLibraryApp/YourLibraryApp.csproj": {}
   },
   "projects": {
-    "/Users/jariasallydumbuya/Desktop/YourLibrary/YourLibrary/YourLibrary.csproj": {
+    "/Users/jariasallydumbuya/Desktop/DigitalLibrary/YourLibrary/YourLibraryApp/YourLibraryApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/jariasallydumbuya/Desktop/YourLibrary/YourLibrary/YourLibrary.csproj",
-        "projectName": "YourLibrary",
-        "projectPath": "/Users/jariasallydumbuya/Desktop/YourLibrary/YourLibrary/YourLibrary.csproj",
+        "projectUniqueName": "/Users/jariasallydumbuya/Desktop/DigitalLibrary/YourLibrary/YourLibraryApp/YourLibraryApp.csproj",
+        "projectName": "YourLibraryApp",
+        "projectPath": "/Users/jariasallydumbuya/Desktop/DigitalLibrary/YourLibrary/YourLibraryApp/YourLibraryApp.csproj",
         "packagesPath": "/Users/jariasallydumbuya/.nuget/packages/",
-        "outputPath": "/Users/jariasallydumbuya/Desktop/YourLibrary/YourLibrary/obj/",
+        "outputPath": "/Users/jariasallydumbuya/Desktop/DigitalLibrary/YourLibrary/YourLibraryApp/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/jariasallydumbuya/.nuget/NuGet/NuGet.Config"
