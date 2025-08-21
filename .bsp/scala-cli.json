@@ -1,0 +1,20 @@
+{
+  "name": "scala-cli",
+  "argv": [
+    "/opt/homebrew/bin/scala-cli",
+    "bsp",
+    "--json-options",
+    "/Users/jariasallydumbuya/Desktop/DigitalLibrary/.scala-build/ide-options-v2.json",
+    "--json-launcher-options",
+    "/Users/jariasallydumbuya/Desktop/DigitalLibrary/.scala-build/ide-launcher-options.json",
+    "--envs-file",
+    "/Users/jariasallydumbuya/Desktop/DigitalLibrary/.scala-build/ide-envs.json",
+    "/Users/jariasallydumbuya/Desktop/DigitalLibrary"
+  ],
+  "version": "1.8.3",
+  "bspVersion": "2.1.1",
+  "languages": [
+    "scala",
+    "java"
+  ]
+}
