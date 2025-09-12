@@ -1,18 +1,21 @@
-﻿using Microsoft.Data.Sqlite;
+﻿
 
 class Program
 {
     static void Main(string[] args)
     {
         string connectionString = "Data Source=YLDatabase.db";
+
+        DatabaseInitializer.InitializeDatabase(connectionString);
+
         BookRepository bookRepository = new BookRepository(connectionString);
         UserRepository userRepository = new UserRepository(connectionString);
         LibraryRepository libraryRepository = new LibraryRepository(connectionString);
 
-        //What is dependency injection here?
-        //Services also go here
-        //var bookService = new BookService(bookRepository);
+        BookService bookService = new BookService(bookRepository);
+        UserService userService = new UserService(userRepository);
+        LibraryService libraryService = new LibraryService(libraryRepository);
+
     }
 }
 
-/*Setup repositories and services with dependency injection*/

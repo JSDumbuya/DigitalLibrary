@@ -141,7 +141,7 @@ public class BookRepository : IBookRepository
         await connection.OpenAsync();
 
         using SqliteCommand command = connection.CreateCommand();
-        command.CommandText = "SELECT * FROM Books WHERE {columnName} = $value;";
+        command.CommandText = $"SELECT * FROM Books WHERE {columnName} = $value;";
         command.Parameters.AddWithValue("$value", value);
 
         using SqliteDataReader reader = await command.ExecuteReaderAsync();
