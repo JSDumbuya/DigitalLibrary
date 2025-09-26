@@ -1,7 +1,6 @@
 namespace DigitalLibrary.API.Data;
 
 using DigitalLibrary.API.Models;
-using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 
 public class LibraryRepository : ILibraryRepository

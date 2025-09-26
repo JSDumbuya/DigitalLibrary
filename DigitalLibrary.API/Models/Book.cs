@@ -1,4 +1,5 @@
 namespace DigitalLibrary.API.Models;
+
 public class Book
 {
     public int Id { get; set; }
@@ -11,4 +12,6 @@ public class Book
     public BookGenre? Genre { get; set; }
     public required DateTime DateAdded { get; set; }
     public DateTime? DateFinished { get; set; }
+
+    public Library Library { get; set; } = null!;
 }

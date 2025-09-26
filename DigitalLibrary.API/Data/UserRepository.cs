@@ -1,8 +1,6 @@
 namespace DigitalLibrary.API.Data;
 
 using DigitalLibrary.API.Models;
-using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.Data.Sqlite;
 
 public class UserRepository: IUserRepository
 {
