@@ -1,7 +1,7 @@
-namespace DigitalLibrary.Services;
+namespace DigitalLibrary.API.Services;
 
-using DigitalLibrary.Data;
-using DigitalLibrary.Models;
+using DigitalLibrary.API.Data;
+using DigitalLibrary.API.Models;
 public class BookService : IBookService
 {
     private readonly IBookRepository _bookRepository;

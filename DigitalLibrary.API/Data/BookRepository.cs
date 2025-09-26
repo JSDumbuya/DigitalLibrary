@@ -1,7 +1,7 @@
-namespace DigitalLibrary.Data;
+namespace DigitalLibrary.API.Data;
 
 using Microsoft.Data.Sqlite;
-using DigitalLibrary.Models;
+using DigitalLibrary.API.Models;
 
 public class BookRepository : IBookRepository
 {

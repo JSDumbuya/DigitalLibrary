@@ -1,7 +1,7 @@
-namespace DigitalLibrary.Services;
+namespace DigitalLibrary.API.Services;
 
-using DigitalLibrary.Models;
-using DigitalLibrary.Data;
+using DigitalLibrary.API.Models;
+using DigitalLibrary.API.Data;
 
 public class LibraryService : ILibraryService
 {

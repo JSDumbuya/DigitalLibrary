@@ -1,4 +1,4 @@
-namespace DigitalLibrary.Models;
+namespace DigitalLibrary.API.Models;
 public enum BookGenre
 {
     ActionAdventure,

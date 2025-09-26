@@ -1,6 +1,6 @@
-namespace DigitalLibrary.Data;
+namespace DigitalLibrary.API.Data;
 
-using DigitalLibrary.Models;
+using DigitalLibrary.API.Models;
 public interface ILibraryRepository
 {
     Task AddAsync(Library library);

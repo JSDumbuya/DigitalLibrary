@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DigitalLibrary.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9dc06ec08181f7803f09e2d1cda56e4d4476e3a3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2d9281294034151971fa5a61389ba6017cbdfc77")]
 [assembly: System.Reflection.AssemblyProductAttribute("DigitalLibrary.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DigitalLibrary.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

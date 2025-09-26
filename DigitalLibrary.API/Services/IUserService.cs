@@ -1,6 +1,6 @@
-namespace DigitalLibrary.Services;
+namespace DigitalLibrary.API.Services;
 
-using DigitalLibrary.Models;
+using DigitalLibrary.API.Models;
 public interface IUserService
 {
     Task AddUserAsync(User user);

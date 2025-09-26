@@ -5,12 +5,17 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var app = builder.Build();
+//DbContext
+//builder.Services.AddDbContext<DigitalLibraryContext>(options => options.UseSqLite("Data Source=YLDatabase.db"));
 
-//string connectionString = "Data Source=YLDatabase.db";
-//Setup database again. 
-//Setup repos
-//register services
+//Controllers
+builder.Services.AddControllers();
+
+//Repos
+
+//Services
+
+var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

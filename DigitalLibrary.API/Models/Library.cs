@@ -1,4 +1,4 @@
-namespace DigitalLibrary.Models;
+namespace DigitalLibrary.API.Models;
 public class Library
 {
     public int Id { get; set; }

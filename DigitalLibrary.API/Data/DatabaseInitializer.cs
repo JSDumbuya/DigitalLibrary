@@ -1,4 +1,4 @@
-namespace DigitalLibrary.Data;
+namespace DigitalLibrary.API.Data;
 
 using Microsoft.Data.Sqlite;
 
