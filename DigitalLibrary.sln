@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalLibrary.API", "DigitalLibrary.API\DigitalLibrary.API.csproj", "{97B4F199-589B-4CE7-BE85-EE0584C8DC84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalLibrary.Tests", "DigitalLibrary.Tests\DigitalLibrary.Tests.csproj", "{8E34E973-E3D2-4D84-A0F4-604FFDF680B8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97B4F199-589B-4CE7-BE85-EE0584C8DC84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97B4F199-589B-4CE7-BE85-EE0584C8DC84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97B4F199-589B-4CE7-BE85-EE0584C8DC84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97B4F199-589B-4CE7-BE85-EE0584C8DC84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E34E973-E3D2-4D84-A0F4-604FFDF680B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E34E973-E3D2-4D84-A0F4-604FFDF680B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E34E973-E3D2-4D84-A0F4-604FFDF680B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E34E973-E3D2-4D84-A0F4-604FFDF680B8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
