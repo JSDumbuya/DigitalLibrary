@@ -2,125 +2,58 @@ namespace DigitalLibrary.API.Data;
 
 using DigitalLibrary.API.Models;
 using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore;
 
 public class LibraryRepository : ILibraryRepository
 {
-    private readonly string _connectionString;
-    public LibraryRepository(string connectionString)
+    private readonly DigitalLibraryContext _context;
+    public LibraryRepository(DigitalLibraryContext context)
     {
-        _connectionString = connectionString;
+        _context = context;
     }
 
     public async Task AddAsync(Library library)
     {
-        using SqliteConnection connection = new SqliteConnection(_connectionString);
-        await connection.OpenAsync();
-
-        using SqliteCommand command = connection.CreateCommand();
-        command.CommandText = @"
-            INSERT INTO Libraries
-            (UserId, LibraryName, LibraryDescription)
-            VALUES ($UserId, $LibraryName, $LibraryDescription);
-            SELECT last_insert_rowid();";
-        command.Parameters.AddWithValue("$UserId", library.UserId);
-        command.Parameters.AddWithValue("$LibraryName", library.LibraryName);
-        command.Parameters.AddWithValue("$LibraryDescription", (object?)library.LibraryDescription ?? DBNull.Value);
-
-        var result = await command.ExecuteScalarAsync();
-        if (result == null)
-        {
-            Console.WriteLine("Something went wrong. Library was not added");
-            return;
-        }
-        library.Id = Convert.ToInt32(result);
-        Console.WriteLine($"A new Library was added with the following Id: {library.Id}");     
+        _context.Libraries.Add(library);
+        await _context.SaveChangesAsync();
+        //Add confirmation message
     }
 
     public async Task DeleteAsync(int id)
     {
-        using SqliteConnection connection = new SqliteConnection(_connectionString);
-        await connection.OpenAsync();
-
-        using SqliteCommand command = connection.CreateCommand();
-        command.CommandText = $"DELETE FROM Libraries WHERE Id = $Id";
-        command.Parameters.AddWithValue("$Id", id);
-
-        int affectedRows = await command.ExecuteNonQueryAsync();
-        if (affectedRows == 0)
+        var library = await _context.Libraries.FindAsync(id);
+        if (library == null)
         {
-            Console.WriteLine("No library was deleted. Library may not exist");
+            //Add message
+            return;
         }
+        _context.Libraries.Remove(library);
+        await _context.SaveChangesAsync();
     }
 
     public async Task<Library?> GetLibraryByIdAsync(int id)
     {
-        using SqliteConnection connection = new SqliteConnection(_connectionString);
-        await connection.OpenAsync();
-
-        using SqliteCommand command = connection.CreateCommand();
-        command.CommandText = $"SELECT * FROM Libraries WHERE Id = $Id";
-        command.Parameters.AddWithValue("$Id", id);
-
-        using SqliteDataReader reader = await command.ExecuteReaderAsync();
-        if (await reader.ReadAsync())
-        {
-            return MapRawToLibrary(reader);
-        }
-
-        return null;
+        return await _context.Libraries.FindAsync(id);
     }
 
     public async Task<Library?> GetLibraryByUserIdAsync(int userId)
     {
-        using SqliteConnection connection = new SqliteConnection(_connectionString);
-        await connection.OpenAsync();
-
-        using SqliteCommand command = connection.CreateCommand();
-        command.CommandText = "SELECT * FROM Libraries WHERE UserId = $UserId";
-        command.Parameters.AddWithValue("$UserId", userId);
-
-        using SqliteDataReader reader = await command.ExecuteReaderAsync();
-
-        if (await reader.ReadAsync())
-        {
-            return MapRawToLibrary(reader);
-        }
-
-        return null;
-    }
-
-    private Library MapRawToLibrary(SqliteDataReader reader)
-    {
-        return new Library
-        {
-            Id = reader.GetInt32(reader.GetOrdinal("Id")),
-            UserId = reader.GetInt32(reader.GetOrdinal("UserId")),
-            LibraryName = reader.GetString(reader.GetOrdinal("LibraryName")),
-            LibraryDescription = reader.IsDBNull(reader.GetOrdinal("LibraryDescription")) ? null : reader.GetString(reader.GetOrdinal("LibraryDescription"))
-        };
+        return await _context.Libraries.FirstOrDefaultAsync(library => library.UserId == userId);
     }
 
     public async Task UpdateAsync(Library library)
     {
-        using SqliteConnection connection = new SqliteConnection(_connectionString);
-        await connection.OpenAsync();
-
-        using SqliteCommand command = connection.CreateCommand();
-        command.CommandText = @"
-        UPDATE Libraries SET
-            UserId = $UserId,
-            LibraryName = $LibraryName,
-            LibraryDescription = $LibraryDescription
-        WHERE Id = $Id;";
-
-        command.Parameters.AddWithValue("$UserId", library.UserId);
-        command.Parameters.AddWithValue("$LibraryName", library.LibraryName);
-        command.Parameters.AddWithValue("$LibraryDescription", (object?)library.LibraryDescription ?? DBNull.Value);
-
-        int affectedRows = await command.ExecuteNonQueryAsync();
-        if (affectedRows == 0)
+        var existingLibrary = await _context.Libraries.FindAsync(library.Id);
+        if (existingLibrary == null)
         {
-            Console.WriteLine("No user was updated. User may not exist");
+            //Add message
+            return;
         }
+
+        existingLibrary.LibraryDescription = library.LibraryDescription;
+        existingLibrary.LibraryName = library.LibraryName;
+
+        await _context.SaveChangesAsync();
+        
     }
 }
