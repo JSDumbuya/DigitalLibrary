@@ -48,8 +48,8 @@ public class LibraryRepository : ILibraryRepository
             //Add message
             return;
         }
-
-        existingLibrary.LibraryDescription = library.LibraryDescription;
+        if (library.LibraryDescription != null)
+            existingLibrary.LibraryDescription = library.LibraryDescription;
         existingLibrary.LibraryName = library.LibraryName;
 
         await _context.SaveChangesAsync();
