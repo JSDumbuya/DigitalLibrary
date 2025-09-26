@@ -1,101 +1,50 @@
 namespace DigitalLibrary.API.Data;
 
 using DigitalLibrary.API.Models;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.Data.Sqlite;
 
 public class UserRepository: IUserRepository
 {
-    private readonly string _connectionString;
-
-    public UserRepository(string connectionString)
+    private readonly DigitalLibraryContext _context;
+    public UserRepository(DigitalLibraryContext context)
     {
-        _connectionString = connectionString;
+        _context = context;
     }
 
     public async Task AddAsync(User user)
     {
-        using SqliteConnection connection = new SqliteConnection(_connectionString);
-        await connection.OpenAsync();
-
-        using SqliteCommand command = connection.CreateCommand();
-        command.CommandText = @"
-            INSERT INTO Users
-            (UserName)
-            VALUES ($UserName);
-            SELECT last_insert_rowid();";
-        command.Parameters.AddWithValue("$UserName", user.UserName);
-
-        var result = await command.ExecuteScalarAsync();
-        if (result == null)
-        {
-            Console.WriteLine("Something went wrong. User was not added");
-            return;
-        }
-        user.Id = Convert.ToInt32(result);
-        Console.WriteLine($"A new User was added with the following Id: {user.Id}");
+        _context.Users.Add(user);
+        await _context.SaveChangesAsync();
+        //Add confirmation message, propagated to user
     }
 
     public async Task DeleteAsync(int id)
     {
-        using SqliteConnection connection = new SqliteConnection(_connectionString);
-        await connection.OpenAsync();
-
-        using SqliteCommand command = connection.CreateCommand();
-        command.CommandText = "DELETE FROM Users WHERE Id = $Id";
-        command.Parameters.AddWithValue("$Id", id);
-
-        int affectedRows = await command.ExecuteNonQueryAsync();
-        if (affectedRows == 0)
+        var user = await _context.Users.FindAsync(id);
+        if (user == null)
         {
-            Console.WriteLine("No user was deleted. User may not exist");
+            //Add message
+            return;
         }
+        _context.Users.Remove(user);
+        await _context.SaveChangesAsync();
         
     }
 
     public async Task<User?> GetUserByIdAsync(int id)
     {
-        using SqliteConnection connection = new SqliteConnection(_connectionString);
-        await connection.OpenAsync();
-
-        using SqliteCommand command = connection.CreateCommand();
-        command.CommandText = "SELECT * FROM Users WHERE Id = $Id";
-        command.Parameters.AddWithValue("$Id", id);
-
-        using SqliteDataReader reader = await command.ExecuteReaderAsync();
-        if (await reader.ReadAsync())
-        {
-            return MapRawToUser(reader);
-        }
-
-        return null;
+        return await _context.Users.FindAsync(id);
     }
-
-    private User MapRawToUser(SqliteDataReader reader)
-    {
-        return new User
-        {
-            Id = reader.GetInt32(reader.GetOrdinal("Id")),
-            UserName = reader.GetString(reader.GetOrdinal("UserName"))
-        };
-    }
-
     public async Task UpdateAsync(User user)
     {
-        using SqliteConnection connection = new SqliteConnection(_connectionString);
-        await connection.OpenAsync();
-
-        using SqliteCommand command = connection.CreateCommand();
-        command.CommandText = @"
-            UPDATE Users SET
-                UserName = $UserName
-            WHERE Id = $Id";
-        command.Parameters.AddWithValue("$UserName", user.UserName);
-        command.Parameters.AddWithValue("$Id", user.Id);
-
-        int affectedRows = await command.ExecuteNonQueryAsync();
-        if (affectedRows == 0)
+        var existingUser = await _context.Users.FindAsync(user.Id);
+        if (existingUser == null)
         {
-            Console.WriteLine("No user was updated. User may not exist");
+            //Add message
+            return;
         }
+        existingUser.UserName = user.UserName;
+        await _context.SaveChangesAsync();
     }
 }
