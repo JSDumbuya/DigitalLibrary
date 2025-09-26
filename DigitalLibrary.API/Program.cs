@@ -7,6 +7,11 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+//string connectionString = "Data Source=YLDatabase.db";
+//Setup database again. 
+//Setup repos
+//register services
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
