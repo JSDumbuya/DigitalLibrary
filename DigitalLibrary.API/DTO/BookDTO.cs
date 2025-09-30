@@ -6,7 +6,6 @@ using DigitalLibrary.API.Models;
 public class BookReadDTO
 {
     public int Id { get; set; }
-    public int LibraryId { get; set; }
     public string BookTitle { get; set; } = string.Empty;
     public string Author { get; set; } = string.Empty;
     public BookStatus BookStatus { get; set; }
