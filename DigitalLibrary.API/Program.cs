@@ -16,14 +16,14 @@ builder.Services.AddDbContext<DigitalLibraryContext>(options => options.UseSqlit
 builder.Services.AddControllers();
 
 //Repos
-builder.Services.AddScoped<BookRepository>();
-builder.Services.AddScoped<UserRepository>();
-builder.Services.AddScoped<LibraryRepository>();
+builder.Services.AddScoped<IBookRepository, BookRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<ILibraryRepository, LibraryRepository>();
 
 //Services
-builder.Services.AddScoped<BookService>();
-builder.Services.AddScoped<UserService>();
-builder.Services.AddScoped<LibraryService>();
+builder.Services.AddScoped<IBookService, BookService>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ILibraryService, LibraryService>();
 
 var app = builder.Build();
 
