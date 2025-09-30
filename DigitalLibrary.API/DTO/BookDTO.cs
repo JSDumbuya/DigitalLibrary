@@ -20,8 +20,6 @@ public class BookReadDTO
 public class BookCreateDTO
 {
     [Required]
-    public int LibraryId { get; set; }
-    [Required]
     public string BookTitle { get; set; } = string.Empty;
     [Required]
     public string Author { get; set; } = string.Empty;
@@ -36,8 +34,6 @@ public class BookCreateDTO
 
 public class BookUpdateDTO
 {
-    [Required]
-    public int LibraryId { get; set; }
     [Required]
     public string BookTitle { get; set; } = string.Empty;
     [Required]
