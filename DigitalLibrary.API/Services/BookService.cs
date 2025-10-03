@@ -25,7 +25,7 @@ public class BookService : IBookService
         return _bookRepository.GetByIdAsync(id, libraryId);
     }
 
-    public Task<List<Book>> GetBooks(BookStatus? status, BookGenre? genre, StarRating? rating, int libraryId)
+    public Task<List<Book>> GetBooksAsync(BookStatus? status, BookGenre? genre, StarRating? rating, int libraryId)
     {
         if (status.HasValue)
             return GetBooksByStatusAsync(status.Value, libraryId);

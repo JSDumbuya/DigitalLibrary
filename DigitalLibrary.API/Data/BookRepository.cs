@@ -70,6 +70,7 @@ public class BookRepository : IBookRepository
         existingBook.BookTitle = book.BookTitle;
         existingBook.Author = book.Author;
         existingBook.BookStatus = book.BookStatus;
+        existingBook.DateStarted = book.DateStarted;
         if (book.Review != null)
             existingBook.Review = book.Review;
         if (book.StarRating != null)

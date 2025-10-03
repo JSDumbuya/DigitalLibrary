@@ -10,8 +10,7 @@ public class Book
     public string? Review { get; set; }
     public StarRating? StarRating { get; set; }
     public BookGenre? Genre { get; set; }
-    public required DateTime DateAdded { get; set; }
+    public required DateTime DateStarted { get; set; }
     public DateTime? DateFinished { get; set; }
-
     public Library Library { get; set; } = null!;
 }

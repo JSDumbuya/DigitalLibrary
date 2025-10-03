@@ -12,7 +12,7 @@ public class BookReadDTO
     public string? Review { get; set; }
     public StarRating? StarRating { get; set; }
     public BookGenre? Genre { get; set; }
-    public DateTime DateAdded { get; set; }
+    public DateTime DateStarted { get; set; }
     public DateTime? DateFinished { get; set; }
 }
 
@@ -28,7 +28,8 @@ public class BookCreateDTO
     public StarRating? StarRating { get; set; }
     public BookGenre? Genre { get; set; }
     [Required]
-    public DateTime DateAdded { get; set; }
+    public DateTime DateStarted { get; set; }
+    public DateTime DateFinished { get; set; }
 }
 
 public class BookUpdateDTO
@@ -42,5 +43,7 @@ public class BookUpdateDTO
     public string? Review { get; set; }
     public StarRating? StarRating { get; set; }
     public BookGenre? Genre { get; set; }
+    [Required]
+    public DateTime DateStarted { get; set; }
     public DateTime? DateFinished { get; set; }
 }

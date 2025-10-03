@@ -7,7 +7,7 @@ public interface IBookService
     Task<bool> UpdateBookAsync(Book book, int libraryId);
     Task<bool> DeleteBookAsync(int id, int libraryId);
     Task<Book?> GetBookByIdAsync(int id, int libraryId);
-    Task<List<Book>> GetBooks(
+    Task<List<Book>> GetBooksAsync(
         BookStatus? status,
         BookGenre? genre,
         StarRating? rating,
