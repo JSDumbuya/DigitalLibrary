@@ -3,8 +3,8 @@ namespace DigitalLibrary.API.Services;
 using DigitalLibrary.API.Models;
 public interface IUserService
 {
-    Task AddUserAsync(User user);
-    Task DeleteUserAsync(int id);
-    Task UpdateUserAsync(User user);
+    Task<User> AddUserAsync(User user);
+    Task<bool> DeleteUserAsync(int id);
+    Task<bool> UpdateUserAsync(User user);
     Task<User?> GetUserByIdAsync(int id);
 }

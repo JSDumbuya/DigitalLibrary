@@ -3,12 +3,12 @@ namespace DigitalLibrary.API.Data;
 using DigitalLibrary.API.Models;
 public interface IBookRepository
 {
-    Task AddAsync(Book book);
-    Task UpdateAsync(Book book);
-    Task DeleteAsync(int id);
-    Task<Book?> GetByIdAsync(int id);
-    Task<List<Book>> GetByStatusAsync(BookStatus status);
-    Task<List<Book>> GetByGenreAsync(BookGenre genre);
-    Task<List<Book>> GetByRatingAsync(StarRating rating);
+    Task<Book> AddAsync(Book book);
+    Task<bool> UpdateAsync(Book book, int libraryId);
+    Task<bool> DeleteAsync(int id, int libraryId);
+    Task<Book?> GetByIdAsync(int id, int libraryId);
+    Task<List<Book>> GetByStatusAsync(BookStatus status, int libraryId);
+    Task<List<Book>> GetByGenreAsync(BookGenre genre, int libraryId);
+    Task<List<Book>> GetByRatingAsync(StarRating rating, int libraryId);
     Task<List<Book>> GetByLibraryIdAsync(int libraryId);
 }

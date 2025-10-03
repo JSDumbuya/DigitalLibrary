@@ -10,19 +10,19 @@ public class LibraryService : ILibraryService
     {
         _libraryRepository = libraryRepository;
     }
-    public Task AddLibraryAsync(Library library)
+    public Task<Library> AddLibraryAsync(Library library)
     {
         return _libraryRepository.AddAsync(library);
     }
 
-    public Task DeleteLibraryAsync(int id)
+    public Task<bool> DeleteLibraryAsync(int id, int userId)
     {
-        return _libraryRepository.DeleteAsync(id);
+        return _libraryRepository.DeleteAsync(id, userId);
     }
 
-    public Task<Library?> GetLibraryByIdAsync(int id)
+    public Task<Library?> GetLibraryByIdAsync(int id, int userId)
     {
-        return _libraryRepository.GetLibraryByIdAsync(id);
+        return _libraryRepository.GetLibraryByIdAsync(id, userId);
     }
 
     public Task<Library?> GetLibraryByUserIdAsync(int userId)
@@ -30,8 +30,8 @@ public class LibraryService : ILibraryService
         return _libraryRepository.GetLibraryByUserIdAsync(userId);
     }
 
-    public Task UpdateLibraryAsync(Library library)
+    public Task<bool> UpdateLibraryAsync(Library library, int userId)
     {
-        return _libraryRepository.UpdateAsync(library);
+        return _libraryRepository.UpdateAsync(library, userId);
     }
 }

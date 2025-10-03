@@ -10,23 +10,21 @@ public class UserRepository: IUserRepository
         _context = context;
     }
 
-    public async Task AddAsync(User user)
+    public async Task<User> AddAsync(User user)
     {
         _context.Users.Add(user);
         await _context.SaveChangesAsync();
-        //Add confirmation message, propagated to user
+        return user;
     }
 
-    public async Task DeleteAsync(int id)
+    public async Task<bool> DeleteAsync(int id)
     {
         var user = await _context.Users.FindAsync(id);
-        if (user == null)
-        {
-            //Add message
-            return;
-        }
+        if (user == null) return false;
+
         _context.Users.Remove(user);
         await _context.SaveChangesAsync();
+        return true;
         
     }
 
@@ -34,15 +32,13 @@ public class UserRepository: IUserRepository
     {
         return await _context.Users.FindAsync(id);
     }
-    public async Task UpdateAsync(User user)
+    public async Task<bool> UpdateAsync(User user)
     {
         var existingUser = await _context.Users.FindAsync(user.Id);
-        if (existingUser == null)
-        {
-            //Add message
-            return;
-        }
+        if (existingUser == null) return false;
+
         existingUser.UserName = user.UserName;
         await _context.SaveChangesAsync();
+        return true;
     }
 }

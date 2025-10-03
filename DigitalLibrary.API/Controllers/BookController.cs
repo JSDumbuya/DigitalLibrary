@@ -17,19 +17,31 @@ public class BookController : ControllerBase
         _bookService = bookService;
     }
 
-    [HttpGet("{id}")]
-    public async Task<ActionResult<BookReadDTO>> GetBook(int id)
+    [HttpGet("{id:int}")]
+    public async Task<ActionResult<BookReadDTO>> GetBookById(int id)
     {
         var book = await _bookService.GetBookByIdAsync(id);
 
         if (book == null) return NotFound();
 
-        var dto = MapToReadDTO(book);
-        
+        var dto = MapperReadDTO(book);
+
         return Ok(dto);
     }
 
-    private BookReadDTO MapToReadDTO(Book book)
+    [HttpGet]
+    public async Task<ActionResult<List<BookReadDTO>>> GetBooks(
+        [FromQuery] BookGenre? genre,
+        [FromQuery] int? libraryId,
+        [FromQuery] StarRating? rating,
+        [FromQuery] BookStatus? status
+    )
+    {
+        var books = await _bookService
+    }
+
+    //Mappers
+    private BookReadDTO MapperReadDTO(Book book)
     {
         return new BookReadDTO
         {

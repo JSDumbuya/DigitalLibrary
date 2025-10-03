@@ -3,12 +3,17 @@ namespace DigitalLibrary.API.Services;
 using DigitalLibrary.API.Models;
 public interface IBookService
 {
-    Task AddBookAsync(Book book);
-    Task UpdateBookAsync(Book book);
-    Task DeleteBookAsync(int id);
-    Task<Book?> GetBookByIdAsync(int id);
-    Task<List<Book>> GetBooksByStatusAsync(BookStatus status);
-    Task<List<Book>> GetBooksByGenreAsync(BookGenre genre);
-    Task<List<Book>> GetBooksByRatingAsync(StarRating rating);
+    Task<Book> AddBookAsync(Book book);
+    Task<bool> UpdateBookAsync(Book book, int libraryId);
+    Task<bool> DeleteBookAsync(int id, int libraryId);
+    Task<Book?> GetBookByIdAsync(int id, int libraryId);
+    Task<List<Book>> GetBooks(
+        BookStatus? status,
+        BookGenre? genre,
+        StarRating? rating,
+        int libraryId);
+    Task<List<Book>> GetBooksByStatusAsync(BookStatus status, int libraryId);
+    Task<List<Book>> GetBooksByGenreAsync(BookGenre genre, int libraryId);
+    Task<List<Book>> GetBooksByRatingAsync(StarRating rating, int libraryId);
     Task<List<Book>> GetBooksByLibraryIdAsync(int libraryId);
 }

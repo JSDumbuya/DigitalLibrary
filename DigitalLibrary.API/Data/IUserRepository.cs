@@ -3,8 +3,8 @@ namespace DigitalLibrary.API.Data;
 using DigitalLibrary.API.Models;
 public interface IUserRepository
 {
-    Task AddAsync(User user);
-    Task DeleteAsync(int id);
-    Task UpdateAsync(User user);
+    Task<User> AddAsync(User user);
+    Task<bool> DeleteAsync(int id);
+    Task<bool> UpdateAsync(User user);
     Task<User?> GetUserByIdAsync(int id);
 }

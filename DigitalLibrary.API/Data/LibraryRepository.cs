@@ -11,28 +11,26 @@ public class LibraryRepository : ILibraryRepository
         _context = context;
     }
 
-    public async Task AddAsync(Library library)
+    public async Task<Library> AddAsync(Library library)
     {
         _context.Libraries.Add(library);
         await _context.SaveChangesAsync();
-        //Add confirmation message
+        return library;
     }
 
-    public async Task DeleteAsync(int id)
+    public async Task<bool> DeleteAsync(int id, int userId)
     {
-        var library = await _context.Libraries.FindAsync(id);
-        if (library == null)
-        {
-            //Add message
-            return;
-        }
+        var library = await _context.Libraries.FirstOrDefaultAsync(library => library.Id == id && library.UserId == userId);
+        if (library == null) return false;
+
         _context.Libraries.Remove(library);
         await _context.SaveChangesAsync();
+        return true;
     }
 
-    public async Task<Library?> GetLibraryByIdAsync(int id)
+    public async Task<Library?> GetLibraryByIdAsync(int id, int userId)
     {
-        return await _context.Libraries.FindAsync(id);
+        return await _context.Libraries.FirstOrDefaultAsync(library => library.Id == id && library.UserId == userId);
     }
 
     public async Task<Library?> GetLibraryByUserIdAsync(int userId)
@@ -40,19 +38,17 @@ public class LibraryRepository : ILibraryRepository
         return await _context.Libraries.FirstOrDefaultAsync(library => library.UserId == userId);
     }
 
-    public async Task UpdateAsync(Library library)
+    public async Task<bool> UpdateAsync(Library library, int userId)
     {
-        var existingLibrary = await _context.Libraries.FindAsync(library.Id);
-        if (existingLibrary == null)
-        {
-            //Add message
-            return;
-        }
+        var existingLibrary = await _context.Libraries.FirstOrDefaultAsync(l => l.Id == library.Id && l.UserId == userId);
+        if (existingLibrary == null) return false;
+
         if (library.LibraryDescription != null)
             existingLibrary.LibraryDescription = library.LibraryDescription;
         existingLibrary.LibraryName = library.LibraryName;
 
         await _context.SaveChangesAsync();
+        return true;
         
     }
 }

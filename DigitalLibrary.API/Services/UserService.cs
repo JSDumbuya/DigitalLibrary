@@ -10,12 +10,12 @@ public class UserService : IUserService
         _userRepository = userRepository;
     }
 
-    public Task AddUserAsync(User user)
+    public Task<User> AddUserAsync(User user)
     {
         return _userRepository.AddAsync(user);
     }
 
-    public Task DeleteUserAsync(int id)
+    public Task<bool> DeleteUserAsync(int id)
     {
         return _userRepository.DeleteAsync(id);
     }
@@ -25,7 +25,7 @@ public class UserService : IUserService
         return _userRepository.GetUserByIdAsync(id);
     }
 
-    public Task UpdateUserAsync(User user)
+    public Task<bool> UpdateUserAsync(User user)
     {
         return _userRepository.UpdateAsync(user);
     }
