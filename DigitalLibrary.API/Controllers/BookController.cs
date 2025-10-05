@@ -7,7 +7,7 @@ using DigitalLibrary.API.Models;
 using DigitalLibrary.API.Services;
 
 [ApiController]
-[Route("api/book")]
+[Route("api/libraries/{libraryId:int}/books")]
 public class BookController : ControllerBase
 {
     private readonly BookService _bookService;
@@ -17,7 +17,7 @@ public class BookController : ControllerBase
         _bookService = bookService;
     }
 
-    [HttpGet("{libraryId:int}/{id:int}")]
+    [HttpGet("{id:int}")]
     public async Task<ActionResult<BookReadDTO>> GetBookById([FromRoute] int id, [FromRoute] int libraryId)
     {
         var book = await _bookService.GetBookByIdAsync(id, libraryId);
@@ -27,7 +27,7 @@ public class BookController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<List<BookReadDTO>>> GetBooks([FromQuery] BookGenre? genre, [FromQuery] int libraryId, [FromQuery] StarRating? rating, [FromQuery] BookStatus? status)
+    public async Task<ActionResult<List<BookReadDTO>>> GetBooks([FromQuery] BookGenre? genre, [FromRoute] int libraryId, [FromQuery] StarRating? rating, [FromQuery] BookStatus? status)
     {
         var books = await _bookService.GetBooksAsync(status, genre, rating, libraryId);
         if (books.Count == 0) return NotFound();
@@ -36,7 +36,7 @@ public class BookController : ControllerBase
         return Ok(bookDTOs);
     }
 
-    [HttpPost("{libraryId:int}")]
+    [HttpPost]
     public async Task<ActionResult<BookReadDTO>> CreateBook([FromRoute] int libraryId, [FromBody] BookCreateDTO bCreateDto)
     {
         var toBook = MapperCreateDtoToBook(bCreateDto, libraryId);
@@ -46,7 +46,7 @@ public class BookController : ControllerBase
         return CreatedAtAction(nameof(GetBookById), new { id = createdBook.Id, libraryId }, toDTO);
     }
 
-    [HttpPut("{libraryId:int}/{id:int}")]
+    [HttpPut("{id:int}")]
     public async Task<IActionResult> UpdateBook([FromRoute] int libraryId, [FromRoute] int id, [FromBody] BookUpdateDTO bUpdateDto)
     {
         var toBook = MapperUpdateDtoToBook(bUpdateDto, id, libraryId);
@@ -56,7 +56,7 @@ public class BookController : ControllerBase
         return NoContent();
     }
 
-    [HttpDelete("{libraryId:int}/{id:int}")]
+    [HttpDelete("{id:int}")]
     public async Task<IActionResult> DeleteBook([FromRoute] int id, [FromRoute] int libraryId)
     {
         var deletedBook = await _bookService.DeleteBookAsync(id, libraryId);
