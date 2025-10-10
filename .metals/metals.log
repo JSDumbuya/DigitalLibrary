@@ -1231,3 +1231,39 @@ INFO: Unsupported notification method: $/setTrace
 2025.10.05 19:37:18 INFO  time: Connected to build server in 5.03s
 2025.10.05 19:37:18 INFO  Connected to Build server: scala-cli v1.8.3
 2025.10.05 19:37:20 INFO  time: indexed workspace in 2.24s
+2025.10.05 20:39:15 INFO  Shutting down server
+2025.10.05 20:39:15 INFO  shutting down Metals
+2025.10.05 20:39:15 INFO  Shut down connection with build server.
+2025.10.05 20:39:15 INFO  Exiting server
+2025.10.06 10:03:36 INFO  Started: Metals version 1.6.2 in folders '/Users/jariasallydumbuya/Desktop/DigitalLibrary' for client Visual Studio Code 1.104.2.
+2025.10.06 10:03:38 INFO  Attempting to connect to the build server...
+2025.10.06 10:03:38 INFO  Running BSP server List(/opt/homebrew/bin/scala-cli, bsp, --json-options, /Users/jariasallydumbuya/Desktop/DigitalLibrary/.scala-build/ide-options-v2.json, --json-launcher-options, /Users/jariasallydumbuya/Desktop/DigitalLibrary/.scala-build/ide-launcher-options.json, --envs-file, /Users/jariasallydumbuya/Desktop/DigitalLibrary/.scala-build/ide-envs.json, /Users/jariasallydumbuya/Desktop/DigitalLibrary)
+2025.10.06 10:03:38 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/jariasallydumbuya/Desktop/DigitalLibrary/.metals/bsp.trace.json or /Users/jariasallydumbuya/Library/Caches/org.scalameta.metals/bsp.trace.json
+2025.10.06 10:03:40 INFO  BSP server: Starting compilation server
+2025.10.06 10:03:43 INFO  time: Connected to build server in 4.95s
+2025.10.06 10:03:43 INFO  Connected to Build server: scala-cli v1.8.3
+2025.10.06 10:03:43 INFO  time: Imported build in 0.11s
+2025.10.06 10:03:45 INFO  time: indexed workspace in 1.73s
+2025.10.06 10:07:20 INFO  Shutting down server
+2025.10.06 10:07:20 INFO  shutting down Metals
+2025.10.06 10:07:20 INFO  Shut down connection with build server.
+2025.10.06 10:07:20 INFO  Exiting server
+2025.10.10 09:11:37 INFO  Started: Metals version 1.6.2 in folders '/Users/jariasallydumbuya/Desktop/DigitalLibrary' for client Visual Studio Code 1.104.2.
+2025.10.10 09:11:39 INFO  Attempting to connect to the build server...
+2025.10.10 09:11:39 INFO  Running BSP server List(/opt/homebrew/bin/scala-cli, bsp, --json-options, /Users/jariasallydumbuya/Desktop/DigitalLibrary/.scala-build/ide-options-v2.json, --json-launcher-options, /Users/jariasallydumbuya/Desktop/DigitalLibrary/.scala-build/ide-launcher-options.json, --envs-file, /Users/jariasallydumbuya/Desktop/DigitalLibrary/.scala-build/ide-envs.json, /Users/jariasallydumbuya/Desktop/DigitalLibrary)
+2025.10.10 09:11:39 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/jariasallydumbuya/Desktop/DigitalLibrary/.metals/bsp.trace.json or /Users/jariasallydumbuya/Library/Caches/org.scalameta.metals/bsp.trace.json
+2025.10.10 09:11:42 INFO  BSP server: Starting compilation server
+2025.10.10 09:11:44 INFO  time: Connected to build server in 4.56s
+2025.10.10 09:11:44 INFO  Connected to Build server: scala-cli v1.8.3
+2025.10.10 09:11:46 INFO  time: indexed workspace in 1.86s
+2025.10.10 09:12:40 INFO  Shutting down server
+2025.10.10 09:12:40 INFO  shutting down Metals
+2025.10.10 09:12:40 INFO  Shut down connection with build server.
+2025.10.10 09:12:40 INFO  Exiting server
+2025.10.10 09:12:59 INFO  Started: Metals version 1.6.2 in folders '/Users/jariasallydumbuya/Desktop/DigitalLibrary' for client Visual Studio Code 1.105.0.
+2025.10.10 09:13:00 INFO  Attempting to connect to the build server...
+2025.10.10 09:13:00 INFO  Running BSP server List(/opt/homebrew/bin/scala-cli, bsp, --json-options, /Users/jariasallydumbuya/Desktop/DigitalLibrary/.scala-build/ide-options-v2.json, --json-launcher-options, /Users/jariasallydumbuya/Desktop/DigitalLibrary/.scala-build/ide-launcher-options.json, --envs-file, /Users/jariasallydumbuya/Desktop/DigitalLibrary/.scala-build/ide-envs.json, /Users/jariasallydumbuya/Desktop/DigitalLibrary)
+2025.10.10 09:13:00 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/jariasallydumbuya/Desktop/DigitalLibrary/.metals/bsp.trace.json or /Users/jariasallydumbuya/Library/Caches/org.scalameta.metals/bsp.trace.json
+2025.10.10 09:13:04 INFO  time: Connected to build server in 3.48s
+2025.10.10 09:13:04 INFO  Connected to Build server: scala-cli v1.8.3
+2025.10.10 09:13:06 INFO  time: indexed workspace in 2.24s

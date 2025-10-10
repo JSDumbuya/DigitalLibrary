@@ -37,7 +37,7 @@ public class LibraryController : ControllerBase
 
 
     //Mappers
-    public LibraryReadDTO MapperToReadDTO(Library library)
+    private LibraryReadDTO MapperToReadDTO(Library library)
     {
         return new LibraryReadDTO
         {
@@ -47,7 +47,7 @@ public class LibraryController : ControllerBase
         };
     }
 
-    public Library MapperToLibrary(LibraryCreateDTO lcreateDto, int userId)
+    private Library MapperToLibrary(LibraryCreateDTO lcreateDto, int userId)
     {
         return new Library
         {
