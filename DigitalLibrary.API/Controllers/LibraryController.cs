@@ -21,6 +21,7 @@ public class LibraryController : ControllerBase
     {
         var library = await _libraryService.GetLibraryByUserIdAsync(userId);
         if (library == null) return NotFound();
+        
         var dto = MapperToReadDTO(library);
         return Ok(dto);
 
