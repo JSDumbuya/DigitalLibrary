@@ -4,5 +4,166 @@
         <name>DigitalLibrary.API</name>
     </assembly>
     <members>
+        <member name="T:DigitalLibrary.API.Controllers.BookController">
+            <summary>
+            Manages operations related to books within a user's library.
+            </summary>
+            <remarks>
+            Each book belongs to a single library, and each user can have only one library.  
+            This controller allows clients to retrieve, create, update, and delete books,
+            as well as filter them by genre, rating, or status.
+            </remarks>
+        </member>
+        <member name="M:DigitalLibrary.API.Controllers.BookController.GetBookById(System.Int32,System.Int32)">
+            <summary>
+            Retrieves a specific book by its ID.
+            </summary>
+            <param name="id">The unique identifier of the book to retrieve.</param>
+            <param name="userId">The ID of the user who owns the library containing the book.</param>
+            <returns>A <see cref="T:DigitalLibrary.API.DTOs.BookReadDTO"/> representing the requested book.</returns>
+            <response code="200">Successfully retrieved the book.</response>
+            <response code="404">The specified book or library was not found.</response>
+        </member>
+        <member name="M:DigitalLibrary.API.Controllers.BookController.GetBooks(System.Nullable{DigitalLibrary.API.Models.BookGenre},System.Int32,System.Nullable{DigitalLibrary.API.Models.StarRating},System.Nullable{DigitalLibrary.API.Models.BookStatus})">
+            <summary>
+            Retrieves all books in the user's library, with optional filters.
+            </summary>
+            <param name="genre">An optional filter by book genre.</param>
+            <param name="userId">The ID of the user whose library is being accessed.</param>
+            <param name="rating">An optional filter by book star rating.</param>
+            <param name="status">An optional filter by book reading status.</param>
+            <returns>A list of <see cref="T:DigitalLibrary.API.DTOs.BookReadDTO"/> objects representing the user's books.</returns>
+            <response code="200">Successfully retrieved the list of books.</response>
+            <response code="404">No books found for the specified filters or user.</response>
+        </member>
+        <member name="M:DigitalLibrary.API.Controllers.BookController.CreateBook(System.Int32,DigitalLibrary.API.DTOs.BookCreateDTO)">
+            <summary>
+            Creates a new book within the user's library.
+            </summary>
+            <param name="userId">The ID of the user who owns the library where the book will be created.</param>
+            <param name="bookCreateDTO">The data used to create the new book.</param>
+            <returns>
+            A <see cref="T:DigitalLibrary.API.DTOs.BookReadDTO"/> representing the newly created book.
+            </returns>
+            <response code="201">Book successfully created.</response>
+            <response code="404">No library found for the specified user.</response>
+            <response code="400">Invalid book data supplied.</response>
+        </member>
+        <member name="M:DigitalLibrary.API.Controllers.BookController.UpdateBook(System.Int32,System.Int32,DigitalLibrary.API.DTOs.BookUpdateDTO)">
+            <summary>
+            Updates an existing book in the user's library.
+            </summary>
+            <param name="userId">The ID of the user who owns the library containing the book.</param>
+            <param name="id">The ID of the book to update.</param>
+            <param name="bookUpdateDTO">The updated book data.</param>
+            <response code="204">Book successfully updated.</response>
+            <response code="404">The specified book or library was not found.</response>
+        </member>
+        <member name="M:DigitalLibrary.API.Controllers.BookController.DeleteBook(System.Int32,System.Int32)">
+            <summary>
+            Deletes a specific book from the user's library.
+            </summary>
+            <param name="id">The unique identifier of the book to delete.</param>
+            <param name="userId">The ID of the user who owns the library containing the book.</param>
+            <response code="204">Book successfully deleted.</response>
+            <response code="404">The specified book or library was not found.</response>
+        </member>
+        <member name="T:DigitalLibrary.API.Controllers.LibraryController">
+            <summary>
+            Manages operations related to a user's library.
+            </summary>
+            <remarks>
+            Each user can only have one library.  
+            This controller allows clients to create, retrieve, update, and delete a user's library.
+            </remarks>
+        </member>
+        <member name="M:DigitalLibrary.API.Controllers.LibraryController.GetLibrary(System.Int32)">
+            <summary>
+            Retrieves the library associated with a specific user.
+            </summary>
+            <param name="userId">The ID of the user whose library is being retrieved.</param>
+            <returns>
+            A <see cref="T:DigitalLibrary.API.DTOs.LibraryReadDTO"/> object representing the user's library.
+            </returns>
+            <response code="200">Successfully retrieved the user's library.</response>
+            <response code="404">No library found for the specified user.</response>
+        </member>
+        <member name="M:DigitalLibrary.API.Controllers.LibraryController.CreateLibrary(System.Int32,DigitalLibrary.API.DTOs.LibraryCreateDTO)">
+            <summary>
+            Creates a new library for a specific user.
+            </summary>
+            <param name="userId">The ID of the user for whom the library will be created.</param>
+            <param name="libraryCreateDTO">The data used to create the new library.</param>
+            <returns>
+            The newly created <see cref="T:DigitalLibrary.API.DTOs.LibraryReadDTO"/> object.
+            </returns>
+            <response code="201">Successfully created a new library for the user.</response>
+            <response code="400">The provided library data is invalid.</response>
+        </member>
+        <member name="M:DigitalLibrary.API.Controllers.LibraryController.DeleteLibrary(System.Int32)">
+            <summary>
+            Deletes the library associated with a specific user.
+            </summary>
+            <param name="userId">The ID of the user whose library will be deleted.</param>
+            <response code="204">Successfully deleted the user's library.</response>
+            <response code="404">No library found for the specified user.</response>
+        </member>
+        <member name="M:DigitalLibrary.API.Controllers.LibraryController.UpdateLibrary(System.Int32,DigitalLibrary.API.DTOs.LibraryUpdateDTO)">
+            <summary>
+            Updates the library associated with a specific user.
+            </summary>
+            <param name="userId">The ID of the user whose library is being updated.</param>
+            <param name="updateDTO">The updated library information.</param>
+            <response code="204">Successfully updated the user's library.</response>
+            <response code="404">No library found for the specified user.</response>
+        </member>
+        <member name="T:DigitalLibrary.API.Controllers.UserController">
+            <summary>
+            Handles operations related to users.
+            </summary>
+            <remarks>
+            Provides endpoints for managing users in the system.  
+            Each user can have exactly one associated library.
+            </remarks>
+        </member>
+        <member name="M:DigitalLibrary.API.Controllers.UserController.GetUser(System.Int32)">
+            <summary>
+            Retrieves a specific user by their ID.
+            </summary>
+            <param name="userId">The unique identifier of the user to retrieve.</param>
+            <returns>
+            A <see cref="T:DigitalLibrary.API.DTOs.UserReadDTO"/> containing user details.
+            </returns>
+            <response code="200">Successfully retrieved the user.</response>
+            <response code="404">No user found with the specified ID.</response>
+        </member>
+        <member name="M:DigitalLibrary.API.Controllers.UserController.CreateUser(DigitalLibrary.API.DTOs.UserCreateDTO)">
+            <summary>
+            Creates a new user in the system.
+            </summary>
+            <param name="userCreateDTO">The data required to create a new user.</param>
+            <returns>
+            The newly created <see cref="T:DigitalLibrary.API.DTOs.UserReadDTO"/> object.
+            </returns>
+            <response code="201">User successfully created.</response>
+            <response code="400">Invalid data supplied for user creation.</response>
+        </member>
+        <member name="M:DigitalLibrary.API.Controllers.UserController.UpdateUser(DigitalLibrary.API.DTOs.UserUpdateDTO,System.Int32)">
+            <summary>
+            Updates an existing user.
+            </summary>
+            <param name="userUpdateDTO">The updated user data.</param>
+            <param name="userId">The ID of the user to update.</param>
+            <response code="204">User successfully updated.</response>
+            <response code="404">No user found with the specified ID.</response>
+        </member>
+        <member name="M:DigitalLibrary.API.Controllers.UserController.DeleteUser(System.Int32)">
+            <summary>
+            Deletes a user by their ID.
+            </summary>
+            <param name="userId">The unique identifier of the user to delete.</param>
+            <response code="204">User successfully deleted.</response>
+            <response code="404">No user found with the specified ID.</response>
+        </member>
     </members>
 </doc>
