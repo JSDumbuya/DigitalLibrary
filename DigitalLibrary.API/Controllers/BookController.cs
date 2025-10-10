@@ -37,9 +37,9 @@ public class BookController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<BookReadDTO>> CreateBook([FromRoute] int libraryId, [FromBody] BookCreateDTO bCreateDto)
+    public async Task<ActionResult<BookReadDTO>> CreateBook([FromRoute] int libraryId, [FromBody] BookCreateDTO bookCreateDTO)
     {
-        var toBook = MapperCreateDtoToBook(bCreateDto, libraryId);
+        var toBook = MapperCreateDtoToBook(bookCreateDTO, libraryId);
         var createdBook = await _bookService.AddBookAsync(toBook);
         var toDTO = MapperBookToReadDTO(createdBook);
         //201 - succes
@@ -47,9 +47,9 @@ public class BookController : ControllerBase
     }
 
     [HttpPut("{id:int}")]
-    public async Task<IActionResult> UpdateBook([FromRoute] int libraryId, [FromRoute] int id, [FromBody] BookUpdateDTO bUpdateDto)
+    public async Task<IActionResult> UpdateBook([FromRoute] int libraryId, [FromRoute] int id, [FromBody] BookUpdateDTO bookUpdateDTO)
     {
-        var toBook = MapperUpdateDtoToBook(bUpdateDto, id, libraryId);
+        var toBook = MapperUpdateDtoToBook(bookUpdateDTO, id, libraryId);
         var updatedBook = await _bookService.UpdateBookAsync(toBook, libraryId);
         if (!updatedBook) return NotFound();
         //204 - succes

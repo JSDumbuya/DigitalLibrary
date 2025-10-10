@@ -15,15 +15,15 @@ public class LibraryService : ILibraryService
         return _libraryRepository.AddAsync(library);
     }
 
-    public Task<bool> DeleteLibraryAsync(int id, int userId)
+    public Task<bool> DeleteLibraryAsync(int userId)
     {
-        return _libraryRepository.DeleteAsync(id, userId);
+        return _libraryRepository.DeleteAsync(userId);
     }
 
-    public Task<Library?> GetLibraryByIdAsync(int id, int userId)
+    /*public Task<Library?> GetLibraryByIdAsync(int id, int userId)
     {
         return _libraryRepository.GetLibraryByIdAsync(id, userId);
-    }
+    }*/
 
     public Task<Library?> GetLibraryByUserIdAsync(int userId)
     {

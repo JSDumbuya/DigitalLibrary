@@ -18,9 +18,9 @@ public class LibraryRepository : ILibraryRepository
         return library;
     }
 
-    public async Task<bool> DeleteAsync(int id, int userId)
+    public async Task<bool> DeleteAsync(int userId)
     {
-        var library = await _context.Libraries.FirstOrDefaultAsync(library => library.Id == id && library.UserId == userId);
+        var library = await _context.Libraries.FirstOrDefaultAsync(library => library.UserId == userId);
         if (library == null) return false;
 
         _context.Libraries.Remove(library);
@@ -28,10 +28,10 @@ public class LibraryRepository : ILibraryRepository
         return true;
     }
 
-    public async Task<Library?> GetLibraryByIdAsync(int id, int userId)
+    /*public async Task<Library?> GetLibraryByIdAsync(int id, int userId)
     {
         return await _context.Libraries.FirstOrDefaultAsync(library => library.Id == id && library.UserId == userId);
-    }
+    }*/
 
     public async Task<Library?> GetLibraryByUserIdAsync(int userId)
     {
