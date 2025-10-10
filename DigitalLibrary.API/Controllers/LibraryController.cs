@@ -46,7 +46,10 @@ public class LibraryController : ControllerBase
     [HttpPut]
     public async Task<IActionResult> UpdateLibrary([FromRoute] int userId, [FromBody] LibraryUpdateDTO updateDTO)
     {
-        var toLibrary = MapperToLibraryUpdate(updateDTO, userId);
+        var existingLibrary = await _libraryService.GetLibraryByUserIdAsync(userId);
+        if (existingLibrary == null) return NotFound();
+
+        var toLibrary = MapperToLibraryUpdate(updateDTO, userId, existingLibrary.Id);
         var updatedLibrary = await _libraryService.UpdateLibraryAsync(toLibrary, userId);
         if (!updatedLibrary) return NotFound();
         return NoContent();
@@ -74,10 +77,11 @@ public class LibraryController : ControllerBase
         };
     }
 
-    private Library MapperToLibraryUpdate(LibraryUpdateDTO updateDTO, int userId)
+    private Library MapperToLibraryUpdate(LibraryUpdateDTO updateDTO, int userId, int id)
     {
         return new Library
         {
+            Id = id,
             UserId = userId,
             LibraryName = updateDTO.LibraryName,
             LibraryDescription = updateDTO.LibraryDescription

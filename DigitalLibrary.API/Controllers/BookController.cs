@@ -7,59 +7,78 @@ using DigitalLibrary.API.Models;
 using DigitalLibrary.API.Services;
 
 [ApiController]
-[Route("api/libraries/{libraryId:int}/books")]
+[Route("api/users/{userId:int}/library/books")]
 public class BookController : ControllerBase
 {
     private readonly BookService _bookService;
+    private readonly LibraryService _libraryService;
 
-    public BookController(BookService bookService)
+    public BookController(BookService bookService, LibraryService libraryService)
     {
         _bookService = bookService;
+        _libraryService = libraryService;
     }
 
     [HttpGet("{id:int}")]
-    public async Task<ActionResult<BookReadDTO>> GetBookById([FromRoute] int id, [FromRoute] int libraryId)
+    public async Task<ActionResult<BookReadDTO>> GetBookById([FromRoute] int id, [FromRoute] int userId)
     {
-        var book = await _bookService.GetBookByIdAsync(id, libraryId);
+        var library = await _libraryService.GetLibraryByUserIdAsync(userId);
+        if (library == null) return NotFound();
+
+        var book = await _bookService.GetBookByIdAsync(id, library.Id);
         if (book == null) return NotFound();
+
         var dto = MapperBookToReadDTO(book);
         return Ok(dto);
     }
 
     [HttpGet]
-    public async Task<ActionResult<List<BookReadDTO>>> GetBooks([FromQuery] BookGenre? genre, [FromRoute] int libraryId, [FromQuery] StarRating? rating, [FromQuery] BookStatus? status)
+    public async Task<ActionResult<List<BookReadDTO>>> GetBooks([FromQuery] BookGenre? genre, [FromRoute] int userId, [FromQuery] StarRating? rating, [FromQuery] BookStatus? status)
     {
-        var books = await _bookService.GetBooksAsync(status, genre, rating, libraryId);
+        var library = await _libraryService.GetLibraryByUserIdAsync(userId);
+        if (library == null) return NotFound();
+        
+        var books = await _bookService.GetBooksAsync(status, genre, rating, library.Id);
         if (books.Count == 0) return NotFound();
+
         var bookDTOs = books.Select(MapperBookToReadDTO).ToList();
         //200 - success
         return Ok(bookDTOs);
     }
 
     [HttpPost]
-    public async Task<ActionResult<BookReadDTO>> CreateBook([FromRoute] int libraryId, [FromBody] BookCreateDTO bookCreateDTO)
+    public async Task<ActionResult<BookReadDTO>> CreateBook([FromRoute] int userId, [FromBody] BookCreateDTO bookCreateDTO)
     {
-        var toBook = MapperCreateDtoToBook(bookCreateDTO, libraryId);
+        var library = await _libraryService.GetLibraryByUserIdAsync(userId);
+        if (library == null) return NotFound();
+
+        var toBook = MapperCreateDtoToBook(bookCreateDTO, library.Id);
         var createdBook = await _bookService.AddBookAsync(toBook);
         var toDTO = MapperBookToReadDTO(createdBook);
         //201 - succes
-        return CreatedAtAction(nameof(GetBookById), new { id = createdBook.Id, libraryId }, toDTO);
+        return CreatedAtAction(nameof(GetBookById), new { id = createdBook.Id, userId }, toDTO);
     }
 
     [HttpPut("{id:int}")]
-    public async Task<IActionResult> UpdateBook([FromRoute] int libraryId, [FromRoute] int id, [FromBody] BookUpdateDTO bookUpdateDTO)
+    public async Task<IActionResult> UpdateBook([FromRoute] int userId, [FromRoute] int id, [FromBody] BookUpdateDTO bookUpdateDTO)
     {
-        var toBook = MapperUpdateDtoToBook(bookUpdateDTO, id, libraryId);
-        var updatedBook = await _bookService.UpdateBookAsync(toBook, libraryId);
+        var library = await _libraryService.GetLibraryByUserIdAsync(userId);
+        if (library == null) return NotFound();
+
+        var toBook = MapperUpdateDtoToBook(bookUpdateDTO, id, library.Id);
+        var updatedBook = await _bookService.UpdateBookAsync(toBook, library.Id);
         if (!updatedBook) return NotFound();
         //204 - succes
         return NoContent();
     }
 
     [HttpDelete("{id:int}")]
-    public async Task<IActionResult> DeleteBook([FromRoute] int id, [FromRoute] int libraryId)
+    public async Task<IActionResult> DeleteBook([FromRoute] int id, [FromRoute] int userId)
     {
-        var deletedBook = await _bookService.DeleteBookAsync(id, libraryId);
+        var library = await _libraryService.GetLibraryByUserIdAsync(userId);
+        if (library == null) return NotFound();
+
+        var deletedBook = await _bookService.DeleteBookAsync(id, library.Id);
         if (!deletedBook) return NotFound();
         return NoContent();
     }
