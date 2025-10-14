@@ -152,37 +152,37 @@ public class BookController : ControllerBase
         };
     }
 
-    private Book MapperCreateDtoToBook(BookCreateDTO bCreateDto, int libraryId)
+    private Book MapperCreateDtoToBook(BookCreateDTO bookCreateDto, int libraryId)
     {
         return new Book
         {
             LibraryId = libraryId,
-            BookTitle = bCreateDto.BookTitle,
-            Author = bCreateDto.Author,
-            BookStatus = bCreateDto.BookStatus,
-            Review = bCreateDto.Review,
-            StarRating = bCreateDto.StarRating,
-            Genre = bCreateDto.Genre,
-            DateStarted = bCreateDto.DateStarted,
-            DateFinished = bCreateDto.DateFinished
+            BookTitle = bookCreateDto.BookTitle,
+            Author = bookCreateDto.Author,
+            BookStatus = bookCreateDto.BookStatus,
+            Review = bookCreateDto.Review,
+            StarRating = bookCreateDto.StarRating,
+            Genre = bookCreateDto.Genre,
+            DateStarted = bookCreateDto.DateStarted,
+            DateFinished = bookCreateDto.DateFinished
 
         };
     }
 
-    private Book MapperUpdateDtoToBook(BookUpdateDTO bUpdateDto, int id, int libraryId)
+    private Book MapperUpdateDtoToBook(BookUpdateDTO bookUpdateDto, int id, int libraryId)
     {
         return new Book
         {
             Id = id,
             LibraryId = libraryId,
-            BookTitle = bUpdateDto.BookTitle,
-            Author = bUpdateDto.Author,
-            BookStatus = bUpdateDto.BookStatus,
-            Review = bUpdateDto.Review,
-            StarRating = bUpdateDto.StarRating,
-            Genre = bUpdateDto.Genre,
-            DateStarted = bUpdateDto.DateStarted,
-            DateFinished = bUpdateDto.DateFinished,
+            BookTitle = bookUpdateDto.BookTitle,
+            Author = bookUpdateDto.Author,
+            BookStatus = bookUpdateDto.BookStatus,
+            Review = bookUpdateDto.Review,
+            StarRating = bookUpdateDto.StarRating,
+            Genre = bookUpdateDto.Genre,
+            DateStarted = bookUpdateDto.DateStarted,
+            DateFinished = bookUpdateDto.DateFinished,
         };
     }
 }

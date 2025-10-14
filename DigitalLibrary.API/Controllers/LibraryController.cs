@@ -39,7 +39,7 @@ public class LibraryController : ControllerBase
         var library = await _libraryService.GetLibraryByUserIdAsync(userId);
         if (library == null) return NotFound();
 
-        var dto = MapperToReadDTO(library);
+        var dto = MapperLibraryToReadDTO(library);
         return Ok(dto);
 
     }
@@ -57,9 +57,9 @@ public class LibraryController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<LibraryReadDTO>> CreateLibrary([FromRoute] int userId, [FromBody] LibraryCreateDTO libraryCreateDTO)
     {
-        var toLibrary = MapperToLibraryCreate(libraryCreateDTO, userId);
+        var toLibrary = MapperLibraryCreateDtoToLibrary(libraryCreateDTO, userId);
         var newLibrary = await _libraryService.AddLibraryAsync(toLibrary);
-        var toDto = MapperToReadDTO(newLibrary);
+        var toDto = MapperLibraryToReadDTO(newLibrary);
         return CreatedAtAction(nameof(GetLibrary), new { userId = newLibrary.UserId }, toDto);
     }
     
@@ -91,7 +91,7 @@ public class LibraryController : ControllerBase
         var existingLibrary = await _libraryService.GetLibraryByUserIdAsync(userId);
         if (existingLibrary == null) return NotFound();
 
-        var toLibrary = MapperToLibraryUpdate(updateDTO, userId, existingLibrary.Id);
+        var toLibrary = MapperLibraryUpdateDtoToLibrary(updateDTO, userId, existingLibrary.Id);
         var updatedLibrary = await _libraryService.UpdateLibraryAsync(toLibrary, userId);
         if (!updatedLibrary) return NotFound();
         return NoContent();
@@ -99,7 +99,7 @@ public class LibraryController : ControllerBase
 
 
     //Mappers
-    private LibraryReadDTO MapperToReadDTO(Library library)
+    private LibraryReadDTO MapperLibraryToReadDTO(Library library)
     {
         return new LibraryReadDTO
         {
@@ -109,7 +109,7 @@ public class LibraryController : ControllerBase
         };
     }
 
-    private Library MapperToLibraryCreate(LibraryCreateDTO libraryCreateDTO, int userId)
+    private Library MapperLibraryCreateDtoToLibrary(LibraryCreateDTO libraryCreateDTO, int userId)
     {
         return new Library
         {
@@ -119,14 +119,14 @@ public class LibraryController : ControllerBase
         };
     }
 
-    private Library MapperToLibraryUpdate(LibraryUpdateDTO updateDTO, int userId, int id)
+    private Library MapperLibraryUpdateDtoToLibrary(LibraryUpdateDTO libraryUpdateDTO, int userId, int id)
     {
         return new Library
         {
             Id = id,
             UserId = userId,
-            LibraryName = updateDTO.LibraryName,
-            LibraryDescription = updateDTO.LibraryDescription
+            LibraryName = libraryUpdateDTO.LibraryName,
+            LibraryDescription = libraryUpdateDTO.LibraryDescription
         };
     }
 
