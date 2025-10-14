@@ -62,6 +62,9 @@ public class LibraryController : ControllerBase
         var user = await _userService.GetUserByIdAsync(userId);
         if (user == null) return NotFound($"User with id {userId} does not exist.");
 
+        var existingLibrary = await _libraryService.GetLibraryByUserIdAsync(userId);
+        if (existingLibrary != null) return BadRequest("This user already has a library");
+
         var toLibrary = MapperLibraryCreateDtoToLibrary(libraryCreateDTO, userId);
         var newLibrary = await _libraryService.AddLibraryAsync(toLibrary);
         var toDto = MapperLibraryToReadDTO(newLibrary);

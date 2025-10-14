@@ -178,5 +178,17 @@
         <member name="M:DigitalLibrary.API.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
+        <member name="T:DigitalLibrary.API.Migrations.AddUniqueUseIdPerLibrary">
+            <inheritdoc />
+        </member>
+        <member name="M:DigitalLibrary.API.Migrations.AddUniqueUseIdPerLibrary.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:DigitalLibrary.API.Migrations.AddUniqueUseIdPerLibrary.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:DigitalLibrary.API.Migrations.AddUniqueUseIdPerLibrary.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
     </members>
 </doc>
