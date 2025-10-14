@@ -98,6 +98,7 @@
             The newly created <see cref="T:DigitalLibrary.API.DTOs.LibraryReadDTO"/> object.
             </returns>
             <response code="201">Successfully created a new library for the user.</response>
+            <response code="404">The specified user was not found.</response>
             <response code="400">The provided library data is invalid.</response>
         </member>
         <member name="M:DigitalLibrary.API.Controllers.LibraryController.DeleteLibrary(System.Int32)">

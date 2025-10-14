@@ -17,12 +17,13 @@ namespace DigitalLibrary.API.Controllers;
 public class LibraryController : ControllerBase
 {
     private readonly ILibraryService _libraryService;
+    private readonly IUserService _userService;
 
-    public LibraryController(ILibraryService libraryService)
+    public LibraryController(ILibraryService libraryService, IUserService userService)
     {
         _libraryService = libraryService;
+        _userService = userService;
     }
-
 
     /// <summary>
     /// Retrieves the library associated with a specific user.
@@ -53,13 +54,18 @@ public class LibraryController : ControllerBase
     /// The newly created <see cref="LibraryReadDTO"/> object.
     /// </returns>
     /// <response code="201">Successfully created a new library for the user.</response>
+    /// <response code="404">The specified user was not found.</response>
     /// <response code="400">The provided library data is invalid.</response>
     [HttpPost]
     public async Task<ActionResult<LibraryReadDTO>> CreateLibrary([FromRoute] int userId, [FromBody] LibraryCreateDTO libraryCreateDTO)
     {
+        var user = await _userService.GetUserByIdAsync(userId);
+        if (user == null) return NotFound($"User with id {userId} does not exist.");
+
         var toLibrary = MapperLibraryCreateDtoToLibrary(libraryCreateDTO, userId);
         var newLibrary = await _libraryService.AddLibraryAsync(toLibrary);
         var toDto = MapperLibraryToReadDTO(newLibrary);
+
         return CreatedAtAction(nameof(GetLibrary), new { userId = newLibrary.UserId }, toDto);
     }
     
