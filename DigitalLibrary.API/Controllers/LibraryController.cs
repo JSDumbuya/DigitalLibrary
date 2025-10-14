@@ -16,9 +16,9 @@ namespace DigitalLibrary.API.Controllers;
 [Route("api/users/{userId:int}/library")]
 public class LibraryController : ControllerBase
 {
-    private readonly LibraryService _libraryService;
+    private readonly ILibraryService _libraryService;
 
-    public LibraryController(LibraryService libraryService)
+    public LibraryController(ILibraryService libraryService)
     {
         _libraryService = libraryService;
     }
