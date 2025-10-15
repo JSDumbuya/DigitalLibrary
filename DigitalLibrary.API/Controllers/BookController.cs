@@ -92,7 +92,7 @@ public class BookController : ControllerBase
         var toBook = MapperCreateDtoToBook(bookCreateDTO, library.Id);
         var createdBook = await _bookService.AddBookAsync(toBook);
         var toDTO = MapperBookToReadDTO(createdBook);
-        
+
         //201 - succes
         return CreatedAtAction(nameof(GetBookById), new { id = createdBook.Id, userId }, toDTO);
     }
@@ -136,7 +136,6 @@ public class BookController : ControllerBase
         return NoContent();
     }
 
-    //Mappers
     private BookReadDTO MapperBookToReadDTO(Book book)
     {
         return new BookReadDTO

@@ -1302,3 +1302,11 @@ INFO: Unsupported notification method: $/setTrace
 2025.10.14 09:09:07 INFO  time: Connected to build server in 3.89s
 2025.10.14 09:09:07 INFO  Connected to Build server: scala-cli v1.8.3
 2025.10.14 09:09:09 INFO  time: indexed workspace in 2.08s
+okt. 14, 2025 10:26:32 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+okt. 14, 2025 11:11:30 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+okt. 14, 2025 11:11:30 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+okt. 14, 2025 11:11:41 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace

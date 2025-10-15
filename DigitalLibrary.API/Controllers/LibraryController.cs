@@ -106,8 +106,6 @@ public class LibraryController : ControllerBase
         return NoContent();
     }
 
-
-    //Mappers
     private LibraryReadDTO MapperLibraryToReadDTO(Library library)
     {
         return new LibraryReadDTO
