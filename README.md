@@ -45,5 +45,5 @@ http://localhost:5258/swagger/index.html
 
 ## Notes
 - Database comes pre-seeded with demo data.
-- Future additions will include algorithms, machine learning features, and UI enhancements.
+- Future additions will include book recommendations, yearly and monthly book reports, challenges and other user focused features.
 
