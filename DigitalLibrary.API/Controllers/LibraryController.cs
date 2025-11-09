@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using DigitalLibrary.API.DTOs;
 using DigitalLibrary.API.Models;
 using DigitalLibrary.API.Services;
@@ -17,12 +18,10 @@ namespace DigitalLibrary.API.Controllers;
 public class LibraryController : ControllerBase
 {
     private readonly ILibraryService _libraryService;
-    private readonly IUserService _userService;
 
-    public LibraryController(ILibraryService libraryService, IUserService userService)
+    public LibraryController(ILibraryService libraryService)
     {
         _libraryService = libraryService;
-        _userService = userService;
     }
 
     /// <summary>
@@ -37,12 +36,15 @@ public class LibraryController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<LibraryReadDTO>> GetLibrary([FromRoute] int userId)
     {
-        var library = await _libraryService.GetLibraryByUserIdAsync(userId);
-        if (library == null) return NotFound();
-
-        var dto = MapperLibraryToReadDTO(library);
-        return Ok(dto);
-
+        try
+        {
+            var libraryReadDTO = await _libraryService.GetLibraryByUserIdAsync(userId);
+            return Ok(libraryReadDTO);
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(ex.Message);
+        }
     }
 
     /// <summary>
@@ -59,17 +61,19 @@ public class LibraryController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<LibraryReadDTO>> CreateLibrary([FromRoute] int userId, [FromBody] LibraryCreateDTO libraryCreateDTO)
     {
-        var user = await _userService.GetUserByIdAsync(userId);
-        if (user == null) return NotFound($"User with id {userId} does not exist.");
-
-        var existingLibrary = await _libraryService.GetLibraryByUserIdAsync(userId);
-        if (existingLibrary != null) return BadRequest("This user already has a library");
-
-        var toLibrary = MapperLibraryCreateDtoToLibrary(libraryCreateDTO, userId);
-        var newLibrary = await _libraryService.AddLibraryAsync(toLibrary);
-        var toDto = MapperLibraryToReadDTO(newLibrary);
-
-        return CreatedAtAction(nameof(GetLibrary), new { userId = newLibrary.UserId }, toDto);
+        try
+        {
+            var createdLibraryReadDTO = await _libraryService.AddLibraryAsync(libraryCreateDTO, userId);
+            return CreatedAtAction(nameof(GetLibrary), new { userId }, createdLibraryReadDTO);
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(ex.Message);
+        }
+        catch (InvalidOperationException ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
     
     /// <summary>
@@ -81,9 +85,15 @@ public class LibraryController : ControllerBase
     [HttpDelete]
     public async Task<IActionResult> DeleteLibrary([FromRoute] int userId)
     {
-        var library = await _libraryService.DeleteLibraryAsync(userId);
-        if (!library) return NotFound();
-        return NoContent();
+        try
+        {
+            await _libraryService.DeleteLibraryAsync(userId);
+            return NoContent();
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(ex.Message);
+        }
     }
 
 
@@ -91,50 +101,25 @@ public class LibraryController : ControllerBase
     /// Updates the library associated with a specific user.
     /// </summary>
     /// <param name="userId">The ID of the user whose library is being updated.</param>
-    /// <param name="updateDTO">The updated library information.</param>
+    /// <param name="libraryUpdateDTO">The updated library information.</param>
     /// <response code="204">Successfully updated the user's library.</response>
     /// <response code="404">No library found for the specified user.</response>
     [HttpPut]
-    public async Task<IActionResult> UpdateLibrary([FromRoute] int userId, [FromBody] LibraryUpdateDTO updateDTO)
+    public async Task<IActionResult> UpdateLibrary([FromRoute] int userId, [FromBody] LibraryUpdateDTO libraryUpdateDTO)
     {
-        var existingLibrary = await _libraryService.GetLibraryByUserIdAsync(userId);
-        if (existingLibrary == null) return NotFound();
-
-        var toLibrary = MapperLibraryUpdateDtoToLibrary(updateDTO, userId, existingLibrary.Id);
-        var updatedLibrary = await _libraryService.UpdateLibraryAsync(toLibrary, userId);
-        if (!updatedLibrary) return NotFound();
-        return NoContent();
-    }
-
-    private LibraryReadDTO MapperLibraryToReadDTO(Library library)
-    {
-        return new LibraryReadDTO
+        try
         {
-            Id = library.Id,
-            LibraryDescription = library.LibraryDescription,
-            LibraryName = library.LibraryName
-        };
-    }
-
-    private Library MapperLibraryCreateDtoToLibrary(LibraryCreateDTO libraryCreateDTO, int userId)
-    {
-        return new Library
+            await _libraryService.UpdateLibraryAsync(libraryUpdateDTO, userId);
+            return NoContent();
+        }
+        catch (KeyNotFoundException ex)
         {
-            UserId = userId,
-            LibraryDescription = libraryCreateDTO.LibraryDescription,
-            LibraryName = libraryCreateDTO.LibraryName
-        };
-    }
-
-    private Library MapperLibraryUpdateDtoToLibrary(LibraryUpdateDTO libraryUpdateDTO, int userId, int id)
-    {
-        return new Library
+            return NotFound(ex.Message);
+        }
+        catch(InvalidOperationException ex)
         {
-            Id = id,
-            UserId = userId,
-            LibraryName = libraryUpdateDTO.LibraryName,
-            LibraryDescription = libraryUpdateDTO.LibraryDescription
-        };
+            return BadRequest(ex.Message);
+        }
     }
 
 }

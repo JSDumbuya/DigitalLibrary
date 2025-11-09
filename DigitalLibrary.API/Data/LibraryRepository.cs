@@ -28,11 +28,6 @@ public class LibraryRepository : ILibraryRepository
         return true;
     }
 
-    /*public async Task<Library?> GetLibraryByIdAsync(int id, int userId)
-    {
-        return await _context.Libraries.FirstOrDefaultAsync(library => library.Id == id && library.UserId == userId);
-    }*/
-
     public async Task<Library?> GetLibraryByUserIdAsync(int userId)
     {
         return await _context.Libraries.FirstOrDefaultAsync(library => library.UserId == userId);

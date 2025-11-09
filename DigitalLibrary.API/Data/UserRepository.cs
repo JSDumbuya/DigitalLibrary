@@ -1,6 +1,7 @@
 namespace DigitalLibrary.API.Data;
 
 using DigitalLibrary.API.Models;
+using Microsoft.EntityFrameworkCore;
 
 public class UserRepository: IUserRepository
 {
@@ -32,6 +33,12 @@ public class UserRepository: IUserRepository
     {
         return await _context.Users.FindAsync(id);
     }
+
+    public async Task<User?> GetUserByUserNameAsync(string username)
+    {
+        return await _context.Users.FirstOrDefaultAsync(user => user.UserName == username);
+    }
+
     public async Task<bool> UpdateAsync(User user)
     {
         var existingUser = await _context.Users.FindAsync(user.Id);
@@ -39,6 +46,13 @@ public class UserRepository: IUserRepository
 
         existingUser.UserName = user.UserName;
         await _context.SaveChangesAsync();
+        return true;
+    }
+
+    public async Task<bool> UserExitsAsync(string username)
+    {
+        var user = await _context.Users.FirstOrDefaultAsync(user => user.UserName == username);
+        if (user == null) return false;
         return true;
     }
 }

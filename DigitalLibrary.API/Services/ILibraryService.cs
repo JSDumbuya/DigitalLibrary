@@ -1,11 +1,11 @@
 namespace DigitalLibrary.API.Services;
 
 using DigitalLibrary.API.Models;
+using DigitalLibrary.API.DTOs;
 public interface ILibraryService
 {
-    Task<Library> AddLibraryAsync(Library library);
-    Task<bool> UpdateLibraryAsync(Library library, int userId);
+    Task<LibraryReadDTO> AddLibraryAsync(LibraryCreateDTO libraryCreateDTO, int userId);
+    Task<bool> UpdateLibraryAsync(LibraryUpdateDTO libraryUpdateDTO, int userId);
     Task<bool> DeleteLibraryAsync(int userId);
-    //Task<Library?> GetLibraryByIdAsync(int id, int userId);
-    Task<Library?> GetLibraryByUserIdAsync(int userId);
+    Task<LibraryReadDTO?> GetLibraryByUserIdAsync(int userId);
 }
