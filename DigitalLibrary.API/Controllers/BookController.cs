@@ -31,7 +31,7 @@ public class BookController : ControllerBase
     /// <param name="id">The unique identifier of the book to retrieve.</param>
     /// <param name="userId">The ID of the user who owns the library containing the book.</param>
     /// <returns>A <see cref="BookReadDTO"/> representing the requested book.</returns>
-    /// <response code="200">Successfully retrieved the book.</response>
+    /// <response code="200">Book successfully retrieved.</response>
     /// <response code="404">The specified book or library was not found.</response>
     [HttpGet("{id:int}")]
     public async Task<ActionResult<BookReadDTO>> GetBookById([FromRoute] int id, [FromRoute] int userId)
@@ -55,7 +55,7 @@ public class BookController : ControllerBase
     /// <param name="rating">An optional filter by book star rating.</param>
     /// <param name="status">An optional filter by book reading status.</param>
     /// <returns>A list of <see cref="BookReadDTO"/> objects representing the user's books.</returns>
-    /// <response code="200">Successfully retrieved the list of books.</response>
+    /// <response code="200">Books successfully retrieved.</response>
     /// <response code="404">No books found for the specified filters or user.</response>
     [HttpGet]
     public async Task<ActionResult<List<BookReadDTO>>> GetBooks([FromQuery] BookGenre? genre, [FromRoute] int userId, [FromQuery] StarRating? rating, [FromQuery] BookStatus? status)
@@ -82,7 +82,7 @@ public class BookController : ControllerBase
     /// </returns>
     /// <response code="201">Book successfully created.</response>
     /// <response code="404">No library found for the specified user.</response>
-    /// <response code="400">Invalid book data supplied.</response>
+    /// <response code="400">Invalid data supplied.</response>
     [HttpPost]
     public async Task<ActionResult<BookReadDTO>> CreateBook([FromRoute] int userId, [FromBody] BookCreateDTO bookCreateDTO)
     {
