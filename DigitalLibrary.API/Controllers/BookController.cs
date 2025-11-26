@@ -60,15 +60,16 @@ public class BookController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<List<BookReadDTO>>> GetBooks([FromQuery] BookGenre? genre, [FromRoute] int userId, [FromQuery] StarRating? rating, [FromQuery] BookStatus? status)
     {
-        var library = await _libraryService.GetLibraryByUserIdAsync(userId);
-        if (library == null) return NotFound();
-
-        var books = await _bookService.GetBooksAsync(status, genre, rating, library.Id);
-        if (books.Count == 0) return NotFound();
-
-        var bookDTOs = books.Select(MapperBookToReadDTO).ToList();
-        //200 - success
-        return Ok(bookDTOs);
+        try
+        {
+            var bookDTOs = await _bookService.GetBooksAsync(userId, status, genre, rating);
+            return Ok(bookDTOs);
+        }
+        catch (KeyNotFoundException ex)
+        {
+            
+            return NotFound(ex.Message);
+        }
     }
 
     /// <summary>
