@@ -19,12 +19,10 @@ namespace DigitalLibrary.API.Controllers;
 public class BookController : ControllerBase
 {
     private readonly IBookService _bookService;
-    private readonly ILibraryService _libraryService;
 
-    public BookController(IBookService bookService, ILibraryService libraryService)
+    public BookController(IBookService bookService)
     {
         _bookService = bookService;
-        _libraryService = libraryService;
     }
 
     /// <summary>
@@ -38,14 +36,15 @@ public class BookController : ControllerBase
     [HttpGet("{id:int}")]
     public async Task<ActionResult<BookReadDTO>> GetBookById([FromRoute] int id, [FromRoute] int userId)
     {
-        var library = await _libraryService.GetLibraryByUserIdAsync(userId);
-        if (library == null) return NotFound();
-
-        var book = await _bookService.GetBookByIdAsync(id, library.Id);
-        if (book == null) return NotFound();
-
-        var dto = MapperBookToReadDTO(book);
-        return Ok(dto);
+        try
+        {
+            var bookReadDTO = await _bookService.GetBookByIdAsync(id, userId);
+            return Ok(bookReadDTO);
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(ex.Message);
+        }
     }
 
     /// <summary>
@@ -86,15 +85,16 @@ public class BookController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<BookReadDTO>> CreateBook([FromRoute] int userId, [FromBody] BookCreateDTO bookCreateDTO)
     {
-        var library = await _libraryService.GetLibraryByUserIdAsync(userId);
-        if (library == null) return NotFound();
-
-        var toBook = MapperCreateDtoToBook(bookCreateDTO, library.Id);
-        var createdBook = await _bookService.AddBookAsync(toBook);
-        var toDTO = MapperBookToReadDTO(createdBook);
-
-        //201 - succes
-        return CreatedAtAction(nameof(GetBookById), new { id = createdBook.Id, userId }, toDTO);
+        try
+        {
+            var createdBookReadDTO = await _bookService.AddBookAsync(bookCreateDTO, userId);
+            //201 - succes
+            return CreatedAtAction(nameof(GetBookById), new { id = createdBookReadDTO.Id, userId }, createdBookReadDTO);
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(ex.Message);
+        }
     }
 
     /// <summary>
@@ -108,14 +108,20 @@ public class BookController : ControllerBase
     [HttpPut("{id:int}")]
     public async Task<IActionResult> UpdateBook([FromRoute] int userId, [FromRoute] int id, [FromBody] BookUpdateDTO bookUpdateDTO)
     {
-        var library = await _libraryService.GetLibraryByUserIdAsync(userId);
-        if (library == null) return NotFound();
-
-        var toBook = MapperUpdateDtoToBook(bookUpdateDTO, id, library.Id);
-        var updatedBook = await _bookService.UpdateBookAsync(toBook, library.Id);
-        if (!updatedBook) return NotFound();
-        //204 - succes
-        return NoContent();
+        try
+        {
+            await _bookService.UpdateBookAsync(bookUpdateDTO, id, userId);
+            //204 - succes
+            return NoContent();
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(ex.Message);
+        }
+        catch (InvalidOperationException ex)
+        {
+            return NotFound(ex.Message);
+        }
     }
     
     /// <summary>
@@ -128,61 +134,14 @@ public class BookController : ControllerBase
     [HttpDelete("{id:int}")]
     public async Task<IActionResult> DeleteBook([FromRoute] int id, [FromRoute] int userId)
     {
-        var library = await _libraryService.GetLibraryByUserIdAsync(userId);
-        if (library == null) return NotFound();
-
-        var deletedBook = await _bookService.DeleteBookAsync(id, library.Id);
-        if (!deletedBook) return NotFound();
-        return NoContent();
-    }
-
-    private BookReadDTO MapperBookToReadDTO(Book book)
-    {
-        return new BookReadDTO
+        try
         {
-            Id = book.Id,
-            BookTitle = book.BookTitle,
-            Author = book.Author,
-            BookStatus = book.BookStatus,
-            Review = book.Review,
-            StarRating = book.StarRating,
-            Genre = book.Genre,
-            DateStarted = book.DateStarted,
-            DateFinished = book.DateFinished
-        };
-    }
-
-    private Book MapperCreateDtoToBook(BookCreateDTO bookCreateDto, int libraryId)
-    {
-        return new Book
+            await _bookService.DeleteBookAsync(id, userId);
+            return NoContent();
+        }
+        catch (KeyNotFoundException ex)
         {
-            LibraryId = libraryId,
-            BookTitle = bookCreateDto.BookTitle,
-            Author = bookCreateDto.Author,
-            BookStatus = bookCreateDto.BookStatus,
-            Review = bookCreateDto.Review,
-            StarRating = bookCreateDto.StarRating,
-            Genre = bookCreateDto.Genre,
-            DateStarted = bookCreateDto.DateStarted,
-            DateFinished = bookCreateDto.DateFinished
-
-        };
-    }
-
-    private Book MapperUpdateDtoToBook(BookUpdateDTO bookUpdateDto, int id, int libraryId)
-    {
-        return new Book
-        {
-            Id = id,
-            LibraryId = libraryId,
-            BookTitle = bookUpdateDto.BookTitle,
-            Author = bookUpdateDto.Author,
-            BookStatus = bookUpdateDto.BookStatus,
-            Review = bookUpdateDto.Review,
-            StarRating = bookUpdateDto.StarRating,
-            Genre = bookUpdateDto.Genre,
-            DateStarted = bookUpdateDto.DateStarted,
-            DateFinished = bookUpdateDto.DateFinished,
-        };
+            return NotFound(ex.Message);
+        }
     }
 }

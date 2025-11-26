@@ -1,6 +1,6 @@
 # DigitalLibrary
 
-DigitalLibrary is a full-stack application for keeping track of books. Users can record the books they have read, track what they are currently reading, and maintain a personal library. The application is built with **ASP.NET Core**, **Angular**, and **Docker**, and includes a RESTful API, an SQLite database, Swagger documentation, asynchronous programming, Authentication, and unit and integration testing.
+DigitalLibrary is a full-stack application for keeping track of books. Users can record the books they have read, track what they are currently reading, and maintain a personal library. The application is built with **ASP.NET Core**, **Angular**, and **Docker**, and includes a RESTful API, an SQLite database, Swagger documentation, asynchronous programming, authentication, and unit and integration testing.
 
 ---
 
@@ -45,6 +45,6 @@ http://localhost:5258/swagger/index.html
 ---
 
 ## Notes
-- Database comes pre-seeded with demo data.
+- The database comes pre-seeded with demo data.
 - Future additions will include book recommendations, yearly and monthly book reports, challenges and other user focused features.
 

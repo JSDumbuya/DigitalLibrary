@@ -1310,3 +1310,509 @@ okt. 14, 2025 11:11:30 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint not
 INFO: Unsupported notification method: $/setTrace
 okt. 14, 2025 11:11:41 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
 INFO: Unsupported notification method: $/setTrace
+2025.10.17 08:59:04 INFO  Shutting down server
+2025.10.17 08:59:04 INFO  shutting down Metals
+2025.10.17 08:59:04 INFO  Shut down connection with build server.
+2025.10.17 08:59:04 INFO  Exiting server
+2025.10.17 08:59:23 INFO  Started: Metals version 1.6.2 in folders '/Users/jariasallydumbuya/Desktop/DigitalLibrary' for client Visual Studio Code 1.105.0.
+2025.10.17 08:59:25 INFO  Attempting to connect to the build server...
+2025.10.17 08:59:25 INFO  Running BSP server List(/opt/homebrew/bin/scala-cli, bsp, --json-options, /Users/jariasallydumbuya/Desktop/DigitalLibrary/.scala-build/ide-options-v2.json, --json-launcher-options, /Users/jariasallydumbuya/Desktop/DigitalLibrary/.scala-build/ide-launcher-options.json, --envs-file, /Users/jariasallydumbuya/Desktop/DigitalLibrary/.scala-build/ide-envs.json, /Users/jariasallydumbuya/Desktop/DigitalLibrary)
+2025.10.17 08:59:25 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/jariasallydumbuya/Desktop/DigitalLibrary/.metals/bsp.trace.json or /Users/jariasallydumbuya/Library/Caches/org.scalameta.metals/bsp.trace.json
+2025.10.17 08:59:30 INFO  time: Connected to build server in 5.16s
+2025.10.17 08:59:30 INFO  Connected to Build server: scala-cli v1.8.3
+2025.10.17 08:59:30 INFO  time: Imported build in 0.12s
+2025.10.17 08:59:33 INFO  time: indexed workspace in 3.1s
+2025.10.17 09:07:56 INFO  Shutting down server
+2025.10.17 09:07:56 INFO  shutting down Metals
+2025.10.17 09:07:56 INFO  Shut down connection with build server.
+2025.10.17 09:07:56 INFO  BSP server: Oct 17, 2025 9:07:56 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleNotification
+2025.10.17 09:07:56 INFO  BSP server: WARNING: Notification threw an exception: {
+2025.10.17 09:07:56 INFO  BSP server:   "jsonrpc": "2.0",
+2025.10.17 09:07:56 INFO  BSP server:   "method": "build/exit",
+2025.10.17 09:07:56 INFO  BSP server:   "params": null
+2025.10.17 09:07:56 INFO  BSP server: }
+2025.10.17 09:07:56 INFO  BSP server: java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+2025.10.17 09:07:56 INFO  BSP server: 	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+2025.10.17 09:07:56 INFO  BSP server: 	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.notify(GenericEndpoint.java:152)
+2025.10.17 09:07:56 INFO  BSP server: 	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleNotification(RemoteEndpoint.java:220)
+2025.10.17 09:07:56 INFO  BSP server: 	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:187)
+2025.10.17 09:07:56 INFO  BSP server: 	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+2025.10.17 09:07:56 INFO  BSP server: 	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+2025.10.17 09:07:56 INFO  BSP server: 	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+2025.10.17 09:07:56 INFO  BSP server: 	at java.base@17.0.6/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+2025.10.17 09:07:56 INFO  BSP server: 	at java.base@17.0.6/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+2025.10.17 09:07:56 INFO  BSP server: 	at java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+2025.10.17 09:07:56 INFO  BSP server: 	at java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+2025.10.17 09:07:56 INFO  BSP server: 	at java.base@17.0.6/java.lang.Thread.run(Thread.java:833)
+2025.10.17 09:07:56 INFO  BSP server: 	at com.oracle.svm.core.thread.PlatformThreads.threadStartRoutine(PlatformThreads.java:775)
+2025.10.17 09:07:56 INFO  BSP server: 	at com.oracle.svm.core.posix.thread.PosixPlatformThreads.pthreadStartRoutine(PosixPlatformThreads.java:203)
+2025.10.17 09:07:56 INFO  BSP server: Caused by: java.lang.reflect.InvocationTargetException
+2025.10.17 09:07:56 INFO  BSP server: 	at java.base@17.0.6/java.lang.reflect.Method.invoke(Method.java:568)
+2025.10.17 09:07:56 INFO  BSP server: 	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+2025.10.17 09:07:56 INFO  BSP server: 	... 13 more
+2025.10.17 09:07:56 INFO  BSP server: Caused by: java.lang.RuntimeException: BSP server not initialized yet
+2025.10.17 09:07:56 INFO  BSP server: 	at scala.sys.package$.error(package.scala:27)
+2025.10.17 09:07:56 INFO  BSP server: 	at scala.build.bsp.BloopSession$Reference.get(BloopSession.scala:70)
+2025.10.17 09:07:56 INFO  BSP server: 	at scala.build.bsp.BspImpl.$anonfun$11(BspImpl.scala:475)
+2025.10.17 09:07:56 INFO  BSP server: 	at scala.build.bsp.BuildServerProxy.onBuildExit(BuildServerProxy.scala:29)
+2025.10.17 09:07:56 INFO  BSP server: 	... 15 more
+2025.10.17 09:07:56 INFO  BSP server: 
+2025.10.17 09:07:56 INFO  Exiting server
+2025.11.07 11:37:44 INFO  Started: Metals version 1.6.3 in folders '/Users/jariasallydumbuya/Desktop/DigitalLibrary' for client Visual Studio Code 1.105.1.
+2025.11.07 11:37:44 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2025.11.07 11:37:44 INFO  Attempting to connect to the build server...
+2025.11.07 11:37:44 INFO  Running BSP server List(/opt/homebrew/bin/scala-cli, bsp, --json-options, /Users/jariasallydumbuya/Desktop/DigitalLibrary/.scala-build/ide-options-v2.json, --json-launcher-options, /Users/jariasallydumbuya/Desktop/DigitalLibrary/.scala-build/ide-launcher-options.json, --envs-file, /Users/jariasallydumbuya/Desktop/DigitalLibrary/.scala-build/ide-envs.json, /Users/jariasallydumbuya/Desktop/DigitalLibrary)
+2025.11.07 11:37:44 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/jariasallydumbuya/Desktop/DigitalLibrary/.metals/bsp.trace.json or /Users/jariasallydumbuya/Library/Caches/org.scalameta.metals/bsp.trace.json
+2025.11.07 11:37:48 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/ch/epfl/scala/bloop-frontend_2.12/2.0.13/bloop-frontend_2.12-2.0.13.pom
+2025.11.07 11:37:48 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/ch/epfl/scala/bloop-frontend_2.12/2.0.13/bloop-frontend_2.12-2.0.13.pom
+2025.11.07 11:37:48 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/ch/epfl/scala/bloop-frontend_2.12/2.0.13/bloop-frontend_2.12-2.0.13.pom.sha1
+2025.11.07 11:37:48 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/ch/epfl/scala/bloop-frontend_2.12/2.0.13/bloop-frontend_2.12-2.0.13.pom.sha1
+2025.11.07 11:37:48 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/ch/epfl/scala/bloop-frontend_2.12/2.0.13/bloop-frontend_2.12-2.0.13.pom
+2025.11.07 11:37:49 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/ch/epfl/scala/bloop-frontend_2.12/2.0.13/bloop-frontend_2.12-2.0.13.pom
+2025.11.07 11:37:49 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/ch/epfl/scala/bloop-frontend_2.12/2.0.13/bloop-frontend_2.12-2.0.13.pom.sha1
+2025.11.07 11:37:49 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/ch/epfl/scala/bloop-frontend_2.12/2.0.13/bloop-frontend_2.12-2.0.13.pom.sha1
+2025.11.07 11:37:49 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/ch/epfl/scala/bloop-frontend_2.12/2.0.13/bloop-frontend_2.12-2.0.13.pom
+2025.11.07 11:37:49 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/ch/epfl/scala/bloop-frontend_2.12/2.0.13/bloop-frontend_2.12-2.0.13.pom
+2025.11.07 11:37:49 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/ch/epfl/scala/bloop-frontend_2.12/2.0.13/bloop-frontend_2.12-2.0.13.pom.sha1
+2025.11.07 11:37:50 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/ch/epfl/scala/bloop-frontend_2.12/2.0.13/bloop-frontend_2.12-2.0.13.pom.sha1
+2025.11.07 11:37:50 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/ch/epfl/scala/bloop-frontend_2.12/2.0.13/bloop-frontend_2.12-2.0.13.pom
+2025.11.07 11:37:50 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/ch/epfl/scala/bloop-frontend_2.12/2.0.13/bloop-frontend_2.12-2.0.13.pom
+2025.11.07 11:37:50 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/ch/epfl/scala/bloop-backend_2.12/2.0.13/bloop-backend_2.12-2.0.13.pom
+2025.11.07 11:37:50 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/ch/epfl/scala/scala-debug-adapter_2.12/4.2.8/scala-debug-adapter_2.12-4.2.8.pom
+2025.11.07 11:37:50 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/ch/epfl/scala/bloop-shared_2.12/2.0.13/bloop-shared_2.12-2.0.13.pom
+2025.11.07 11:37:50 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/ch/epfl/scala/bloop-backend_2.12/2.0.13/bloop-backend_2.12-2.0.13.pom
+2025.11.07 11:37:50 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/ch/epfl/scala/bloop-backend_2.12/2.0.13/bloop-backend_2.12-2.0.13.pom.sha1
+2025.11.07 11:37:50 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/ch/epfl/scala/bloop-backend_2.12/2.0.13/bloop-backend_2.12-2.0.13.pom.sha1
+2025.11.07 11:37:50 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/ch/epfl/scala/bloop-backend_2.12/2.0.13/bloop-backend_2.12-2.0.13.pom
+2025.11.07 11:37:50 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/ch/epfl/scala/bloop-shared_2.12/2.0.13/bloop-shared_2.12-2.0.13.pom
+2025.11.07 11:37:50 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/ch/epfl/scala/bloop-shared_2.12/2.0.13/bloop-shared_2.12-2.0.13.pom.sha1
+2025.11.07 11:37:50 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/ch/epfl/scala/scala-debug-adapter_2.12/4.2.8/scala-debug-adapter_2.12-4.2.8.pom
+2025.11.07 11:37:50 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/ch/epfl/scala/scala-debug-adapter_2.12/4.2.8/scala-debug-adapter_2.12-4.2.8.pom.sha1
+2025.11.07 11:37:50 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/ch/epfl/scala/bloop-backend_2.12/2.0.13/bloop-backend_2.12-2.0.13.pom
+2025.11.07 11:37:50 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/ch/epfl/scala/bloop-backend_2.12/2.0.13/bloop-backend_2.12-2.0.13.pom.sha1
+2025.11.07 11:37:50 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/ch/epfl/scala/bloop-shared_2.12/2.0.13/bloop-shared_2.12-2.0.13.pom.sha1
+2025.11.07 11:37:50 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/ch/epfl/scala/bloop-shared_2.12/2.0.13/bloop-shared_2.12-2.0.13.pom
+2025.11.07 11:37:50 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/ch/epfl/scala/scala-debug-adapter_2.12/4.2.8/scala-debug-adapter_2.12-4.2.8.pom.sha1
+2025.11.07 11:37:50 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/ch/epfl/scala/scala-debug-adapter_2.12/4.2.8/scala-debug-adapter_2.12-4.2.8.pom
+2025.11.07 11:37:50 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/ch/epfl/scala/bloop-backend_2.12/2.0.13/bloop-backend_2.12-2.0.13.pom.sha1
+2025.11.07 11:37:50 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/ch/epfl/scala/bloop-backend_2.12/2.0.13/bloop-backend_2.12-2.0.13.pom
+2025.11.07 11:37:52 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/ch/epfl/scala/bloop-shared_2.12/2.0.13/bloop-shared_2.12-2.0.13.pom
+2025.11.07 11:37:52 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/ch/epfl/scala/bloop-shared_2.12/2.0.13/bloop-shared_2.12-2.0.13.pom.sha1
+2025.11.07 11:37:52 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/ch/epfl/scala/scala-debug-adapter_2.12/4.2.8/scala-debug-adapter_2.12-4.2.8.pom
+2025.11.07 11:37:52 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/ch/epfl/scala/scala-debug-adapter_2.12/4.2.8/scala-debug-adapter_2.12-4.2.8.pom.sha1
+2025.11.07 11:37:52 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/ch/epfl/scala/bloop-shared_2.12/2.0.13/bloop-shared_2.12-2.0.13.pom.sha1
+2025.11.07 11:37:52 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/ch/epfl/scala/bloop-shared_2.12/2.0.13/bloop-shared_2.12-2.0.13.pom
+2025.11.07 11:37:52 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/ch/epfl/scala/scala-debug-adapter_2.12/4.2.8/scala-debug-adapter_2.12-4.2.8.pom.sha1
+2025.11.07 11:37:52 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/ch/epfl/scala/scala-debug-adapter_2.12/4.2.8/scala-debug-adapter_2.12-4.2.8.pom
+2025.11.07 11:37:52 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/ch/epfl/scala/bloop-backend_2.12/2.0.13/bloop-backend_2.12-2.0.13.pom
+2025.11.07 11:37:52 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/ch/epfl/scala/bloop-backend_2.12/2.0.13/bloop-backend_2.12-2.0.13.pom.sha1
+2025.11.07 11:37:52 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/ch/epfl/scala/bloop-shared_2.12/2.0.13/bloop-shared_2.12-2.0.13.pom
+2025.11.07 11:37:52 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/ch/epfl/scala/bloop-shared_2.12/2.0.13/bloop-shared_2.12-2.0.13.pom.sha1
+2025.11.07 11:37:52 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/ch/epfl/scala/scala-debug-adapter_2.12/4.2.8/scala-debug-adapter_2.12-4.2.8.pom
+2025.11.07 11:37:52 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/ch/epfl/scala/scala-debug-adapter_2.12/4.2.8/scala-debug-adapter_2.12-4.2.8.pom.sha1
+2025.11.07 11:37:53 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/ch/epfl/scala/bloop-backend_2.12/2.0.13/bloop-backend_2.12-2.0.13.pom.sha1
+2025.11.07 11:37:53 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/ch/epfl/scala/bloop-backend_2.12/2.0.13/bloop-backend_2.12-2.0.13.pom
+2025.11.07 11:37:53 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/ch/epfl/scala/bloop-backend_2.12/2.0.13/bloop-backend_2.12-2.0.13.pom
+2025.11.07 11:37:53 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/ch/epfl/scala/bloop-shared_2.12/2.0.13/bloop-shared_2.12-2.0.13.pom.sha1
+2025.11.07 11:37:53 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/ch/epfl/scala/bloop-shared_2.12/2.0.13/bloop-shared_2.12-2.0.13.pom
+2025.11.07 11:37:53 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/ch/epfl/scala/scala-debug-adapter_2.12/4.2.8/scala-debug-adapter_2.12-4.2.8.pom.sha1
+2025.11.07 11:37:53 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/ch/epfl/scala/scala-debug-adapter_2.12/4.2.8/scala-debug-adapter_2.12-4.2.8.pom
+2025.11.07 11:37:53 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/ch/epfl/scala/bloop-shared_2.12/2.0.13/bloop-shared_2.12-2.0.13.pom
+2025.11.07 11:37:53 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/ch/epfl/scala/scala-debug-adapter_2.12/4.2.8/scala-debug-adapter_2.12-4.2.8.pom
+2025.11.07 11:37:53 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/parsers_2.12/4.13.8/parsers_2.12-4.13.8.pom
+2025.11.07 11:37:53 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/librarymanagement-ivy_2.12/1.11.2/librarymanagement-ivy_2.12-1.11.2.pom
+2025.11.07 11:37:53 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/librarymanagement-ivy_2.12/1.11.2/librarymanagement-ivy_2.12-1.11.2.pom
+2025.11.07 11:37:53 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/librarymanagement-ivy_2.12/1.11.2/librarymanagement-ivy_2.12-1.11.2.pom.sha1
+2025.11.07 11:37:53 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/parsers_2.12/4.13.8/parsers_2.12-4.13.8.pom
+2025.11.07 11:37:53 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/parsers_2.12/4.13.8/parsers_2.12-4.13.8.pom.sha1
+2025.11.07 11:37:53 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/librarymanagement-ivy_2.12/1.11.2/librarymanagement-ivy_2.12-1.11.2.pom.sha1
+2025.11.07 11:37:53 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/librarymanagement-ivy_2.12/1.11.2/librarymanagement-ivy_2.12-1.11.2.pom
+2025.11.07 11:37:53 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/parsers_2.12/4.13.8/parsers_2.12-4.13.8.pom.sha1
+2025.11.07 11:37:53 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/org/scalameta/parsers_2.12/4.13.8/parsers_2.12-4.13.8.pom
+2025.11.07 11:37:54 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/librarymanagement-ivy_2.12/1.11.2/librarymanagement-ivy_2.12-1.11.2.pom
+2025.11.07 11:37:54 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/librarymanagement-ivy_2.12/1.11.2/librarymanagement-ivy_2.12-1.11.2.pom.sha1
+2025.11.07 11:37:54 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/org/scalameta/parsers_2.12/4.13.8/parsers_2.12-4.13.8.pom
+2025.11.07 11:37:54 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/org/scalameta/parsers_2.12/4.13.8/parsers_2.12-4.13.8.pom.sha1
+2025.11.07 11:37:54 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/librarymanagement-ivy_2.12/1.11.2/librarymanagement-ivy_2.12-1.11.2.pom.sha1
+2025.11.07 11:37:54 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/org/scala-sbt/librarymanagement-ivy_2.12/1.11.2/librarymanagement-ivy_2.12-1.11.2.pom
+2025.11.07 11:37:54 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/org/scalameta/parsers_2.12/4.13.8/parsers_2.12-4.13.8.pom.sha1
+2025.11.07 11:37:54 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/org/scalameta/parsers_2.12/4.13.8/parsers_2.12-4.13.8.pom
+2025.11.07 11:37:54 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/org/scala-sbt/librarymanagement-ivy_2.12/1.11.2/librarymanagement-ivy_2.12-1.11.2.pom
+2025.11.07 11:37:54 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/org/scala-sbt/librarymanagement-ivy_2.12/1.11.2/librarymanagement-ivy_2.12-1.11.2.pom.sha1
+2025.11.07 11:37:54 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/org/scalameta/parsers_2.12/4.13.8/parsers_2.12-4.13.8.pom
+2025.11.07 11:37:54 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/org/scalameta/parsers_2.12/4.13.8/parsers_2.12-4.13.8.pom.sha1
+2025.11.07 11:37:55 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/org/scala-sbt/librarymanagement-ivy_2.12/1.11.2/librarymanagement-ivy_2.12-1.11.2.pom.sha1
+2025.11.07 11:37:55 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/librarymanagement-ivy_2.12/1.11.2/librarymanagement-ivy_2.12-1.11.2.pom
+2025.11.07 11:37:55 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/org/scalameta/parsers_2.12/4.13.8/parsers_2.12-4.13.8.pom.sha1
+2025.11.07 11:37:55 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scalameta/parsers_2.12/4.13.8/parsers_2.12-4.13.8.pom
+2025.11.07 11:37:55 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/librarymanagement-ivy_2.12/1.11.2/librarymanagement-ivy_2.12-1.11.2.pom
+2025.11.07 11:37:55 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/librarymanagement-ivy_2.12/1.11.2/librarymanagement-ivy_2.12-1.11.2.pom.sha1
+2025.11.07 11:37:55 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scalameta/parsers_2.12/4.13.8/parsers_2.12-4.13.8.pom
+2025.11.07 11:37:55 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scalameta/parsers_2.12/4.13.8/parsers_2.12-4.13.8.pom.sha1
+2025.11.07 11:37:55 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/librarymanagement-ivy_2.12/1.11.2/librarymanagement-ivy_2.12-1.11.2.pom.sha1
+2025.11.07 11:37:55 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scalameta/parsers_2.12/4.13.8/parsers_2.12-4.13.8.pom.sha1
+2025.11.07 11:37:55 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/librarymanagement-core_2.12/1.11.2/librarymanagement-core_2.12-1.11.2.pom
+2025.11.07 11:37:55 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/trees_2.12/4.13.8/trees_2.12-4.13.8.pom
+2025.11.07 11:37:55 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/trees_2.12/4.13.8/trees_2.12-4.13.8.pom
+2025.11.07 11:37:55 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/trees_2.12/4.13.8/trees_2.12-4.13.8.pom.sha1
+2025.11.07 11:37:55 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/librarymanagement-core_2.12/1.11.2/librarymanagement-core_2.12-1.11.2.pom
+2025.11.07 11:37:55 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/librarymanagement-core_2.12/1.11.2/librarymanagement-core_2.12-1.11.2.pom.sha1
+2025.11.07 11:37:55 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/trees_2.12/4.13.8/trees_2.12-4.13.8.pom.sha1
+2025.11.07 11:37:55 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/org/scalameta/trees_2.12/4.13.8/trees_2.12-4.13.8.pom
+2025.11.07 11:37:55 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/librarymanagement-core_2.12/1.11.2/librarymanagement-core_2.12-1.11.2.pom.sha1
+2025.11.07 11:37:55 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/librarymanagement-core_2.12/1.11.2/librarymanagement-core_2.12-1.11.2.pom
+2025.11.07 11:37:55 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/org/scalameta/trees_2.12/4.13.8/trees_2.12-4.13.8.pom
+2025.11.07 11:37:55 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/org/scalameta/trees_2.12/4.13.8/trees_2.12-4.13.8.pom.sha1
+2025.11.07 11:37:55 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/librarymanagement-core_2.12/1.11.2/librarymanagement-core_2.12-1.11.2.pom
+2025.11.07 11:37:55 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/librarymanagement-core_2.12/1.11.2/librarymanagement-core_2.12-1.11.2.pom.sha1
+2025.11.07 11:37:56 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/org/scalameta/trees_2.12/4.13.8/trees_2.12-4.13.8.pom.sha1
+2025.11.07 11:37:56 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/org/scalameta/trees_2.12/4.13.8/trees_2.12-4.13.8.pom
+2025.11.07 11:37:56 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/librarymanagement-core_2.12/1.11.2/librarymanagement-core_2.12-1.11.2.pom.sha1
+2025.11.07 11:37:56 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/org/scala-sbt/librarymanagement-core_2.12/1.11.2/librarymanagement-core_2.12-1.11.2.pom
+nov. 07, 2025 11:37:56 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2025.11.07 11:37:56 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/org/scalameta/trees_2.12/4.13.8/trees_2.12-4.13.8.pom
+2025.11.07 11:37:56 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/org/scalameta/trees_2.12/4.13.8/trees_2.12-4.13.8.pom.sha1
+2025.11.07 11:37:56 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/org/scala-sbt/librarymanagement-core_2.12/1.11.2/librarymanagement-core_2.12-1.11.2.pom
+2025.11.07 11:37:56 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/org/scala-sbt/librarymanagement-core_2.12/1.11.2/librarymanagement-core_2.12-1.11.2.pom.sha1
+2025.11.07 11:37:57 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/org/scalameta/trees_2.12/4.13.8/trees_2.12-4.13.8.pom.sha1
+2025.11.07 11:37:57 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scalameta/trees_2.12/4.13.8/trees_2.12-4.13.8.pom
+2025.11.07 11:37:57 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/org/scala-sbt/librarymanagement-core_2.12/1.11.2/librarymanagement-core_2.12-1.11.2.pom.sha1
+2025.11.07 11:37:57 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/librarymanagement-core_2.12/1.11.2/librarymanagement-core_2.12-1.11.2.pom
+2025.11.07 11:37:57 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scalameta/trees_2.12/4.13.8/trees_2.12-4.13.8.pom
+2025.11.07 11:37:57 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scalameta/trees_2.12/4.13.8/trees_2.12-4.13.8.pom.sha1
+2025.11.07 11:37:57 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/librarymanagement-core_2.12/1.11.2/librarymanagement-core_2.12-1.11.2.pom
+2025.11.07 11:37:57 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/librarymanagement-core_2.12/1.11.2/librarymanagement-core_2.12-1.11.2.pom.sha1
+2025.11.07 11:37:57 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scalameta/trees_2.12/4.13.8/trees_2.12-4.13.8.pom.sha1
+2025.11.07 11:37:57 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/librarymanagement-core_2.12/1.11.2/librarymanagement-core_2.12-1.11.2.pom.sha1
+2025.11.07 11:37:57 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/util-position_2.12/1.11.0/util-position_2.12-1.11.0.pom
+2025.11.07 11:37:57 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/io_2.12/1.10.5/io_2.12-1.10.5.pom
+2025.11.07 11:37:57 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/io_2.12/4.13.8/io_2.12-4.13.8.pom
+2025.11.07 11:37:57 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/com/eed3si9n/gigahorse-apache-http_2.12/0.9.3/gigahorse-apache-http_2.12-0.9.3.pom
+2025.11.07 11:37:57 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/util-cache_2.12/1.11.0/util-cache_2.12-1.11.0.pom
+2025.11.07 11:37:57 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/util-logging_2.12/1.11.0/util-logging_2.12-1.11.0.pom
+2025.11.07 11:37:57 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/io_2.12/1.10.5/io_2.12-1.10.5.pom
+2025.11.07 11:37:57 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/common_2.12/4.13.8/common_2.12-4.13.8.pom
+2025.11.07 11:37:57 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/util-position_2.12/1.11.0/util-position_2.12-1.11.0.pom
+2025.11.07 11:37:57 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/io_2.12/1.10.5/io_2.12-1.10.5.pom.sha1
+nov. 07, 2025 11:37:58 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2025.11.07 11:37:57 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/common_2.12/4.13.8/common_2.12-4.13.8.pom
+2025.11.07 11:37:57 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/util-position_2.12/1.11.0/util-position_2.12-1.11.0.pom.sha1
+2025.11.07 11:37:57 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/io_2.12/1.10.5/io_2.12-1.10.5.pom.sha1
+2025.11.07 11:37:57 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/common_2.12/4.13.8/common_2.12-4.13.8.pom.sha1
+2025.11.07 11:37:57 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/io_2.12/4.13.8/io_2.12-4.13.8.pom
+2025.11.07 11:37:57 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/util-cache_2.12/1.11.0/util-cache_2.12-1.11.0.pom
+2025.11.07 11:37:57 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/util-logging_2.12/1.11.0/util-logging_2.12-1.11.0.pom
+2025.11.07 11:37:57 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/util-position_2.12/1.11.0/util-position_2.12-1.11.0.pom.sha1
+2025.11.07 11:37:57 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/com/eed3si9n/gigahorse-apache-http_2.12/0.9.3/gigahorse-apache-http_2.12-0.9.3.pom
+2025.11.07 11:37:57 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/com/eed3si9n/gigahorse-apache-http_2.12/0.9.3/gigahorse-apache-http_2.12-0.9.3.pom.sha1
+2025.11.07 11:37:57 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/util-logging_2.12/1.11.0/util-logging_2.12-1.11.0.pom.sha1
+2025.11.07 11:37:57 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/io_2.12/4.13.8/io_2.12-4.13.8.pom.sha1
+2025.11.07 11:37:57 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/util-cache_2.12/1.11.0/util-cache_2.12-1.11.0.pom.sha1
+2025.11.07 11:37:57 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/util-position_2.12/1.11.0/util-position_2.12-1.11.0.pom
+2025.11.07 11:37:57 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/common_2.12/4.13.8/common_2.12-4.13.8.pom.sha1
+2025.11.07 11:37:57 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/io_2.12/1.10.5/io_2.12-1.10.5.pom
+2025.11.07 11:37:57 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/com/eed3si9n/gigahorse-apache-http_2.12/0.9.3/gigahorse-apache-http_2.12-0.9.3.pom.sha1
+2025.11.07 11:37:57 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/org/scalameta/common_2.12/4.13.8/common_2.12-4.13.8.pom
+2025.11.07 11:37:57 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/util-cache_2.12/1.11.0/util-cache_2.12-1.11.0.pom.sha1
+2025.11.07 11:37:57 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/util-logging_2.12/1.11.0/util-logging_2.12-1.11.0.pom.sha1
+2025.11.07 11:37:57 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/com/eed3si9n/gigahorse-apache-http_2.12/0.9.3/gigahorse-apache-http_2.12-0.9.3.pom
+2025.11.07 11:37:57 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/util-cache_2.12/1.11.0/util-cache_2.12-1.11.0.pom
+2025.11.07 11:37:57 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/org/scalameta/io_2.12/4.13.8/io_2.12-4.13.8.pom.sha1
+2025.11.07 11:37:57 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/util-logging_2.12/1.11.0/util-logging_2.12-1.11.0.pom
+2025.11.07 11:37:57 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/util-position_2.12/1.11.0/util-position_2.12-1.11.0.pom
+2025.11.07 11:37:57 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/util-position_2.12/1.11.0/util-position_2.12-1.11.0.pom.sha1
+2025.11.07 11:37:58 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/io_2.12/1.10.5/io_2.12-1.10.5.pom
+2025.11.07 11:37:58 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/io_2.12/1.10.5/io_2.12-1.10.5.pom.sha1
+2025.11.07 11:37:58 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/org/scalameta/common_2.12/4.13.8/common_2.12-4.13.8.pom
+2025.11.07 11:37:58 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/util-logging_2.12/1.11.0/util-logging_2.12-1.11.0.pom
+2025.11.07 11:37:58 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/org/scalameta/io_2.12/4.13.8/io_2.12-4.13.8.pom
+2025.11.07 11:37:58 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/org/scalameta/common_2.12/4.13.8/common_2.12-4.13.8.pom.sha1
+2025.11.07 11:37:58 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/util-position_2.12/1.11.0/util-position_2.12-1.11.0.pom.sha1
+2025.11.07 11:37:58 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/util-logging_2.12/1.11.0/util-logging_2.12-1.11.0.pom.sha1
+2025.11.07 11:37:58 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/org/scalameta/common_2.12/4.13.8/common_2.12-4.13.8.pom.sha1
+2025.11.07 11:37:58 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/org/scalameta/io_2.12/4.13.8/io_2.12-4.13.8.pom
+2025.11.07 11:37:58 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/org/scalameta/io_2.12/4.13.8/io_2.12-4.13.8.pom.sha1
+2025.11.07 11:37:58 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/org/scala-sbt/util-position_2.12/1.11.0/util-position_2.12-1.11.0.pom
+2025.11.07 11:37:58 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/com/eed3si9n/gigahorse-apache-http_2.12/0.9.3/gigahorse-apache-http_2.12-0.9.3.pom
+2025.11.07 11:37:58 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/org/scalameta/common_2.12/4.13.8/common_2.12-4.13.8.pom
+2025.11.07 11:37:58 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/util-cache_2.12/1.11.0/util-cache_2.12-1.11.0.pom
+2025.11.07 11:37:58 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/com/eed3si9n/gigahorse-apache-http_2.12/0.9.3/gigahorse-apache-http_2.12-0.9.3.pom.sha1
+2025.11.07 11:37:58 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/util-logging_2.12/1.11.0/util-logging_2.12-1.11.0.pom.sha1
+2025.11.07 11:37:58 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/util-cache_2.12/1.11.0/util-cache_2.12-1.11.0.pom.sha1
+2025.11.07 11:37:58 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/io_2.12/1.10.5/io_2.12-1.10.5.pom.sha1
+2025.11.07 11:37:58 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/org/scala-sbt/util-logging_2.12/1.11.0/util-logging_2.12-1.11.0.pom
+2025.11.07 11:37:58 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/org/scalameta/io_2.12/4.13.8/io_2.12-4.13.8.pom.sha1
+2025.11.07 11:37:58 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/org/scala-sbt/io_2.12/1.10.5/io_2.12-1.10.5.pom
+2025.11.07 11:37:58 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/com/eed3si9n/gigahorse-apache-http_2.12/0.9.3/gigahorse-apache-http_2.12-0.9.3.pom.sha1
+2025.11.07 11:37:58 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/org/scalameta/io_2.12/4.13.8/io_2.12-4.13.8.pom
+2025.11.07 11:37:58 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/util-cache_2.12/1.11.0/util-cache_2.12-1.11.0.pom.sha1
+2025.11.07 11:37:58 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/com/eed3si9n/gigahorse-apache-http_2.12/0.9.3/gigahorse-apache-http_2.12-0.9.3.pom
+2025.11.07 11:37:58 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/org/scala-sbt/util-position_2.12/1.11.0/util-position_2.12-1.11.0.pom
+2025.11.07 11:37:58 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/org/scala-sbt/util-position_2.12/1.11.0/util-position_2.12-1.11.0.pom.sha1
+2025.11.07 11:37:58 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/org/scalameta/common_2.12/4.13.8/common_2.12-4.13.8.pom
+2025.11.07 11:37:58 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/org/scalameta/common_2.12/4.13.8/common_2.12-4.13.8.pom.sha1
+2025.11.07 11:37:58 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/org/scala-sbt/util-logging_2.12/1.11.0/util-logging_2.12-1.11.0.pom
+2025.11.07 11:37:58 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/org/scala-sbt/util-cache_2.12/1.11.0/util-cache_2.12-1.11.0.pom
+2025.11.07 11:38:00 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/org/scala-sbt/io_2.12/1.10.5/io_2.12-1.10.5.pom
+2025.11.07 11:38:00 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/org/scala-sbt/util-logging_2.12/1.11.0/util-logging_2.12-1.11.0.pom.sha1
+2025.11.07 11:38:00 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/org/scalameta/io_2.12/4.13.8/io_2.12-4.13.8.pom
+2025.11.07 11:38:00 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/org/scala-sbt/io_2.12/1.10.5/io_2.12-1.10.5.pom.sha1
+2025.11.07 11:38:00 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/com/eed3si9n/gigahorse-apache-http_2.12/0.9.3/gigahorse-apache-http_2.12-0.9.3.pom
+2025.11.07 11:38:00 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/org/scalameta/io_2.12/4.13.8/io_2.12-4.13.8.pom.sha1
+2025.11.07 11:38:00 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/org/scala-sbt/util-position_2.12/1.11.0/util-position_2.12-1.11.0.pom.sha1
+2025.11.07 11:38:00 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/com/eed3si9n/gigahorse-apache-http_2.12/0.9.3/gigahorse-apache-http_2.12-0.9.3.pom.sha1
+2025.11.07 11:38:00 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/org/scalameta/common_2.12/4.13.8/common_2.12-4.13.8.pom.sha1
+2025.11.07 11:38:00 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/util-position_2.12/1.11.0/util-position_2.12-1.11.0.pom
+2025.11.07 11:38:00 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/org/scala-sbt/util-cache_2.12/1.11.0/util-cache_2.12-1.11.0.pom
+2025.11.07 11:38:00 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scalameta/common_2.12/4.13.8/common_2.12-4.13.8.pom
+2025.11.07 11:38:00 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/org/scala-sbt/io_2.12/1.10.5/io_2.12-1.10.5.pom.sha1
+2025.11.07 11:38:00 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/org/scala-sbt/util-cache_2.12/1.11.0/util-cache_2.12-1.11.0.pom.sha1
+2025.11.07 11:38:00 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/org/scala-sbt/util-logging_2.12/1.11.0/util-logging_2.12-1.11.0.pom.sha1
+2025.11.07 11:38:00 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/io_2.12/1.10.5/io_2.12-1.10.5.pom
+2025.11.07 11:38:00 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/util-position_2.12/1.11.0/util-position_2.12-1.11.0.pom
+2025.11.07 11:38:00 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/util-logging_2.12/1.11.0/util-logging_2.12-1.11.0.pom
+2025.11.07 11:38:00 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scalameta/common_2.12/4.13.8/common_2.12-4.13.8.pom
+2025.11.07 11:38:00 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/util-position_2.12/1.11.0/util-position_2.12-1.11.0.pom.sha1
+2025.11.07 11:38:00 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/org/scalameta/io_2.12/4.13.8/io_2.12-4.13.8.pom.sha1
+2025.11.07 11:38:00 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scalameta/common_2.12/4.13.8/common_2.12-4.13.8.pom.sha1
+2025.11.07 11:38:00 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/util-position_2.12/1.11.0/util-position_2.12-1.11.0.pom.sha1
+2025.11.07 11:38:00 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scalameta/io_2.12/4.13.8/io_2.12-4.13.8.pom
+2025.11.07 11:38:00 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/util-logging_2.12/1.11.0/util-logging_2.12-1.11.0.pom
+2025.11.07 11:38:00 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/util-logging_2.12/1.11.0/util-logging_2.12-1.11.0.pom.sha1
+2025.11.07 11:38:00 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/io_2.12/1.10.5/io_2.12-1.10.5.pom
+2025.11.07 11:38:00 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/io_2.12/1.10.5/io_2.12-1.10.5.pom.sha1
+2025.11.07 11:38:00 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scalameta/common_2.12/4.13.8/common_2.12-4.13.8.pom.sha1
+2025.11.07 11:38:01 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scalameta/io_2.12/4.13.8/io_2.12-4.13.8.pom
+2025.11.07 11:38:01 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scalameta/io_2.12/4.13.8/io_2.12-4.13.8.pom.sha1
+2025.11.07 11:38:01 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/util-logging_2.12/1.11.0/util-logging_2.12-1.11.0.pom.sha1
+2025.11.07 11:38:01 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/com/eed3si9n/gigahorse-apache-http_2.12/0.9.3/gigahorse-apache-http_2.12-0.9.3.pom.sha1
+2025.11.07 11:38:01 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/com/eed3si9n/gigahorse-apache-http_2.12/0.9.3/gigahorse-apache-http_2.12-0.9.3.pom
+2025.11.07 11:38:01 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/io_2.12/1.10.5/io_2.12-1.10.5.pom.sha1
+2025.11.07 11:38:01 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scalameta/io_2.12/4.13.8/io_2.12-4.13.8.pom.sha1
+2025.11.07 11:38:01 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/com/eed3si9n/gigahorse-apache-http_2.12/0.9.3/gigahorse-apache-http_2.12-0.9.3.pom
+2025.11.07 11:38:01 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/com/eed3si9n/gigahorse-apache-http_2.12/0.9.3/gigahorse-apache-http_2.12-0.9.3.pom.sha1
+2025.11.07 11:38:01 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/org/scala-sbt/util-cache_2.12/1.11.0/util-cache_2.12-1.11.0.pom.sha1
+2025.11.07 11:38:01 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/util-cache_2.12/1.11.0/util-cache_2.12-1.11.0.pom
+2025.11.07 11:38:01 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/com/eed3si9n/gigahorse-apache-http_2.12/0.9.3/gigahorse-apache-http_2.12-0.9.3.pom.sha1
+2025.11.07 11:38:01 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/util-cache_2.12/1.11.0/util-cache_2.12-1.11.0.pom
+2025.11.07 11:38:01 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/util-cache_2.12/1.11.0/util-cache_2.12-1.11.0.pom.sha1
+2025.11.07 11:38:01 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/util-cache_2.12/1.11.0/util-cache_2.12-1.11.0.pom.sha1
+2025.11.07 11:38:01 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/collections_2.12/1.11.0/collections_2.12-1.11.0.pom
+2025.11.07 11:38:01 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/com/eed3si9n/shaded-apache-httpclient5/0.9.3/shaded-apache-httpclient5-0.9.3.pom
+2025.11.07 11:38:01 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/core-macros_2.12/1.11.0/core-macros_2.12-1.11.0.pom
+2025.11.07 11:38:01 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/util-interface/1.11.0/util-interface-1.11.0.pom
+2025.11.07 11:38:01 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/com/eed3si9n/gigahorse-core_2.12/0.9.3/gigahorse-core_2.12-0.9.3.pom
+2025.11.07 11:38:01 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/util-interface/1.11.0/util-interface-1.11.0.pom
+2025.11.07 11:38:01 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/util-interface/1.11.0/util-interface-1.11.0.pom.sha1
+2025.11.07 11:38:01 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/collections_2.12/1.11.0/collections_2.12-1.11.0.pom
+2025.11.07 11:38:01 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/com/eed3si9n/shaded-apache-httpclient5/0.9.3/shaded-apache-httpclient5-0.9.3.pom
+2025.11.07 11:38:01 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/collections_2.12/1.11.0/collections_2.12-1.11.0.pom.sha1
+2025.11.07 11:38:01 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/com/eed3si9n/shaded-apache-httpclient5/0.9.3/shaded-apache-httpclient5-0.9.3.pom.sha1
+2025.11.07 11:38:01 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/com/eed3si9n/gigahorse-core_2.12/0.9.3/gigahorse-core_2.12-0.9.3.pom
+2025.11.07 11:38:01 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/com/eed3si9n/gigahorse-core_2.12/0.9.3/gigahorse-core_2.12-0.9.3.pom.sha1
+2025.11.07 11:38:01 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/core-macros_2.12/1.11.0/core-macros_2.12-1.11.0.pom
+2025.11.07 11:38:01 INFO  BSP server: Downloading https://oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/core-macros_2.12/1.11.0/core-macros_2.12-1.11.0.pom.sha1
+2025.11.07 11:38:01 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/com/eed3si9n/shaded-apache-httpclient5/0.9.3/shaded-apache-httpclient5-0.9.3.pom.sha1
+2025.11.07 11:38:01 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/collections_2.12/1.11.0/collections_2.12-1.11.0.pom.sha1
+2025.11.07 11:38:01 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/util-interface/1.11.0/util-interface-1.11.0.pom.sha1
+2025.11.07 11:38:01 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/util-interface/1.11.0/util-interface-1.11.0.pom
+2025.11.07 11:38:01 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/com/eed3si9n/shaded-apache-httpclient5/0.9.3/shaded-apache-httpclient5-0.9.3.pom
+2025.11.07 11:38:01 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/collections_2.12/1.11.0/collections_2.12-1.11.0.pom
+2025.11.07 11:38:01 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/com/eed3si9n/gigahorse-core_2.12/0.9.3/gigahorse-core_2.12-0.9.3.pom.sha1
+2025.11.07 11:38:01 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/com/eed3si9n/gigahorse-core_2.12/0.9.3/gigahorse-core_2.12-0.9.3.pom
+2025.11.07 11:38:01 INFO  BSP server: Downloaded https://oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/core-macros_2.12/1.11.0/core-macros_2.12-1.11.0.pom.sha1
+2025.11.07 11:38:01 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/core-macros_2.12/1.11.0/core-macros_2.12-1.11.0.pom
+2025.11.07 11:38:01 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/collections_2.12/1.11.0/collections_2.12-1.11.0.pom
+2025.11.07 11:38:01 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/util-interface/1.11.0/util-interface-1.11.0.pom
+2025.11.07 11:38:01 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/com/eed3si9n/gigahorse-core_2.12/0.9.3/gigahorse-core_2.12-0.9.3.pom
+2025.11.07 11:38:01 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/com/eed3si9n/gigahorse-core_2.12/0.9.3/gigahorse-core_2.12-0.9.3.pom.sha1
+2025.11.07 11:38:01 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/util-interface/1.11.0/util-interface-1.11.0.pom.sha1
+2025.11.07 11:38:01 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/com/eed3si9n/shaded-apache-httpclient5/0.9.3/shaded-apache-httpclient5-0.9.3.pom
+2025.11.07 11:38:01 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/collections_2.12/1.11.0/collections_2.12-1.11.0.pom.sha1
+2025.11.07 11:38:01 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/com/eed3si9n/shaded-apache-httpclient5/0.9.3/shaded-apache-httpclient5-0.9.3.pom.sha1
+2025.11.07 11:38:02 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/core-macros_2.12/1.11.0/core-macros_2.12-1.11.0.pom
+2025.11.07 11:38:02 INFO  BSP server: Downloading https://s01.oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/core-macros_2.12/1.11.0/core-macros_2.12-1.11.0.pom.sha1
+2025.11.07 11:38:02 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/com/eed3si9n/shaded-apache-httpclient5/0.9.3/shaded-apache-httpclient5-0.9.3.pom.sha1
+2025.11.07 11:38:02 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/collections_2.12/1.11.0/collections_2.12-1.11.0.pom.sha1
+2025.11.07 11:38:02 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/com/eed3si9n/gigahorse-core_2.12/0.9.3/gigahorse-core_2.12-0.9.3.pom.sha1
+2025.11.07 11:38:02 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/com/eed3si9n/shaded-apache-httpclient5/0.9.3/shaded-apache-httpclient5-0.9.3.pom
+2025.11.07 11:38:02 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/com/eed3si9n/gigahorse-core_2.12/0.9.3/gigahorse-core_2.12-0.9.3.pom
+2025.11.07 11:38:02 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/org/scala-sbt/collections_2.12/1.11.0/collections_2.12-1.11.0.pom
+2025.11.07 11:38:02 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/util-interface/1.11.0/util-interface-1.11.0.pom.sha1
+2025.11.07 11:38:02 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/org/scala-sbt/util-interface/1.11.0/util-interface-1.11.0.pom
+2025.11.07 11:38:02 INFO  BSP server: Downloaded https://s01.oss.sonatype.org/content/repositories/snapshots/org/scala-sbt/core-macros_2.12/1.11.0/core-macros_2.12-1.11.0.pom.sha1
+2025.11.07 11:38:02 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/org/scala-sbt/core-macros_2.12/1.11.0/core-macros_2.12-1.11.0.pom
+2025.11.07 11:38:02 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/org/scala-sbt/collections_2.12/1.11.0/collections_2.12-1.11.0.pom
+2025.11.07 11:38:02 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/com/eed3si9n/gigahorse-core_2.12/0.9.3/gigahorse-core_2.12-0.9.3.pom
+2025.11.07 11:38:02 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/com/eed3si9n/shaded-apache-httpclient5/0.9.3/shaded-apache-httpclient5-0.9.3.pom
+2025.11.07 11:38:02 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/com/eed3si9n/gigahorse-core_2.12/0.9.3/gigahorse-core_2.12-0.9.3.pom.sha1
+2025.11.07 11:38:02 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/org/scala-sbt/collections_2.12/1.11.0/collections_2.12-1.11.0.pom.sha1
+2025.11.07 11:38:02 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/com/eed3si9n/shaded-apache-httpclient5/0.9.3/shaded-apache-httpclient5-0.9.3.pom.sha1
+2025.11.07 11:38:02 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/org/scala-sbt/core-macros_2.12/1.11.0/core-macros_2.12-1.11.0.pom
+2025.11.07 11:38:02 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/org/scala-sbt/core-macros_2.12/1.11.0/core-macros_2.12-1.11.0.pom.sha1
+2025.11.07 11:38:02 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/org/scala-sbt/util-interface/1.11.0/util-interface-1.11.0.pom
+2025.11.07 11:38:02 INFO  BSP server: Downloading https://central.sonatype.com/repository/maven-snapshots/org/scala-sbt/util-interface/1.11.0/util-interface-1.11.0.pom.sha1
+2025.11.07 11:38:03 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/com/eed3si9n/shaded-apache-httpclient5/0.9.3/shaded-apache-httpclient5-0.9.3.pom.sha1
+2025.11.07 11:38:03 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/org/scala-sbt/collections_2.12/1.11.0/collections_2.12-1.11.0.pom.sha1
+2025.11.07 11:38:03 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/com/eed3si9n/gigahorse-core_2.12/0.9.3/gigahorse-core_2.12-0.9.3.pom.sha1
+2025.11.07 11:38:03 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/com/eed3si9n/shaded-apache-httpclient5/0.9.3/shaded-apache-httpclient5-0.9.3.pom
+2025.11.07 11:38:03 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/collections_2.12/1.11.0/collections_2.12-1.11.0.pom
+2025.11.07 11:38:03 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/com/eed3si9n/gigahorse-core_2.12/0.9.3/gigahorse-core_2.12-0.9.3.pom
+2025.11.07 11:38:03 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/org/scala-sbt/core-macros_2.12/1.11.0/core-macros_2.12-1.11.0.pom.sha1
+2025.11.07 11:38:03 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/core-macros_2.12/1.11.0/core-macros_2.12-1.11.0.pom
+2025.11.07 11:38:03 INFO  BSP server: Downloaded https://central.sonatype.com/repository/maven-snapshots/org/scala-sbt/util-interface/1.11.0/util-interface-1.11.0.pom.sha1
+2025.11.07 11:38:03 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/util-interface/1.11.0/util-interface-1.11.0.pom
+2025.11.07 11:38:03 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/com/eed3si9n/gigahorse-core_2.12/0.9.3/gigahorse-core_2.12-0.9.3.pom
+2025.11.07 11:38:03 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/com/eed3si9n/gigahorse-core_2.12/0.9.3/gigahorse-core_2.12-0.9.3.pom.sha1
+2025.11.07 11:38:03 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/collections_2.12/1.11.0/collections_2.12-1.11.0.pom
+2025.11.07 11:38:03 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/collections_2.12/1.11.0/collections_2.12-1.11.0.pom.sha1
+2025.11.07 11:38:03 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/com/eed3si9n/shaded-apache-httpclient5/0.9.3/shaded-apache-httpclient5-0.9.3.pom
+2025.11.07 11:38:03 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/com/eed3si9n/shaded-apache-httpclient5/0.9.3/shaded-apache-httpclient5-0.9.3.pom.sha1
+2025.11.07 11:38:03 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/core-macros_2.12/1.11.0/core-macros_2.12-1.11.0.pom
+2025.11.07 11:38:03 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/core-macros_2.12/1.11.0/core-macros_2.12-1.11.0.pom.sha1
+2025.11.07 11:38:03 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/com/eed3si9n/gigahorse-core_2.12/0.9.3/gigahorse-core_2.12-0.9.3.pom.sha1
+2025.11.07 11:38:03 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/util-interface/1.11.0/util-interface-1.11.0.pom
+2025.11.07 11:38:03 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/util-interface/1.11.0/util-interface-1.11.0.pom.sha1
+2025.11.07 11:38:03 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/collections_2.12/1.11.0/collections_2.12-1.11.0.pom.sha1
+2025.11.07 11:38:03 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/com/eed3si9n/shaded-apache-httpclient5/0.9.3/shaded-apache-httpclient5-0.9.3.pom.sha1
+2025.11.07 11:38:03 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/core-macros_2.12/1.11.0/core-macros_2.12-1.11.0.pom.sha1
+2025.11.07 11:38:03 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/util-interface/1.11.0/util-interface-1.11.0.pom.sha1
+2025.11.07 11:38:03 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/io_2.12/1.10.5/io_2.12-1.10.5.jar
+2025.11.07 11:38:03 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/com/eed3si9n/gigahorse-core_2.12/0.9.3/gigahorse-core_2.12-0.9.3.jar
+2025.11.07 11:38:03 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/core-macros_2.12/1.11.0/core-macros_2.12-1.11.0.jar
+2025.11.07 11:38:03 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/util-position_2.12/1.11.0/util-position_2.12-1.11.0.jar
+2025.11.07 11:38:03 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/com/eed3si9n/shaded-apache-httpclient5/0.9.3/shaded-apache-httpclient5-0.9.3.jar
+2025.11.07 11:38:03 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/util-interface/1.11.0/util-interface-1.11.0.jar
+2025.11.07 11:38:03 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/util-position_2.12/1.11.0/util-position_2.12-1.11.0.jar
+2025.11.07 11:38:03 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scalameta/common_2.12/4.13.8/common_2.12-4.13.8.jar
+2025.11.07 11:38:03 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/core-macros_2.12/1.11.0/core-macros_2.12-1.11.0.jar
+2025.11.07 11:38:03 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/librarymanagement-ivy_2.12/1.11.2/librarymanagement-ivy_2.12-1.11.2.jar
+2025.11.07 11:38:03 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/util-interface/1.11.0/util-interface-1.11.0.jar
+2025.11.07 11:38:03 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/util-logging_2.12/1.11.0/util-logging_2.12-1.11.0.jar
+2025.11.07 11:38:03 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/com/eed3si9n/gigahorse-core_2.12/0.9.3/gigahorse-core_2.12-0.9.3.jar
+2025.11.07 11:38:03 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scalameta/trees_2.12/4.13.8/trees_2.12-4.13.8.jar
+2025.11.07 11:38:03 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/io_2.12/1.10.5/io_2.12-1.10.5.jar
+2025.11.07 11:38:03 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/ch/epfl/scala/bloop-backend_2.12/2.0.13/bloop-backend_2.12-2.0.13.jar
+2025.11.07 11:38:03 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/com/eed3si9n/shaded-apache-httpclient5/0.9.3/shaded-apache-httpclient5-0.9.3.jar
+2025.11.07 11:38:03 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/util-cache_2.12/1.11.0/util-cache_2.12-1.11.0.jar
+2025.11.07 11:38:03 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/librarymanagement-ivy_2.12/1.11.2/librarymanagement-ivy_2.12-1.11.2.jar
+2025.11.07 11:38:03 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/collections_2.12/1.11.0/collections_2.12-1.11.0.jar
+2025.11.07 11:38:04 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scalameta/common_2.12/4.13.8/common_2.12-4.13.8.jar
+2025.11.07 11:38:04 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scalameta/parsers_2.12/4.13.8/parsers_2.12-4.13.8.jar
+2025.11.07 11:38:04 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/util-cache_2.12/1.11.0/util-cache_2.12-1.11.0.jar
+2025.11.07 11:38:04 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/com/eed3si9n/gigahorse-apache-http_2.12/0.9.3/gigahorse-apache-http_2.12-0.9.3.jar
+2025.11.07 11:38:04 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/util-logging_2.12/1.11.0/util-logging_2.12-1.11.0.jar
+2025.11.07 11:38:04 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/ch/epfl/scala/bloop-shared_2.12/2.0.13/bloop-shared_2.12-2.0.13.jar
+2025.11.07 11:38:04 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/collections_2.12/1.11.0/collections_2.12-1.11.0.jar
+2025.11.07 11:38:04 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scalameta/io_2.12/4.13.8/io_2.12-4.13.8.jar
+2025.11.07 11:38:04 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scalameta/parsers_2.12/4.13.8/parsers_2.12-4.13.8.jar
+2025.11.07 11:38:04 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/librarymanagement-core_2.12/1.11.2/librarymanagement-core_2.12-1.11.2.jar
+2025.11.07 11:38:04 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scalameta/io_2.12/4.13.8/io_2.12-4.13.8.jar
+2025.11.07 11:38:04 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/ch/epfl/scala/scala-debug-adapter_2.12/4.2.8/scala-debug-adapter_2.12-4.2.8.jar
+2025.11.07 11:38:04 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/com/eed3si9n/gigahorse-apache-http_2.12/0.9.3/gigahorse-apache-http_2.12-0.9.3.jar
+2025.11.07 11:38:04 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/ch/epfl/scala/bloop-frontend_2.12/2.0.13/bloop-frontend_2.12-2.0.13.jar
+2025.11.07 11:38:04 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/librarymanagement-core_2.12/1.11.2/librarymanagement-core_2.12-1.11.2.jar
+2025.11.07 11:38:04 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/util-position_2.12/1.11.0/util-position_2.12-1.11.0.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scalameta/trees_2.12/4.13.8/trees_2.12-4.13.8.jar
+2025.11.07 11:38:04 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/core-macros_2.12/1.11.0/core-macros_2.12-1.11.0.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/ch/epfl/scala/scala-debug-adapter_2.12/4.2.8/scala-debug-adapter_2.12-4.2.8.jar
+2025.11.07 11:38:04 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/util-interface/1.11.0/util-interface-1.11.0.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/ch/epfl/scala/bloop-frontend_2.12/2.0.13/bloop-frontend_2.12-2.0.13.jar
+2025.11.07 11:38:04 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/com/eed3si9n/gigahorse-core_2.12/0.9.3/gigahorse-core_2.12-0.9.3.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/core-macros_2.12/1.11.0/core-macros_2.12-1.11.0.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/io_2.12/1.10.5/io_2.12-1.10.5.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/util-position_2.12/1.11.0/util-position_2.12-1.11.0.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/com/eed3si9n/shaded-apache-httpclient5/0.9.3/shaded-apache-httpclient5-0.9.3.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/ch/epfl/scala/bloop-shared_2.12/2.0.13/bloop-shared_2.12-2.0.13.jar
+2025.11.07 11:38:04 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/librarymanagement-ivy_2.12/1.11.2/librarymanagement-ivy_2.12-1.11.2.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/util-interface/1.11.0/util-interface-1.11.0.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scalameta/common_2.12/4.13.8/common_2.12-4.13.8.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/ch/epfl/scala/bloop-backend_2.12/2.0.13/bloop-backend_2.12-2.0.13.jar
+2025.11.07 11:38:04 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/util-cache_2.12/1.11.0/util-cache_2.12-1.11.0.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/com/eed3si9n/gigahorse-core_2.12/0.9.3/gigahorse-core_2.12-0.9.3.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/util-logging_2.12/1.11.0/util-logging_2.12-1.11.0.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/io_2.12/1.10.5/io_2.12-1.10.5.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/collections_2.12/1.11.0/collections_2.12-1.11.0.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/com/eed3si9n/shaded-apache-httpclient5/0.9.3/shaded-apache-httpclient5-0.9.3.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scalameta/parsers_2.12/4.13.8/parsers_2.12-4.13.8.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scalameta/common_2.12/4.13.8/common_2.12-4.13.8.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scalameta/io_2.12/4.13.8/io_2.12-4.13.8.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/librarymanagement-ivy_2.12/1.11.2/librarymanagement-ivy_2.12-1.11.2.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/com/eed3si9n/gigahorse-apache-http_2.12/0.9.3/gigahorse-apache-http_2.12-0.9.3.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/util-cache_2.12/1.11.0/util-cache_2.12-1.11.0.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/librarymanagement-core_2.12/1.11.2/librarymanagement-core_2.12-1.11.2.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/collections_2.12/1.11.0/collections_2.12-1.11.0.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/util-logging_2.12/1.11.0/util-logging_2.12-1.11.0.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scalameta/trees_2.12/4.13.8/trees_2.12-4.13.8.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/ch/epfl/scala/scala-debug-adapter_2.12/4.2.8/scala-debug-adapter_2.12-4.2.8.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scalameta/io_2.12/4.13.8/io_2.12-4.13.8.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/ch/epfl/scala/bloop-frontend_2.12/2.0.13/bloop-frontend_2.12-2.0.13.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/com/eed3si9n/gigahorse-apache-http_2.12/0.9.3/gigahorse-apache-http_2.12-0.9.3.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/ch/epfl/scala/bloop-shared_2.12/2.0.13/bloop-shared_2.12-2.0.13.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scalameta/parsers_2.12/4.13.8/parsers_2.12-4.13.8.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/ch/epfl/scala/bloop-backend_2.12/2.0.13/bloop-backend_2.12-2.0.13.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-sbt/librarymanagement-core_2.12/1.11.2/librarymanagement-core_2.12-1.11.2.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scalameta/trees_2.12/4.13.8/trees_2.12-4.13.8.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/ch/epfl/scala/scala-debug-adapter_2.12/4.2.8/scala-debug-adapter_2.12-4.2.8.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/ch/epfl/scala/bloop-shared_2.12/2.0.13/bloop-shared_2.12-2.0.13.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/ch/epfl/scala/bloop-frontend_2.12/2.0.13/bloop-frontend_2.12-2.0.13.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/ch/epfl/scala/bloop-backend_2.12/2.0.13/bloop-backend_2.12-2.0.13.jar.sha1
+2025.11.07 11:38:04 INFO  BSP server: Starting compilation server
+2025.11.07 11:38:07 INFO  BSP server: Downloading https://repo1.maven.org/maven2/org/scala-lang/scala3-compiler_3/3.7.3/scala3-compiler_3-3.7.3.pom
+2025.11.07 11:38:07 INFO  BSP server: Downloaded https://repo1.maven.org/maven2/org/scala-lang/scala3-compiler_3/3.7.3/scala3-compiler_3-3.7.3.pom
+2025.11.07 11:38:07 INFO  BSP server: Downloading https://repo1.maven.org/maven2/org/scala-lang/tasty-core_3/3.7.3/tasty-core_3-3.7.3.pom
+2025.11.07 11:38:07 INFO  BSP server: Downloading https://repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.7.3/scala3-library_3-3.7.3.pom
+2025.11.07 11:38:07 INFO  BSP server: Downloading https://repo1.maven.org/maven2/org/scala-lang/scala3-interfaces/3.7.3/scala3-interfaces-3.7.3.pom
+2025.11.07 11:38:07 INFO  BSP server: Downloaded https://repo1.maven.org/maven2/org/scala-lang/tasty-core_3/3.7.3/tasty-core_3-3.7.3.pom
+2025.11.07 11:38:07 INFO  BSP server: Downloaded https://repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.7.3/scala3-library_3-3.7.3.pom
+2025.11.07 11:38:07 INFO  BSP server: Downloaded https://repo1.maven.org/maven2/org/scala-lang/scala3-interfaces/3.7.3/scala3-interfaces-3.7.3.pom
+2025.11.07 11:38:07 INFO  BSP server: Downloading https://repo1.maven.org/maven2/org/scala-lang/tasty-core_3/3.7.3/tasty-core_3-3.7.3.jar
+2025.11.07 11:38:07 INFO  BSP server: Downloading https://repo1.maven.org/maven2/org/scala-lang/scala3-interfaces/3.7.3/scala3-interfaces-3.7.3.jar
+2025.11.07 11:38:07 INFO  BSP server: Downloading https://repo1.maven.org/maven2/org/scala-lang/scala3-compiler_3/3.7.3/scala3-compiler_3-3.7.3.jar
+2025.11.07 11:38:07 INFO  BSP server: Downloading https://repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.7.3/scala3-library_3-3.7.3.jar
+2025.11.07 11:38:07 INFO  BSP server: Downloaded https://repo1.maven.org/maven2/org/scala-lang/scala3-interfaces/3.7.3/scala3-interfaces-3.7.3.jar
+2025.11.07 11:38:07 INFO  BSP server: Downloaded https://repo1.maven.org/maven2/org/scala-lang/tasty-core_3/3.7.3/tasty-core_3-3.7.3.jar
+2025.11.07 11:38:07 INFO  BSP server: Downloaded https://repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.7.3/scala3-library_3-3.7.3.jar
+2025.11.07 11:38:07 INFO  BSP server: Downloaded https://repo1.maven.org/maven2/org/scala-lang/scala3-compiler_3/3.7.3/scala3-compiler_3-3.7.3.jar
+2025.11.07 11:38:07 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-lang/scala3-sbt-bridge/3.7.3/scala3-sbt-bridge-3.7.3.pom
+2025.11.07 11:38:08 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-lang/scala3-sbt-bridge/3.7.3/scala3-sbt-bridge-3.7.3.pom
+2025.11.07 11:38:08 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-lang/scala3-sbt-bridge/3.7.3/scala3-sbt-bridge-3.7.3.jar
+2025.11.07 11:38:08 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-lang/scala3-sbt-bridge/3.7.3/scala3-sbt-bridge-3.7.3.jar
+2025.11.07 11:38:08 INFO  BSP server: Downloading https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-lang/scala3-sbt-bridge/3.7.3/scala3-sbt-bridge-3.7.3.jar.sha1
+2025.11.07 11:38:08 INFO  BSP server: Downloaded https://repo.scala-lang.org/artifactory/maven-nightlies/org/scala-lang/scala3-sbt-bridge/3.7.3/scala3-sbt-bridge-3.7.3.jar.sha1
+2025.11.07 11:38:08 INFO  BSP server: Downloading https://repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.7.3/scala3-library_3-3.7.3-sources.jar
+2025.11.07 11:38:08 INFO  BSP server: Downloaded https://repo1.maven.org/maven2/org/scala-lang/scala3-library_3/3.7.3/scala3-library_3-3.7.3-sources.jar
+2025.11.07 11:38:09 INFO  time: Connected to build server in 24s
+2025.11.07 11:38:09 INFO  Connected to Build server: scala-cli v1.9.1
+2025.11.07 11:38:10 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2025.11.07 11:38:19 INFO  time: indexed workspace in 10s
+2025.11.07 11:46:54 INFO  Shutting down server
+2025.11.07 11:46:54 INFO  shutting down Metals
+2025.11.07 11:46:54 INFO  Shut down connection with build server.
+2025.11.07 11:46:54 INFO  Exiting server
+2025.11.09 15:18:39 INFO  Started: Metals version 1.6.3 in folders '/Users/jariasallydumbuya/Desktop/DigitalLibrary' for client Visual Studio Code 1.105.1.
+2025.11.09 15:18:41 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2025.11.09 15:18:41 INFO  Attempting to connect to the build server...
+2025.11.09 15:18:41 INFO  Running BSP server List(/opt/homebrew/bin/scala-cli, bsp, --json-options, /Users/jariasallydumbuya/Desktop/DigitalLibrary/.scala-build/ide-options-v2.json, --json-launcher-options, /Users/jariasallydumbuya/Desktop/DigitalLibrary/.scala-build/ide-launcher-options.json, --envs-file, /Users/jariasallydumbuya/Desktop/DigitalLibrary/.scala-build/ide-envs.json, /Users/jariasallydumbuya/Desktop/DigitalLibrary)
+2025.11.09 15:18:41 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/jariasallydumbuya/Desktop/DigitalLibrary/.metals/bsp.trace.json or /Users/jariasallydumbuya/Library/Caches/org.scalameta.metals/bsp.trace.json
+2025.11.09 15:18:42 INFO  BSP server: Starting compilation server
+2025.11.09 15:18:45 INFO  time: Connected to build server in 4.36s
+2025.11.09 15:18:45 INFO  Connected to Build server: scala-cli v1.9.1
+2025.11.09 15:18:47 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2025.11.09 15:18:47 INFO  time: indexed workspace in 2.05s
+2025.11.09 18:31:45 INFO  Shutting down server
+2025.11.09 18:31:45 INFO  shutting down Metals
+2025.11.09 18:31:45 INFO  Shut down connection with build server.
+2025.11.09 18:31:45 INFO  Exiting server
+2025.11.26 19:09:19 INFO  Started: Metals version 1.6.4 in folders '/Users/jariasallydumbuya/Desktop/DigitalLibrary' for client Visual Studio Code 1.106.2.
+2025.11.26 19:09:20 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2025.11.26 19:09:20 INFO  Attempting to connect to the build server...
+2025.11.26 19:09:20 INFO  Running BSP server List(/opt/homebrew/bin/scala-cli, bsp, --json-options, /Users/jariasallydumbuya/Desktop/DigitalLibrary/.scala-build/ide-options-v2.json, --json-launcher-options, /Users/jariasallydumbuya/Desktop/DigitalLibrary/.scala-build/ide-launcher-options.json, --envs-file, /Users/jariasallydumbuya/Desktop/DigitalLibrary/.scala-build/ide-envs.json, /Users/jariasallydumbuya/Desktop/DigitalLibrary)
+2025.11.26 19:09:20 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/jariasallydumbuya/Desktop/DigitalLibrary/.metals/bsp.trace.json or /Users/jariasallydumbuya/Library/Caches/org.scalameta.metals/bsp.trace.json
+2025.11.26 19:09:22 INFO  BSP server: Starting compilation server
+2025.11.26 19:09:24 INFO  time: Connected to build server in 4.47s
+2025.11.26 19:09:24 INFO  Connected to Build server: scala-cli v1.9.1
+2025.11.26 19:09:26 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2025.11.26 19:09:26 INFO  time: indexed workspace in 1.71s

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "32RsV5Djhf4=",
+  "dgSpecHash": "SaVP1sJ5x8I=",
   "success": true,
   "projectFilePath": "/Users/jariasallydumbuya/Desktop/DigitalLibrary/DigitalLibrary.Tests/DigitalLibrary.Tests.csproj",
   "expectedPackageFiles": [
@@ -125,7 +125,9 @@
     "/Users/jariasallydumbuya/.nuget/packages/xunit.core/2.5.3/xunit.core.2.5.3.nupkg.sha512",
     "/Users/jariasallydumbuya/.nuget/packages/xunit.extensibility.core/2.5.3/xunit.extensibility.core.2.5.3.nupkg.sha512",
     "/Users/jariasallydumbuya/.nuget/packages/xunit.extensibility.execution/2.5.3/xunit.extensibility.execution.2.5.3.nupkg.sha512",
-    "/Users/jariasallydumbuya/.nuget/packages/xunit.runner.visualstudio/2.5.3/xunit.runner.visualstudio.2.5.3.nupkg.sha512"
+    "/Users/jariasallydumbuya/.nuget/packages/xunit.runner.visualstudio/2.5.3/xunit.runner.visualstudio.2.5.3.nupkg.sha512",
+    "/Users/jariasallydumbuya/.nuget/packages/microsoft.netcore.app.ref/8.0.21/microsoft.netcore.app.ref.8.0.21.nupkg.sha512",
+    "/Users/jariasallydumbuya/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.21/microsoft.aspnetcore.app.ref.8.0.21.nupkg.sha512"
   ],
   "logs": []
 }
