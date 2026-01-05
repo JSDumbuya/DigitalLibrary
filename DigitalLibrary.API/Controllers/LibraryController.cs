@@ -1,8 +1,8 @@
-using System.Security.Cryptography;
+
 using DigitalLibrary.API.DTOs;
-using DigitalLibrary.API.Models;
 using DigitalLibrary.API.Services;
 using Microsoft.AspNetCore.Mvc;
+using DigitalLibrary.API.Common;
 
 namespace DigitalLibrary.API.Controllers;
 
@@ -36,15 +36,17 @@ public class LibraryController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<LibraryReadDTO>> GetLibrary([FromRoute] int userId)
     {
-        try
+        var result = await _libraryService.GetLibraryByUserIdAsync(userId);
+        if(!result.IsSuccess)
         {
-            var libraryReadDTO = await _libraryService.GetLibraryByUserIdAsync(userId);
-            return Ok(libraryReadDTO);
+            return result.Type switch 
+            {
+                ErrorType.LibraryNotFound => NotFound(result.Message),
+                _ => StatusCode(StatusCodes.Status500InternalServerError)
+            };
         }
-        catch (KeyNotFoundException ex)
-        {
-            return NotFound(ex.Message);
-        }
+        
+        return Ok(result.Value);
     }
 
     /// <summary>
@@ -61,19 +63,18 @@ public class LibraryController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<LibraryReadDTO>> CreateLibrary([FromRoute] int userId, [FromBody] LibraryCreateDTO libraryCreateDTO)
     {
-        try
+        var result = await _libraryService.AddLibraryAsync(libraryCreateDTO, userId);
+        if (!result.IsSuccess)
         {
-            var createdLibraryReadDTO = await _libraryService.AddLibraryAsync(libraryCreateDTO, userId);
-            return CreatedAtAction(nameof(GetLibrary), new { userId }, createdLibraryReadDTO);
+            return result.Type switch
+            {
+                ErrorType.UserNotFound => NotFound(result.Message),
+                ErrorType.LibraryAlreadyExists => Conflict(result.Message),
+                _ => StatusCode(StatusCodes.Status500InternalServerError)
+            };
         }
-        catch (KeyNotFoundException ex)
-        {
-            return NotFound(ex.Message);
-        }
-        catch (InvalidOperationException ex)
-        {
-            return BadRequest(ex.Message);
-        }
+
+        return CreatedAtAction(nameof(GetLibrary), new { userId }, result.Value);
     }
     
     /// <summary>
@@ -85,15 +86,17 @@ public class LibraryController : ControllerBase
     [HttpDelete]
     public async Task<IActionResult> DeleteLibrary([FromRoute] int userId)
     {
-        try
+        var result = await _libraryService.DeleteLibraryAsync(userId);
+        if (!result.IsSuccess)
         {
-            await _libraryService.DeleteLibraryAsync(userId);
-            return NoContent();
+            return result.Type switch
+            {
+                ErrorType.LibraryNotFound => NotFound(result.Message),
+                _ => StatusCode(StatusCodes.Status500InternalServerError)
+            };
         }
-        catch (KeyNotFoundException ex)
-        {
-            return NotFound(ex.Message);
-        }
+
+        return NoContent();
     }
 
 
@@ -107,19 +110,17 @@ public class LibraryController : ControllerBase
     [HttpPut]
     public async Task<IActionResult> UpdateLibrary([FromRoute] int userId, [FromBody] LibraryUpdateDTO libraryUpdateDTO)
     {
-        try
+        var result = await _libraryService.UpdateLibraryAsync(libraryUpdateDTO, userId);
+        if (!result.IsSuccess)
         {
-            await _libraryService.UpdateLibraryAsync(libraryUpdateDTO, userId);
-            return NoContent();
+            return result.Type switch
+            {
+                ErrorType.LibraryNotFound => NotFound(result.Message),
+                _ => StatusCode(StatusCodes.Status500InternalServerError)
+            };
         }
-        catch (KeyNotFoundException ex)
-        {
-            return NotFound(ex.Message);
-        }
-        catch(InvalidOperationException ex)
-        {
-            return BadRequest(ex.Message);
-        }
+
+        return NoContent();
     }
 
 }

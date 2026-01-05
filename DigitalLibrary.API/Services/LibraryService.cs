@@ -3,7 +3,7 @@ namespace DigitalLibrary.API.Services;
 using DigitalLibrary.API.Models;
 using DigitalLibrary.API.Data;
 using DigitalLibrary.API.DTOs;
-using System.Diagnostics;
+using DigitalLibrary.API.Common;
 
 public class LibraryService : ILibraryService
 {
@@ -15,45 +15,47 @@ public class LibraryService : ILibraryService
         _userService = userService;
     }
 
-    public async Task<LibraryReadDTO> AddLibraryAsync(LibraryCreateDTO libraryCreateDTO, int userId)
+    public async Task<Result<LibraryReadDTO>> AddLibraryAsync(LibraryCreateDTO libraryCreateDTO, int userId)
     {
         var user = await _userService.GetUserByIdAsync(userId);
-        if (user == null) throw new KeyNotFoundException($"User with id {userId} does not exist.");
+        if (user == null) return Result<LibraryReadDTO>.Fail(ErrorType.UserNotFound, "The user does not exist.");
 
         var existingLibrary = await _libraryRepository.GetLibraryByUserIdAsync(userId);
-        if (existingLibrary != null) throw new InvalidOperationException("This user already has a library.");
-
+        if (existingLibrary != null) return Result<LibraryReadDTO>.Fail(ErrorType.LibraryAlreadyExists, "The user already has a library");
+    
         var toLibrary = MapperLibraryCreateDtoToLibrary(libraryCreateDTO, userId);
         var newLibrary = await _libraryRepository.AddAsync(toLibrary);
         
-        return MapperLibraryToReadDTO(newLibrary);
+        return Result<LibraryReadDTO>.Success(MapperLibraryToReadDTO(newLibrary));
     }
 
-    public async Task<LibraryReadDTO?> GetLibraryByUserIdAsync(int userId)
+    public async Task<Result<LibraryReadDTO>> GetLibraryByUserIdAsync(int userId)
     {
         var library = await _libraryRepository.GetLibraryByUserIdAsync(userId);
-        if (library == null) throw new KeyNotFoundException($"The library for user with id {userId} does not exist.");
+        if (library == null) return Result<LibraryReadDTO>.Fail(ErrorType.LibraryNotFound, "The user does not have an associated library.");
 
-        return MapperLibraryToReadDTO(library);
+        return Result<LibraryReadDTO>.Success(MapperLibraryToReadDTO(library));
     }
 
-    public async Task<bool> DeleteLibraryAsync(int userId)
+    public async Task<Result<bool>> DeleteLibraryAsync(int userId)
     {
         var result = await _libraryRepository.DeleteAsync(userId);
-        if (!result) throw new KeyNotFoundException($"The library for user with id {userId} was not found or could not be deleted.");
-        return result;
+        if (!result) return Result<bool>.Fail(ErrorType.LibraryNotFound, "The user does not have an associated library.");
+        
+        return Result<bool>.Success(true);
     }
 
-    public async Task<bool> UpdateLibraryAsync(LibraryUpdateDTO libraryUpdateDTO, int userId)
+    public async Task<Result<bool>> UpdateLibraryAsync(LibraryUpdateDTO libraryUpdateDTO, int userId)
     {
         var existingLibrary = await _libraryRepository.GetLibraryByUserIdAsync(userId);
-        if (existingLibrary == null) throw new KeyNotFoundException($"The library for user with id {userId} does not exist.");
+        if (existingLibrary == null) return Result<bool>.Fail(ErrorType.LibraryNotFound, "The user does not have an associated library.");
+        
 
         var toLibrary = MapperLibraryUpdateDtoToLibrary(libraryUpdateDTO, userId, existingLibrary.Id);
         var updatedLibrary = await _libraryRepository.UpdateAsync(toLibrary, userId);
-        if (!updatedLibrary) throw new InvalidOperationException($"Failed to update the library for user with id {userId}.");
+        if (!updatedLibrary) return Result<bool>.Fail(ErrorType.LibraryNotFound, "Library update failed because the library was not found.");
 
-        return updatedLibrary;
+        return Result<bool>.Success(true);
     }
 
     private LibraryReadDTO MapperLibraryToReadDTO(Library library)

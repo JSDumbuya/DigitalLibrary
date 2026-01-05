@@ -21,7 +21,7 @@ public class BookService : IBookService
         var library = await _libraryService.GetLibraryByUserIdAsync(userId);
         if (library == null) return Result<BookReadDTO>.Fail(ErrorType.LibraryNotFound, "The user does not have an associated library.");
 
-        var toBook = MapperCreateDtoToBook(bookCreateDTO, library.Id);
+        var toBook = MapperCreateDtoToBook(bookCreateDTO, library.Value.Id);
         var createdBook = await _bookRepository.AddAsync(toBook);
 
         return Result<BookReadDTO>.Success(MapperBookToReadDTO(createdBook));
@@ -32,7 +32,7 @@ public class BookService : IBookService
         var library = await _libraryService.GetLibraryByUserIdAsync(userId);
         if (library == null) return Result<bool>.Fail(ErrorType.LibraryNotFound, "The user does not have an associated library.");
 
-        var deleted = await _bookRepository.DeleteAsync(bookId, library.Id);
+        var deleted = await _bookRepository.DeleteAsync(bookId, library.Value.Id);
         if (!deleted) return Result<bool>.Fail(ErrorType.BookNotFound, "The specified book does not exist in the library.");
 
         return Result<bool>.Success(true);
@@ -43,7 +43,7 @@ public class BookService : IBookService
         var library = await _libraryService.GetLibraryByUserIdAsync(userId);
         if (library == null) return Result<BookReadDTO>.Fail(ErrorType.LibraryNotFound, "The user does not have an associated library.");
 
-        var book = await _bookRepository.GetByIdAsync(bookId, library.Id);
+        var book = await _bookRepository.GetByIdAsync(bookId, library.Value.Id);
         if (book == null) return Result<BookReadDTO>.Fail(ErrorType.BookNotFound, "The specified book does not exist in the library.");
 
         return Result<BookReadDTO>.Success(MapperBookToReadDTO(book));
@@ -57,13 +57,13 @@ public class BookService : IBookService
         List<Book> books;
 
         if (status.HasValue)
-            books = await GetBooksByStatusAsync(status.Value, library.Id);
+            books = await GetBooksByStatusAsync(status.Value, library.Value.Id);
         else if (genre.HasValue)
-            books = await GetBooksByGenreAsync(genre.Value, library.Id);
+            books = await GetBooksByGenreAsync(genre.Value, library.Value.Id);
         else if (rating.HasValue)
-            books = await GetBooksByRatingAsync(rating.Value, library.Id);
+            books = await GetBooksByRatingAsync(rating.Value, library.Value.Id);
         else
-            books = await GetBooksByLibraryIdAsync(library.Id); 
+            books = await GetBooksByLibraryIdAsync(library.Value.Id); 
 
         var bookDTOs = (books ?? new List<Book>()).Select(MapperBookToReadDTO).ToList();
 
@@ -75,8 +75,8 @@ public class BookService : IBookService
         var library = await _libraryService.GetLibraryByUserIdAsync(userId);
         if (library == null) return Result<bool>.Fail(ErrorType.LibraryNotFound, "The user does not have an associated library.");
 
-        var toBook = MapperUpdateDtoToBook(bookUpdateDTO, bookId, library.Id);
-        var updatedBook = await _bookRepository.UpdateAsync(toBook, library.Id);
+        var toBook = MapperUpdateDtoToBook(bookUpdateDTO, bookId, library.Value.Id);
+        var updatedBook = await _bookRepository.UpdateAsync(toBook, library.Value.Id);
         if (!updatedBook) return Result<bool>.Fail(ErrorType.BookNotFound, "The specified book does not exist in the library.");
 
         return Result<bool>.Success(true);
