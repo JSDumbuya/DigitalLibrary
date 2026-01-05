@@ -2,6 +2,7 @@ using System.IdentityModel.Tokens.Jwt;
 using DigitalLibrary.API.DTOs;
 using DigitalLibrary.API.Services;
 using Microsoft.AspNetCore.Mvc;
+using DigitalLibrary.API.Common;
 
 namespace DigitalLibrary.API.Controllers;
 
@@ -33,12 +34,18 @@ public class UserController : ControllerBase
     {
         var userIdClaim = User.FindFirst(JwtRegisteredClaimNames.Sub)?.Value;
         if (userIdClaim == null) return Unauthorized();
-
         if (!int.TryParse(userIdClaim, out int userId)) return Unauthorized();
 
-        var userReadtDto = await _userService.GetUserByIdAsync(userId);
-        if (userReadtDto == null) return NotFound();
+        var result = await _userService.GetUserByIdAsync(userId);
+         if (!result.IsSuccess)
+        {
+            return result.Type switch
+            {
+                ErrorType.UserNotFound => NotFound(result.Message),
+                _ => StatusCode(StatusCodes.Status500InternalServerError)
+            };
+        }
 
-        return Ok(userReadtDto);
+        return Ok(result.Value);
     }
 }

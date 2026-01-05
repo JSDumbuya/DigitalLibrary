@@ -28,8 +28,8 @@ public class AuthenticationController : ControllerBase
                 _ => StatusCode(StatusCodes.Status500InternalServerError)
             };
         }
-
-        return Ok(result.Value);
+        
+        return CreatedAtAction(nameof(UserController.GetMe), "User", null, result.Value);
     }
 
     [HttpPost("login")]
