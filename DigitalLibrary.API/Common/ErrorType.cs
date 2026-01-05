@@ -2,7 +2,9 @@ namespace DigitalLibrary.API.Common;
 
 public enum ErrorType
 {
-   UserNotFound,
-   BookNotFound
+    None = 0,
+    BookNotFound,
+    InvalidCredentials,
+    UserAlreadyExists
 
 }

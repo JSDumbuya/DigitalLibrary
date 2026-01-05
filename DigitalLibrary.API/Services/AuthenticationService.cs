@@ -1,3 +1,4 @@
+using DigitalLibrary.API.Common;
 using DigitalLibrary.API.Data;
 using DigitalLibrary.API.DTOs;
 using DigitalLibrary.API.Models;
@@ -15,23 +16,26 @@ public class AuthenticationService : IAuthenticationService
         _jwtTokenService = jwtTokenService;
     }
 
-    public async Task<AuthResponseDTO> LoginAsync(LoginDTO dto)
+    public async Task<Result<AuthResponseDTO>> LoginAsync(LoginDTO dto)
     {
         var user = await _userRepository.GetUserByUserNameAsync(dto.UserName);
-        if (user == null ) throw new Exception("Invalid credentials");
+        if (user == null ) return Result<AuthResponseDTO>.Fail(ErrorType.InvalidCredentials, "Invalid credentials");
 
-        if (!VerifyPassword(dto.Password, user.PasswordHash, user.PasswordSalt)) throw new Exception("Invalid credentials");
+        var ok = VerifyPassword(dto.Password, user.PasswordHash, user.PasswordSalt);
+        if (!ok) return Result<AuthResponseDTO>.Fail(ErrorType.InvalidCredentials, "Invalid credentials");
 
-        return new AuthResponseDTO
+        var response = new AuthResponseDTO
         {
             Token = _jwtTokenService.GenerateToken(user),
             User = new UserReadDTO {Id = user.Id, UserName = user.UserName}
         };
+
+        return Result<AuthResponseDTO>.Success(response);
     }
 
-    public async Task<AuthResponseDTO> RegisterAsync(RegisterDTO dto)
+    public async Task<Result<AuthResponseDTO>> RegisterAsync(RegisterDTO dto)
     {
-        if (await _userRepository.UserExitsAsync(dto.UserName)) throw new Exception("User Already exists");
+        if (await _userRepository.UserExistsAsync(dto.UserName)) return Result<AuthResponseDTO>.Fail(ErrorType.UserAlreadyExists, "User already exists");
 
         GeneratePasswordHash(dto.Password, out var hash, out var salt);
 
@@ -44,11 +48,13 @@ public class AuthenticationService : IAuthenticationService
 
         await _userRepository.AddAsync(user);
 
-        return new AuthResponseDTO
+        var response = new AuthResponseDTO
         {
             Token = _jwtTokenService.GenerateToken(user),
             User = new UserReadDTO {Id = user.Id, UserName = user.UserName}
         };
+
+        return Result<AuthResponseDTO>.Success(response);
     }
 
     private static void GeneratePasswordHash(string password, out byte[] hash, out byte[] salt)

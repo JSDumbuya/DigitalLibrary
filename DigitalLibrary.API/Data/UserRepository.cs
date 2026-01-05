@@ -28,7 +28,7 @@ public class UserRepository: IUserRepository
         return await _context.Users.FirstOrDefaultAsync(user => user.UserName == username);
     }
 
-    public async Task<bool> UserExitsAsync(string username)
+    public async Task<bool> UserExistsAsync(string username)
     {
         var user = await _context.Users.FirstOrDefaultAsync(user => user.UserName == username);
         if (user == null) return false;

@@ -1,5 +1,6 @@
 using DigitalLibrary.API.DTOs;
 using DigitalLibrary.API.Services;
+using DigitalLibrary.API.Common;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DigitalLibrary.API.Controllers;
@@ -18,29 +19,32 @@ public class AuthenticationController : ControllerBase
     [HttpPost("register")]
     public async Task<ActionResult<AuthResponseDTO>> Register([FromBody] RegisterDTO registerDto)
     {
-        try
+        var result =  await _authService.RegisterAsync(registerDto);
+        if (!result.IsSuccess)
         {
-            var authResponseDTO = await _authService.RegisterAsync(registerDto);
-            return Ok(authResponseDTO);
+            return result.Type switch
+            {
+                ErrorType.UserAlreadyExists => Conflict(result.Message),
+                _ => StatusCode(StatusCodes.Status500InternalServerError)
+            };
         }
-        catch (Exception ex)
-        {
-            return NotFound(ex.Message);
-        }
+
+        return Ok(result.Value);
     }
 
     [HttpPost("login")]
     public async Task<ActionResult<AuthResponseDTO>> Login(LoginDTO loginDto)
     {
-        try
+        var result = await _authService.LoginAsync(loginDto);
+        if (!result.IsSuccess)
         {
-            var authResponseDTO = await _authService.LoginAsync(loginDto);
-            return Ok(authResponseDTO);
+            return result.Type switch
+            {
+                ErrorType.InvalidCredentials => Unauthorized(result.Message),
+                _ => StatusCode(StatusCodes.Status500InternalServerError)
+            };
         }
-        catch (Exception ex)
-        {
-            
-            return NotFound(ex.Message);
-        }
+
+        return Ok(result.Value);
     }
 }
