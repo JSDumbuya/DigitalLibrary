@@ -2,6 +2,7 @@ namespace DigitalLibrary.API.Services;
 
 using DigitalLibrary.API.Models;
 using DigitalLibrary.API.Data;
+using DigitalLibrary.API.DTOs;
 public class UserService : IUserService
 {
     private readonly IUserRepository _userRepository;
@@ -10,23 +11,19 @@ public class UserService : IUserService
         _userRepository = userRepository;
     }
 
-    public Task<User> AddUserAsync(User user)
+    public async Task<UserReadDTO?> GetUserByIdAsync(int id)
     {
-        return _userRepository.AddAsync(user);
+        var user = await _userRepository.GetUserByIdAsync(id);
+        return user == null ? null : MapperUserToReadDTO(user);
     }
 
-    public Task<bool> DeleteUserAsync(int id)
+    private UserReadDTO MapperUserToReadDTO(User user)
     {
-        return _userRepository.DeleteAsync(id);
+        return new UserReadDTO
+        {
+            Id = user.Id,
+            UserName = user.UserName
+        };
     }
 
-    public Task<User?> GetUserByIdAsync(int id)
-    {
-        return _userRepository.GetUserByIdAsync(id);
-    }
-
-    public Task<bool> UpdateUserAsync(User user)
-    {
-        return _userRepository.UpdateAsync(user);
-    }
 }

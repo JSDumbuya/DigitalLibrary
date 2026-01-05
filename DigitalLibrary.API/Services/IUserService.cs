@@ -1,10 +1,7 @@
 namespace DigitalLibrary.API.Services;
 
-using DigitalLibrary.API.Models;
+using DigitalLibrary.API.DTOs;
 public interface IUserService
 {
-    Task<User> AddUserAsync(User user);
-    Task<bool> DeleteUserAsync(int id);
-    Task<bool> UpdateUserAsync(User user);
-    Task<User?> GetUserByIdAsync(int id);
+    Task<UserReadDTO?> GetUserByIdAsync(int id);
 }

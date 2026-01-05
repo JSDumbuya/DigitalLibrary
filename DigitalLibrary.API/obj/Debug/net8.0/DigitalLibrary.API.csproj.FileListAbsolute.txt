@@ -160,3 +160,4 @@
 /Users/jariasallydumbuya/Desktop/DigitalLibrary/DigitalLibrary.API/bin/Debug/net8.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 /Users/jariasallydumbuya/Desktop/DigitalLibrary/DigitalLibrary.API/bin/Debug/net8.0/runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll
 /Users/jariasallydumbuya/Desktop/DigitalLibrary/DigitalLibrary.API/obj/Debug/net8.0/DigitalLibrary.API.xml
+/Users/jariasallydumbuya/Desktop/DigitalLibrary/DigitalLibrary.API/obj/Debug/net8.0/rpswa.dswa.cache.json

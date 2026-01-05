@@ -38,3 +38,9 @@ public class LoginDTO
     [Required]
     public required string Password { get; set; } = string.Empty;
 }
+
+public class AuthResponseDTO
+{
+    public string Token { get; set; } = string.Empty;
+    public UserReadDTO User {get; set; } = null!;
+}
