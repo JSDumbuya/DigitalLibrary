@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using DigitalLibrary.API.Data;
 using DigitalLibrary.API.DTOs;
 using DigitalLibrary.API.Models;
+using DigitalLibrary.API.Common;
 public class BookService : IBookService
 {
     private readonly IBookRepository _bookRepository;
@@ -15,43 +16,43 @@ public class BookService : IBookService
         _libraryService = libraryService;
     }
 
-    public async Task<BookReadDTO> AddBookAsync(BookCreateDTO bookCreateDTO, int userId)
+    public async Task<Result<BookReadDTO>> AddBookAsync(BookCreateDTO bookCreateDTO, int userId)
     {
         var library = await _libraryService.GetLibraryByUserIdAsync(userId);
-        if (library == null) throw new KeyNotFoundException($"The library for user with id {userId} does not exist.");
+        if (library == null) return Result<BookReadDTO>.Fail(ErrorType.LibraryNotFound, "The user does not have an associated library.");
 
         var toBook = MapperCreateDtoToBook(bookCreateDTO, library.Id);
         var createdBook = await _bookRepository.AddAsync(toBook);
 
-        return MapperBookToReadDTO(createdBook);
+        return Result<BookReadDTO>.Success(MapperBookToReadDTO(createdBook));
     }
 
-    public async Task<bool> DeleteBookAsync(int bookId, int userId)
+    public async Task<Result<bool>> DeleteBookAsync(int bookId, int userId)
     {
         var library = await _libraryService.GetLibraryByUserIdAsync(userId);
-        if (library == null) throw new KeyNotFoundException($"The library does not exist.");
+        if (library == null) return Result<bool>.Fail(ErrorType.LibraryNotFound, "The user does not have an associated library.");
 
-        var result = await _bookRepository.DeleteAsync(bookId, library.Id);
-        if (!result) throw new KeyNotFoundException($"The book with id {bookId} could not be found or could not be deleted.");
+        var deleted = await _bookRepository.DeleteAsync(bookId, library.Id);
+        if (!deleted) return Result<bool>.Fail(ErrorType.BookNotFound, "The specified book does not exist in the library.");
 
-        return result;
+        return Result<bool>.Success(true);
     }
 
-    public async Task<BookReadDTO?> GetBookByIdAsync(int bookId, int userId)
+    public async Task<Result<BookReadDTO>> GetBookByIdAsync(int bookId, int userId)
     {
         var library = await _libraryService.GetLibraryByUserIdAsync(userId);
-        if (library == null) throw new KeyNotFoundException($"The library does not exist.");
+        if (library == null) return Result<BookReadDTO>.Fail(ErrorType.LibraryNotFound, "The user does not have an associated library.");
 
         var book = await _bookRepository.GetByIdAsync(bookId, library.Id);
-        if (book == null) throw new KeyNotFoundException($"The book with id {bookId} could not be found.");
+        if (book == null) return Result<BookReadDTO>.Fail(ErrorType.BookNotFound, "The specified book does not exist in the library.");
 
-        return MapperBookToReadDTO(book);
+        return Result<BookReadDTO>.Success(MapperBookToReadDTO(book));
     }
 
-    public async Task<List<BookReadDTO>> GetBooksAsync(int userId, BookStatus? status, BookGenre? genre, StarRating? rating)
+    public async Task<Result<List<BookReadDTO>>> GetBooksAsync(int userId, BookStatus? status, BookGenre? genre, StarRating? rating)
     {
         var library = await _libraryService.GetLibraryByUserIdAsync(userId);
-        if (library == null) throw new KeyNotFoundException($"The library does not exist.");
+        if (library == null) return Result<List<BookReadDTO>>.Fail(ErrorType.LibraryNotFound, "The user does not have an associated library.");
 
         List<Book> books;
 
@@ -64,10 +65,21 @@ public class BookService : IBookService
         else
             books = await GetBooksByLibraryIdAsync(library.Id); 
 
-        if ( books == null || books.Count == 0) throw new KeyNotFoundException($"No books were found using this filter.");
-        var bookDTOs = books.Select(MapperBookToReadDTO).ToList();
+        var bookDTOs = (books ?? new List<Book>()).Select(MapperBookToReadDTO).ToList();
 
-        return bookDTOs;
+        return Result<List<BookReadDTO>>.Success(bookDTOs);
+    }
+
+    public async Task<Result<bool>> UpdateBookAsync(BookUpdateDTO bookUpdateDTO, int bookId, int userId)
+    {
+        var library = await _libraryService.GetLibraryByUserIdAsync(userId);
+        if (library == null) return Result<bool>.Fail(ErrorType.LibraryNotFound, "The user does not have an associated library.");
+
+        var toBook = MapperUpdateDtoToBook(bookUpdateDTO, bookId, library.Id);
+        var updatedBook = await _bookRepository.UpdateAsync(toBook, library.Id);
+        if (!updatedBook) return Result<bool>.Fail(ErrorType.BookNotFound, "The specified book does not exist in the library.");
+
+        return Result<bool>.Success(true);
     }
 
     public Task<List<Book>> GetBooksByGenreAsync(BookGenre genre, int libraryId)
@@ -88,18 +100,6 @@ public class BookService : IBookService
     public Task<List<Book>> GetBooksByStatusAsync(BookStatus status, int libraryId)
     {
         return _bookRepository.GetByStatusAsync(status, libraryId);
-    }
-
-    public async Task<bool> UpdateBookAsync(BookUpdateDTO bookUpdateDTO, int bookId, int userId)
-    {
-        var library = await _libraryService.GetLibraryByUserIdAsync(userId);
-        if (library == null) throw new KeyNotFoundException($"The library for user with id {userId} does not exist.");
-
-        var toBook = MapperUpdateDtoToBook(bookUpdateDTO, bookId, library.Id);
-        var updatedBook = await _bookRepository.UpdateAsync(toBook, library.Id);
-        if (!updatedBook) throw new InvalidOperationException($"Failed to update the book with id {toBook.Id}.");
-
-        return updatedBook;
     }
 
     private BookReadDTO MapperBookToReadDTO(Book book)

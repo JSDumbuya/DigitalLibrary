@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using DigitalLibrary.API.DTOs;
 using DigitalLibrary.API.Models;
 using DigitalLibrary.API.Services;
+using DigitalLibrary.API.Common;
 
 namespace DigitalLibrary.API.Controllers;
 
@@ -36,15 +37,18 @@ public class BookController : ControllerBase
     [HttpGet("{id:int}")]
     public async Task<ActionResult<BookReadDTO>> GetBookById([FromRoute] int id, [FromRoute] int userId)
     {
-        try
+        var result = await _bookService.GetBookByIdAsync(id, userId);
+        if (!result.IsSuccess)
         {
-            var bookReadDTO = await _bookService.GetBookByIdAsync(id, userId);
-            return Ok(bookReadDTO);
+            return result.Type switch
+            {
+                ErrorType.LibraryNotFound => NotFound(result.Message),
+                ErrorType.BookNotFound => NotFound(result.Message),
+                _ => StatusCode(StatusCodes.Status500InternalServerError)
+            };
         }
-        catch (KeyNotFoundException ex)
-        {
-            return NotFound(ex.Message);
-        }
+
+        return Ok(result.Value);
     }
 
     /// <summary>
@@ -60,16 +64,18 @@ public class BookController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<List<BookReadDTO>>> GetBooks([FromQuery] BookGenre? genre, [FromRoute] int userId, [FromQuery] StarRating? rating, [FromQuery] BookStatus? status)
     {
-        try
+
+        var result = await _bookService.GetBooksAsync(userId, status, genre, rating);
+        if (!result.IsSuccess)
         {
-            var bookDTOs = await _bookService.GetBooksAsync(userId, status, genre, rating);
-            return Ok(bookDTOs);
+            return result.Type switch
+            {
+                ErrorType.LibraryNotFound => NotFound(result.Message),
+                _ => StatusCode(StatusCodes.Status500InternalServerError)
+            };
         }
-        catch (KeyNotFoundException ex)
-        {
-            
-            return NotFound(ex.Message);
-        }
+
+        return Ok(result.Value);
     }
 
     /// <summary>
@@ -86,16 +92,18 @@ public class BookController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<BookReadDTO>> CreateBook([FromRoute] int userId, [FromBody] BookCreateDTO bookCreateDTO)
     {
-        try
+        
+        var result = await _bookService.AddBookAsync(bookCreateDTO, userId);
+        if (!result.IsSuccess)
         {
-            var createdBookReadDTO = await _bookService.AddBookAsync(bookCreateDTO, userId);
-            //201 - succes
-            return CreatedAtAction(nameof(GetBookById), new { id = createdBookReadDTO.Id, userId }, createdBookReadDTO);
+            return result.Type switch
+            {
+                ErrorType.LibraryNotFound => NotFound(result.Message),
+                _ => StatusCode(StatusCodes.Status500InternalServerError)
+            };
         }
-        catch (KeyNotFoundException ex)
-        {
-            return NotFound(ex.Message);
-        }
+
+        return CreatedAtAction(nameof(GetBookById), new { id = result.Value.Id, userId }, result.Value);
     }
 
     /// <summary>
@@ -109,20 +117,18 @@ public class BookController : ControllerBase
     [HttpPut("{id:int}")]
     public async Task<IActionResult> UpdateBook([FromRoute] int userId, [FromRoute] int id, [FromBody] BookUpdateDTO bookUpdateDTO)
     {
-        try
+        var result = await _bookService.UpdateBookAsync(bookUpdateDTO, id, userId);
+        if (!result.IsSuccess)
         {
-            await _bookService.UpdateBookAsync(bookUpdateDTO, id, userId);
-            //204 - succes
-            return NoContent();
+            return result.Type switch
+            {
+                ErrorType.LibraryNotFound => NotFound(result.Message),
+                ErrorType.BookNotFound => NotFound(result.Message),
+                _ => StatusCode(StatusCodes.Status500InternalServerError)
+            };
         }
-        catch (KeyNotFoundException ex)
-        {
-            return NotFound(ex.Message);
-        }
-        catch (InvalidOperationException ex)
-        {
-            return NotFound(ex.Message);
-        }
+
+        return NoContent();
     }
     
     /// <summary>
@@ -135,14 +141,17 @@ public class BookController : ControllerBase
     [HttpDelete("{id:int}")]
     public async Task<IActionResult> DeleteBook([FromRoute] int id, [FromRoute] int userId)
     {
-        try
+        var result = await _bookService.DeleteBookAsync(id, userId);
+         if (!result.IsSuccess)
         {
-            await _bookService.DeleteBookAsync(id, userId);
-            return NoContent();
+            return result.Type switch
+            {
+                ErrorType.LibraryNotFound => NotFound(result.Message),
+                ErrorType.BookNotFound => NotFound(result.Message),
+                _ => StatusCode(StatusCodes.Status500InternalServerError)
+            };
         }
-        catch (KeyNotFoundException ex)
-        {
-            return NotFound(ex.Message);
-        }
+
+        return NoContent();
     }
 }
