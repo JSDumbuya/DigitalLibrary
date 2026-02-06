@@ -3,6 +3,7 @@ using DigitalLibrary.API.DTOs;
 using DigitalLibrary.API.Services;
 using Microsoft.AspNetCore.Mvc;
 using DigitalLibrary.API.Common;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DigitalLibrary.API.Controllers;
 
@@ -15,6 +16,7 @@ namespace DigitalLibrary.API.Controllers;
 /// </remarks>
 [ApiController]
 [Route("api/users")]
+[Authorize]
 public class UserController : ControllerBase
 {
     private readonly IUserService _userService;
@@ -32,9 +34,7 @@ public class UserController : ControllerBase
     [HttpGet("me")]
     public async Task<ActionResult<UserReadDTO>> GetMe()
     {
-        var userIdClaim = User.FindFirst(JwtRegisteredClaimNames.Sub)?.Value;
-        if (userIdClaim == null) return Unauthorized();
-        if (!int.TryParse(userIdClaim, out int userId)) return Unauthorized();
+        if (!UserClaimsHelper.TryGetUserId(this, out int userId)) return Unauthorized();
 
         var result = await _userService.GetUserByIdAsync(userId);
          if (!result.IsSuccess)

@@ -1874,3 +1874,65 @@ INFO: Unsupported notification method: $/setTrace
 2026.01.05 12:06:09 INFO  time: Imported build in 0.11s
 2026.01.05 12:06:11 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
 2026.01.05 12:06:11 INFO  time: indexed workspace in 2.27s
+2026.01.05 18:25:08 INFO  Shutting down server
+2026.01.05 18:25:08 INFO  shutting down Metals
+2026.01.05 18:25:08 INFO  Shut down connection with build server.
+2026.01.05 18:25:08 INFO  Exiting server
+2026.01.07 13:06:05 INFO  Started: Metals version 1.6.4 in folders '/Users/jariasallydumbuya/Desktop/DigitalLibrary' for client Visual Studio Code 1.107.1.
+2026.01.07 13:06:06 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.01.07 13:06:07 INFO  Attempting to connect to the build server...
+2026.01.07 13:06:07 INFO  Running BSP server List(/opt/homebrew/bin/scala-cli, bsp, --json-options, /Users/jariasallydumbuya/Desktop/DigitalLibrary/.scala-build/ide-options-v2.json, --json-launcher-options, /Users/jariasallydumbuya/Desktop/DigitalLibrary/.scala-build/ide-launcher-options.json, --envs-file, /Users/jariasallydumbuya/Desktop/DigitalLibrary/.scala-build/ide-envs.json, /Users/jariasallydumbuya/Desktop/DigitalLibrary)
+2026.01.07 13:06:07 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/jariasallydumbuya/Desktop/DigitalLibrary/.metals/bsp.trace.json or /Users/jariasallydumbuya/Library/Caches/org.scalameta.metals/bsp.trace.json
+2026.01.07 13:06:09 INFO  BSP server: Starting compilation server
+2026.01.07 13:06:12 INFO  time: Connected to build server in 4.75s
+2026.01.07 13:06:12 INFO  Connected to Build server: scala-cli v1.9.1
+2026.01.07 13:06:14 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.01.07 13:06:14 INFO  time: indexed workspace in 2.56s
+2026.01.07 13:06:28 INFO  Shutting down server
+2026.01.07 13:06:28 INFO  shutting down Metals
+2026.01.07 13:06:28 INFO  Shut down connection with build server.
+2026.01.07 13:06:28 INFO  Exiting server
+2026.02.04 14:13:24 INFO  Started: Metals version 1.6.5 in folders '/Users/jariasallydumbuya/Desktop/DigitalLibrary' for client Visual Studio Code 1.108.2.
+2026.02.04 14:13:24 INFO  Memory monitor started
+2026.02.04 14:13:25 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.02.04 14:13:25 INFO  Attempting to connect to the build server...
+2026.02.04 14:13:25 INFO  Running BSP server List(/opt/homebrew/bin/scala-cli, bsp, --json-options, /Users/jariasallydumbuya/Desktop/DigitalLibrary/.scala-build/ide-options-v2.json, --json-launcher-options, /Users/jariasallydumbuya/Desktop/DigitalLibrary/.scala-build/ide-launcher-options.json, --envs-file, /Users/jariasallydumbuya/Desktop/DigitalLibrary/.scala-build/ide-envs.json, /Users/jariasallydumbuya/Desktop/DigitalLibrary)
+2026.02.04 14:13:25 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/jariasallydumbuya/Desktop/DigitalLibrary/.metals/bsp.trace.json or /Users/jariasallydumbuya/Library/Caches/org.scalameta.metals/bsp.trace.json
+2026.02.04 14:13:28 INFO  BSP server: Starting compilation server
+2026.02.04 14:13:30 INFO  time: Connected to build server in 4.74s
+2026.02.04 14:13:30 INFO  Connected to Build server: scala-cli v1.9.1
+2026.02.04 14:13:31 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.02.04 14:13:31 INFO  time: indexed workspace in 1.77s
+2026.02.04 15:17:37 INFO  Shutting down server
+2026.02.04 15:17:37 INFO  Memory monitor stopped
+2026.02.04 15:17:37 INFO  shutting down Metals
+2026.02.04 15:17:37 INFO  Shut down connection with build server.
+2026.02.04 15:17:37 INFO  Exiting server
+2026.02.05 12:02:52 INFO  Started: Metals version 1.6.5 in folders '/Users/jariasallydumbuya/Desktop/DigitalLibrary' for client Visual Studio Code 1.108.2.
+2026.02.05 12:02:52 INFO  Memory monitor started
+2026.02.05 12:02:52 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.02.05 12:02:52 INFO  Attempting to connect to the build server...
+2026.02.05 12:02:52 INFO  Running BSP server List(/opt/homebrew/bin/scala-cli, bsp, --json-options, /Users/jariasallydumbuya/Desktop/DigitalLibrary/.scala-build/ide-options-v2.json, --json-launcher-options, /Users/jariasallydumbuya/Desktop/DigitalLibrary/.scala-build/ide-launcher-options.json, --envs-file, /Users/jariasallydumbuya/Desktop/DigitalLibrary/.scala-build/ide-envs.json, /Users/jariasallydumbuya/Desktop/DigitalLibrary)
+2026.02.05 12:02:52 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/jariasallydumbuya/Desktop/DigitalLibrary/.metals/bsp.trace.json or /Users/jariasallydumbuya/Library/Caches/org.scalameta.metals/bsp.trace.json
+2026.02.05 12:02:55 INFO  time: Connected to build server in 2.82s
+2026.02.05 12:02:55 INFO  Connected to Build server: scala-cli v1.9.1
+2026.02.05 12:02:57 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.02.05 12:02:57 INFO  time: indexed workspace in 2.11s
+2026.02.05 12:04:27 INFO  Shutting down server
+2026.02.05 12:04:27 INFO  Memory monitor stopped
+2026.02.05 12:04:27 INFO  shutting down Metals
+2026.02.05 12:04:27 INFO  Shut down connection with build server.
+2026.02.05 12:04:27 INFO  Exiting server
+2026.02.06 12:27:26 INFO  Started: Metals version 1.6.5 in folders '/Users/jariasallydumbuya/Desktop/DigitalLibrary' for client Visual Studio Code 1.108.2.
+2026.02.06 12:27:26 INFO  Memory monitor started
+2026.02.06 12:27:28 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.02.06 12:27:28 INFO  Attempting to connect to the build server...
+2026.02.06 12:27:28 INFO  Running BSP server List(/opt/homebrew/bin/scala-cli, bsp, --json-options, /Users/jariasallydumbuya/Desktop/DigitalLibrary/.scala-build/ide-options-v2.json, --json-launcher-options, /Users/jariasallydumbuya/Desktop/DigitalLibrary/.scala-build/ide-launcher-options.json, --envs-file, /Users/jariasallydumbuya/Desktop/DigitalLibrary/.scala-build/ide-envs.json, /Users/jariasallydumbuya/Desktop/DigitalLibrary)
+2026.02.06 12:27:28 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /Users/jariasallydumbuya/Desktop/DigitalLibrary/.metals/bsp.trace.json or /Users/jariasallydumbuya/Library/Caches/org.scalameta.metals/bsp.trace.json
+2026.02.06 12:27:30 INFO  BSP server: Starting compilation server
+2026.02.06 12:27:32 INFO  time: Connected to build server in 4.32s
+2026.02.06 12:27:32 INFO  Connected to Build server: scala-cli v1.9.1
+2026.02.06 12:27:34 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.02.06 12:27:34 INFO  time: indexed workspace in 2.1s
+feb. 06, 2026 12:33:36 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
