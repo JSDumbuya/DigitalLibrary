@@ -15,7 +15,8 @@ namespace DigitalLibrary.API.Controllers;
 /// This controller allows clients to create, retrieve, update, and delete a user's library.
 /// </remarks>
 [ApiController]
-[Route("api/users/{userId:int}/library")]
+[Route("api/library")]
+//[Route("api/users/{userId:int}/library")]
 [Authorize]
 public class LibraryController : ControllerBase
 {
@@ -34,6 +35,8 @@ public class LibraryController : ControllerBase
     /// </returns>
     /// <response code="200">Successfully retrieved the user's library.</response>
     /// <response code="404">No library found for the specified user.</response>
+    /// <response code="401">Invalid or missing JWT token.</response>
+    /// <response code="500">An unexpected server error occurred.</response>
     [HttpGet]
     public async Task<ActionResult<LibraryReadDTO>> GetLibrary()
     {
@@ -61,7 +64,9 @@ public class LibraryController : ControllerBase
     /// </returns>
     /// <response code="201">Successfully created a new library for the user.</response>
     /// <response code="404">The specified user was not found.</response>
-    /// <response code="400">The provided library data is invalid.</response>
+    /// <response code="409">The library already exists</response>
+    /// <response code="401">Invalid or missing JWT token.</response>
+    /// <response code="500">An unexpected server error occurred.</response>
     [HttpPost]
     public async Task<ActionResult<LibraryReadDTO>> CreateLibrary([FromBody] LibraryCreateDTO libraryCreateDTO)
     {
@@ -86,6 +91,8 @@ public class LibraryController : ControllerBase
     /// </summary>
     /// <response code="204">Successfully deleted the user's library.</response>
     /// <response code="404">No library found for the specified user.</response>
+    /// <response code="401">Invalid or missing JWT token.</response>
+    /// <response code="500">An unexpected server error occurred.</response>
     [HttpDelete]
     public async Task<IActionResult> DeleteLibrary()
     {
@@ -111,6 +118,8 @@ public class LibraryController : ControllerBase
     /// <param name="libraryUpdateDTO">The updated library information.</param>
     /// <response code="204">Successfully updated the user's library.</response>
     /// <response code="404">No library found for the specified user.</response>
+    /// <response code="401">Invalid or missing JWT token.</response>
+    /// <response code="500">An unexpected server error occurred.</response>
     [HttpPut]
     public async Task<IActionResult> UpdateLibrary([FromBody] LibraryUpdateDTO libraryUpdateDTO)
     {

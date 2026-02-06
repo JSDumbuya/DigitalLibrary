@@ -31,6 +31,7 @@ public class UserController : ControllerBase
     /// <response code="200">Successfully retrieved the user.</response>
     /// <response code="401">Invalid or missing JWT token.</response>
     /// <response code="404">User not found.</response>
+    /// <response code="500">An unexpected server error occurred.</response>
     [HttpGet("me")]
     public async Task<ActionResult<UserReadDTO>> GetMe()
     {

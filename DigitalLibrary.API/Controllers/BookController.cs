@@ -9,7 +9,7 @@ namespace DigitalLibrary.API.Controllers;
 
 
 /// <summary>
-/// Manages operations related to books within a user's library.
+/// Manages operations related to books within the authenticated user's library.
 /// </summary>
 /// <remarks>
 /// Each book belongs to a single library, and each user can have only one library.  
@@ -17,7 +17,8 @@ namespace DigitalLibrary.API.Controllers;
 /// as well as filter them by genre, rating, or status.
 /// </remarks>
 [ApiController]
-[Route("api/users/{userId:int}/library/books")]
+[Route("api/library/books")]
+//[Route("api/users/{userId:int}/library/books")]
 //Ensures that every endpoint requires auth - all endpoints are private.
 //Could be placed above individual methods - mixed public/private endpoints.
 [Authorize]
@@ -37,6 +38,8 @@ public class BookController : ControllerBase
     /// <returns>A <see cref="BookReadDTO"/> representing the requested book.</returns>
     /// <response code="200">Book successfully retrieved.</response>
     /// <response code="404">The specified book or library was not found.</response>
+    /// <response code="401">Invalid or missing JWT token.</response>
+    /// <response code="500">An unexpected server error occurred.</response>
     [HttpGet("{id:int}")]
     public async Task<ActionResult<BookReadDTO>> GetBookById([FromRoute] int id)
     {
@@ -65,6 +68,8 @@ public class BookController : ControllerBase
     /// <returns>A list of <see cref="BookReadDTO"/> objects representing the user's books.</returns>
     /// <response code="200">Books successfully retrieved.</response>
     /// <response code="404">No books found for the specified filters or user.</response>
+    /// <response code="401">Invalid or missing JWT token.</response>
+    /// <response code="500">An unexpected server error occurred.</response>
     [HttpGet]
     public async Task<ActionResult<List<BookReadDTO>>> GetBooks([FromQuery] BookGenre? genre, [FromQuery] StarRating? rating, [FromQuery] BookStatus? status)
     {
@@ -92,7 +97,8 @@ public class BookController : ControllerBase
     /// </returns>
     /// <response code="201">Book successfully created.</response>
     /// <response code="404">No library found for the specified user.</response>
-    /// <response code="400">Invalid data supplied.</response>
+    /// <response code="401">Invalid or missing JWT token.</response>
+    /// <response code="500">An unexpected server error occurred.</response>
     [HttpPost]
     public async Task<ActionResult<BookReadDTO>> CreateBook([FromBody] BookCreateDTO bookCreateDTO)
     {
@@ -118,6 +124,8 @@ public class BookController : ControllerBase
     /// <param name="bookUpdateDTO">The updated book data.</param>
     /// <response code="204">Book successfully updated.</response>
     /// <response code="404">The specified book or library was not found.</response>
+    /// <response code="401">Invalid or missing JWT token.</response>
+    /// <response code="500">An unexpected server error occurred.</response>
     [HttpPut("{id:int}")]
     public async Task<IActionResult> UpdateBook([FromRoute] int id, [FromBody] BookUpdateDTO bookUpdateDTO)
     {
@@ -143,6 +151,8 @@ public class BookController : ControllerBase
     /// <param name="id">The unique identifier of the book to delete.</param>
     /// <response code="204">Book successfully deleted.</response>
     /// <response code="404">The specified book or library was not found.</response>
+    /// <response code="401">Invalid or missing JWT token.</response>
+    /// <response code="500">An unexpected server error occurred.</response>
     [HttpDelete("{id:int}")]
     public async Task<IActionResult> DeleteBook([FromRoute] int id)
     {
